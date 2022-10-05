@@ -7,7 +7,7 @@ using NaughtyAttributes;
 
 namespace VTTRPG.RPGSystems.Assets
 {
-    [CreateAssetMenu(fileName = "PropertyAsset", menuName = "VTTRPG/Sheet/SystemTypeAsset")]
+    [CreateAssetMenu(fileName = "SystemTypeAsset", menuName = "VTTRPG/Sheet/SystemTypeAsset")]
     public class SystemTypeAsset : ScriptableObject
     {
         [ShowNativeProperty]

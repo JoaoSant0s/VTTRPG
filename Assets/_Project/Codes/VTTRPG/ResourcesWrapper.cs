@@ -11,9 +11,14 @@ namespace VTTRPG.Assets
     {
         private static SystemTypeAsset[] systemAssets;
 
+        public static SystemViewAsset LoadSystemViewAsset(string systemId)
+        {
+            return Resources.Load<SystemViewAsset>($"VTTRPG/Systems/{systemId}/SystemViewAsset");
+        }
+
         public static SystemTypeAsset[] LoadSystemAssets()
         {
-            if (systemAssets == null) systemAssets = Resources.LoadAll<SystemTypeAsset>("/");
+            if (systemAssets == null) systemAssets = Resources.LoadAll<SystemTypeAsset>("VTTRPG/SheetTypes");
             return systemAssets;
         }
 
