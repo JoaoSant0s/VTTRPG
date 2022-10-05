@@ -4,16 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-using TMPro;
-
-using JoaoSant0s.CommonWrapper;
 using JoaoSant0s.ServicePackage.Popups;
-
-using VTTRPG.RPGSystems.Assets;
-using System.Linq;
 using JoaoSant0s.ServicePackage.General;
 
-namespace VTTRPG.Popups
+namespace VTTRPG.CustomPopups
 {
     public class PlayerOverviewPopup : Popup
     {
@@ -22,7 +16,7 @@ namespace VTTRPG.Popups
         private Button createButton;
 
         private PopupService popupService;
-
+        
         #region Unity Methods
 
         private void Awake()
@@ -39,7 +33,6 @@ namespace VTTRPG.Popups
         }
 
         #endregion
-
 
     }
 }

@@ -8,9 +8,10 @@ using UnityEngine.UI;
 using TMPro;
 
 using JoaoSant0s.ServicePackage.Popups;
+
 using VTTRPG.Assets;
 
-namespace VTTRPG.Popups
+namespace VTTRPG.CustomPopups
 {
     public class CreateCharacterSelectionPopup : Popup
     {
@@ -26,7 +27,11 @@ namespace VTTRPG.Popups
         private void Awake()
         {
             PopulateDropdownOptions();
-            nextButton.onClick.AddListener(Close);
+            nextButton.onClick.AddListener(() =>
+            {
+                Debug.Log(this.dropdown.value);
+                Close();
+            });
         }
 
         #endregion

@@ -7,7 +7,7 @@ using JoaoSant0s.CommonWrapper.Scenes;
 using JoaoSant0s.ServicePackage.Popups;
 using JoaoSant0s.ServicePackage.General;
 
-using VTTRPG.Popups;
+using VTTRPG.CustomPopups;
 
 namespace VTTRPG.Scenes
 {
