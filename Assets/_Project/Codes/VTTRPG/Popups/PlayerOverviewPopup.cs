@@ -15,20 +15,21 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private Button createButton;
 
-        private PopupService popupService;
+        private PopupService popupServices;
+        
         
         #region Unity Methods
 
         private void Awake()
         {
-            popupService = Services.Get<PopupService>();
+            popupServices = Services.Get<PopupService>();
         }
 
         private void Start()
         {
             createButton.onClick.AddListener(() =>
             {
-                popupService.Show<CreateCharacterSelectionPopup>();
+                popupServices.Show<CreateCharacterSelectionPopup>();
             });
         }
 

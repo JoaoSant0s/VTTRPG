@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
-using UnityEngine.UI;
+
 using VTTRPG.RPGSystems.Assets;
 
 namespace VTTRPG.Assets
