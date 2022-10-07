@@ -1,7 +1,9 @@
 {
     "name": "VTTRPG.Common.Runtime",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:d1c97dd0014cbdf4fb63cdad4c842dfb"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

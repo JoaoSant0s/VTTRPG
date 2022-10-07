@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using UnityEngine.UI;
 
 using JoaoSant0s.ServicePackage.Popups;
@@ -9,6 +10,16 @@ namespace VTTRPG.CustomPopups
 {
     public class DAndD5_0CharacterSheetPopup : Popup
     {
+        [SerializeField]
+        private Button closeButton;
 
+        #region Unity Methods
+
+        private void Awake()
+        {
+            closeButton.onClick.AddListener(Close);
+        }
+
+        #endregion
     }
 }

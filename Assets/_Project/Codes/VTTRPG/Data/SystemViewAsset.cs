@@ -5,7 +5,7 @@ using UnityEngine;
 
 using JoaoSant0s.ServicePackage.Popups;
 
-namespace VTTRPG.RPGSystems.Assets
+namespace VTTRPG.Data.Assets
 {
     [CreateAssetMenu(fileName = "SystemViewAsset", menuName = "VTTRPG/Sheet/SystemViewAsset")]
     public class SystemViewAsset : ScriptableObject

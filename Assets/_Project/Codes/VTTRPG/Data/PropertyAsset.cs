@@ -5,7 +5,7 @@ using UnityEngine;
 
 using NaughtyAttributes;
 
-namespace VTTRPG.RPGSystems.Assets
+namespace VTTRPG.Data.Assets
 {
     [CreateAssetMenu(fileName = "PropertyAsset", menuName = "VTTRPG/Properties/PropertyAsset")]
     public class PropertyAsset : ScriptableObject

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using VTTRPG.RPGSystems.Assets;
+using VTTRPG.Data.Assets;
 
 namespace VTTRPG.Assets
 {
