@@ -54,7 +54,8 @@ namespace VTTRPG.CustomPopups
         {
             var view = ResourcesWrapper.LoadSystemViewAsset(systemTypeAssets[this.dropdown.value].Id);
 
-            popupServices.Show(view.characterSheetPrefabPopup);
+            var characterSheet = popupServices.Show(view.characterSheetPrefab);
+            characterSheet.Populate();
         }
 
         private void PopulateDropdownOptions()

@@ -10,7 +10,7 @@ namespace VTTRPG.CustomPopups
 {
     public class BaseContentPopup : Popup
     {
-        [Header("Base Content")]
+        [Header("Base Content Popup")]
 
         [SerializeField]
         protected CanvasGroup canvasGroup;

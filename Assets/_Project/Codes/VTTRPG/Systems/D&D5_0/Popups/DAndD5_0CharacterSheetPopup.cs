@@ -4,15 +4,18 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
+using JoaoSant0s.Extensions.Collections;
+
 using VTTRPG.Views;
 using VTTRPG.Data.Assets;
 using VTTRPG.Assets;
+using VTTRPG.Values;
 
 namespace VTTRPG.CustomPopups
 {
-    public class DAndD5_0CharacterSheetPopup : BaseContentPopup
+    public class DAndD5_0CharacterSheetPopup : CharacterSheetPopup
     {
-        [Header("Character Sheet", order = 1)]
+        [Header("Character Sheet Popup", order = 1)]
         [Header("Assets", order = 2)]
 
         [SerializeField]
@@ -21,27 +24,15 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private SystemTypeAsset systemAsset;
 
-        [Header("Components", order = 3)]
-
-        [SerializeField]
-        private Button closeButton;
-
         [Header("References", order = 4)]
 
         [SerializeField]
         private RectTransform attributesArea;
 
-        #region Unity Methods
+        #region Protected Methods
 
-        protected override void Awake()
+        protected override void OnPopulateContent()
         {
-            base.Awake();
-            closeButton.onClick.AddListener(Close);
-        }
-
-        protected override void Start()
-        {
-            base.Start();
             LoadAttributes();
 
             StartCoroutine(ContentLoadedRoutine());
@@ -53,13 +44,21 @@ namespace VTTRPG.CustomPopups
 
         private void LoadAttributes()
         {
-            var attributes = ResourcesWrapper.LoadProperties(systemAsset.Id, "Attributes");
+            var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, "Attributes");
 
-            foreach (var property in attributes)
+
+            foreach (var property in attributesModels)
             {
                 var attributeView = Instantiate(attributePrefab, attributesArea);
-                attributeView.SetPropertyAsset(property);
+                PopulateAttribute(attributeView, property);
             }
+        }
+
+        private void PopulateAttribute(DAndD5_0AttributeView attributeView, PropertyAsset property)
+        {
+            var value = this.characterSheetObject.GetOrCreateIntValue("Attributes", property.Id);
+
+            attributeView.InitView(value, property);
         }
 
         private IEnumerator ContentLoadedRoutine()
