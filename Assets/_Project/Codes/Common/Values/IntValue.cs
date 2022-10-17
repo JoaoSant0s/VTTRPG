@@ -5,9 +5,9 @@ namespace VTTRPG.Values
 {
     public class IntValue : Value<int>
     {
-        public IntValue() { }
-        public IntValue(int value)
+        public IntValue(string id, int value)
         {
+            this.id = id;
             this.value = value;
         }
     }
