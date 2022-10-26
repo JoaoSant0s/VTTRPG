@@ -1,15 +1,28 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-using UnityEngine;
 using VTTRPG.Values;
 
 namespace VTTRPG.Objects
 {
     public class CharacterSheetObject
     {
-        public Dictionary<string, List<IntValue>> intValuesCollections = new Dictionary<string, List<IntValue>>();
+        public string systemId;
+        public Dictionary<string, List<IntValue>> intValuesCollections;
+
+        public CharacterSheetObject(string systemId)
+        {
+            this.systemId = systemId;
+            this.intValuesCollections = new Dictionary<string, List<IntValue>>();
+        }
+
+        public CharacterSheetObject(CharacterSheetSave save)
+        {
+            this.systemId = save.systemId;
+            this.intValuesCollections = save.characterSheets.ToDictionary(key => key.key, value => value.values);
+        }
 
         public List<IntValue> GetOrCreateIntValues(string key)
         {
@@ -30,6 +43,11 @@ namespace VTTRPG.Objects
             }
 
             return value;
+        }
+
+        public override string ToString()
+        {
+            return $"{this.systemId} {this.intValuesCollections.Count}";
         }
     }
 }

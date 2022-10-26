@@ -21,9 +21,6 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private DAndD5_0AttributeView attributePrefab;
 
-        [SerializeField]
-        private SystemTypeAsset systemAsset;
-
         [Header("References", order = 4)]
 
         [SerializeField]
@@ -45,7 +42,6 @@ namespace VTTRPG.CustomPopups
         private void LoadAttributes()
         {
             var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, "Attributes");
-
 
             foreach (var property in attributesModels)
             {

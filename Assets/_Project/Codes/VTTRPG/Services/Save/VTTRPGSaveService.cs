@@ -1,0 +1,62 @@
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+
+using UnityEngine;
+
+using JoaoSant0s.ServicePackage.General;
+using JoaoSant0s.ServicePackage.Save;
+using JoaoSant0s.CommonWrapper;
+
+using VTTRPG.Objects;
+
+namespace VTTRPG.CustomServices
+{
+    public class VTTRPGSaveService : Service
+    {
+        public List<CharacterSheetObject> characterSheets { get; protected set; }
+
+        private SaveLocalService saveService;
+        private VTTRPGSaveConfig config;
+
+        #region Override Methods
+
+        public override void OnInit()
+        {
+            this.config = VTTRPGSaveConfig.Get();
+            this.saveService = Services.Get<SaveLocalService>();
+            this.characterSheets = new List<CharacterSheetObject>();
+            LoadData();
+        }
+
+        #endregion
+
+        #region Public Methods      
+
+        public void SaveData()
+        {
+            var save = new CharacterSheetCollection(this.characterSheets.Select(sheet => new CharacterSheetSave(sheet)).ToList());
+            this.saveService.Set<CharacterSheetCollection>(this.config.characterSheetsKey, save);
+
+            Debugs.Log("SaveData", this.config.characterSheetsKey);
+            Debugs.Log(this.characterSheets);
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void LoadData()
+        {
+            var save = this.saveService.Get<CharacterSheetCollection>(this.config.characterSheetsKey) ?? new CharacterSheetCollection();
+            this.characterSheets = save.characterSheets.Select(sheet => new CharacterSheetObject(sheet)).ToList();
+
+            Debugs.Log("LoadData", this.config.characterSheetsKey);
+            Debugs.Log(this.characterSheets);
+        }
+
+        #endregion
+    }
+
+
+}
