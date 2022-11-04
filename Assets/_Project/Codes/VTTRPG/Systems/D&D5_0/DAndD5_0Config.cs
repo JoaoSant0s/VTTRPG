@@ -8,6 +8,6 @@ namespace VTTRPG.Configs
     [CreateAssetMenu(fileName = "Config", menuName = "VTTRPG/Systems/D&D5.0/Config")]
     public class DAndD5_0Config : SystemConfig
     {
-        public string attributes = "attributes";
+        public string attributesKey = "attributes";
     }
 }

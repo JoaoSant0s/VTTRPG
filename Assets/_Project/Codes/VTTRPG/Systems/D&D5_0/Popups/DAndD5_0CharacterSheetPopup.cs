@@ -8,6 +8,9 @@ using VTTRPG.Views;
 using VTTRPG.Data.Assets;
 using VTTRPG.Assets;
 using VTTRPG.Configs;
+using TMPro;
+using VTTRPG.Values;
+using JoaoSant0s.CommonWrapper;
 
 namespace VTTRPG.CustomPopups
 {
@@ -24,13 +27,19 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private RectTransform attributesArea;
 
-        private DAndD5_0Config config;
+        [Header("Input Fields", order = 5)]
+        [SerializeField]
+        private TMP_InputField characterNameInputField;
+
+        private DAndD5_0Config dAndD5_0Config;
+        private GeneralConfig generalConfing;
 
         #region Protected Methods
 
         protected override void OnPopulateContent()
         {
             LoadAttributes();
+            AddListeners();
 
             StartCoroutine(ContentLoadedRoutine());
         }
@@ -41,8 +50,9 @@ namespace VTTRPG.CustomPopups
 
         private void LoadAttributes()
         {
-            this.config = ResourcesWrapper.LoadConfig<DAndD5_0Config>(systemAsset.Id);
-            var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, this.config.attributes);
+            this.dAndD5_0Config = ResourcesWrapper.LoadSystemConfig<DAndD5_0Config>(systemAsset.Id);
+            this.generalConfing = ResourcesWrapper.LoadGeneralConfig();
+            var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, this.dAndD5_0Config.attributesKey);
 
             foreach (var property in attributesModels)
             {
@@ -51,9 +61,14 @@ namespace VTTRPG.CustomPopups
             }
         }
 
+        private void AddListeners()
+        {
+            characterNameInputField.onEndEdit.AddListener(OnCharacterNameEnded);
+        }
+
         private void PopulateAttribute(DAndD5_0AttributeView attributeView, PropertyAsset property)
         {
-            var value = this.characterSheetObject.GetOrCreateIntValue(this.config.attributes, property.Id);
+            var value = this.characterSheetObject.GetOrCreateIntValue(this.dAndD5_0Config.attributesKey, property.Id);
 
             attributeView.InitView(value, property);
         }
@@ -62,6 +77,12 @@ namespace VTTRPG.CustomPopups
         {
             yield return null;
             isContentLoaded = true;
+        }
+
+        private void OnCharacterNameEnded(string newValue)
+        {
+            if (this.characterSheetObject.characterName == null) this.characterSheetObject.characterName = new StringValue(generalConfing.characterNameKey, newValue);
+            this.characterSheetObject.characterName.ModifyValue(newValue);
         }
 
         #endregion

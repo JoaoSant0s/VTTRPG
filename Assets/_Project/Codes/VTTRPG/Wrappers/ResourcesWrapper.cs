@@ -22,9 +22,14 @@ namespace VTTRPG.Assets
             return Resources.LoadAll<PropertyAsset>($"VTTRPG/Systems/{systemId}/{propertiesPath}");
         }
 
-        public static T LoadConfig<T>(string systemId) where T : SystemConfig
+        public static T LoadSystemConfig<T>(string systemId) where T : SystemConfig
         {
             return Resources.Load<T>($"VTTRPG/Systems/{systemId}/Config");
+        }
+
+        public static GeneralConfig LoadGeneralConfig()
+        {
+            return Resources.Load<GeneralConfig>($"VTTRPG/Systems/Config");
         }
 
         public static SystemTypeAsset[] LoadSystemAssets()

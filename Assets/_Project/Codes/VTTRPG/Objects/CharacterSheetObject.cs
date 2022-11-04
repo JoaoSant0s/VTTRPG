@@ -16,7 +16,6 @@ namespace VTTRPG.Objects
         public CharacterSheetObject(string systemId)
         {
             this.systemId = systemId;
-            this.characterName = new StringValue("Test", "test");
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();
         }
 
