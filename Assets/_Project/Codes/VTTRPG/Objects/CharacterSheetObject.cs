@@ -10,17 +10,20 @@ namespace VTTRPG.Objects
     public class CharacterSheetObject
     {
         public string systemId;
+        public StringValue characterName;
         public Dictionary<string, List<IntValue>> intValuesCollections;
 
         public CharacterSheetObject(string systemId)
         {
             this.systemId = systemId;
+            this.characterName = new StringValue("Test", "test");
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();
         }
 
         public CharacterSheetObject(CharacterSheetSave save)
         {
             this.systemId = save.systemId;
+            this.characterName = save.characterName;
             this.intValuesCollections = save.characterSheets.ToDictionary(key => key.key, value => value.values);
         }
 

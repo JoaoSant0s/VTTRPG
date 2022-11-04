@@ -4,12 +4,10 @@ using UnityEngine;
 
 using UnityEngine.UI;
 
-using JoaoSant0s.Extensions.Collections;
-
 using VTTRPG.Views;
 using VTTRPG.Data.Assets;
 using VTTRPG.Assets;
-using VTTRPG.Values;
+using VTTRPG.Configs;
 
 namespace VTTRPG.CustomPopups
 {
@@ -26,6 +24,8 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private RectTransform attributesArea;
 
+        private DAndD5_0Config config;
+
         #region Protected Methods
 
         protected override void OnPopulateContent()
@@ -41,7 +41,8 @@ namespace VTTRPG.CustomPopups
 
         private void LoadAttributes()
         {
-            var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, "Attributes");
+            this.config = ResourcesWrapper.LoadConfig<DAndD5_0Config>(systemAsset.Id);
+            var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, this.config.attributes);
 
             foreach (var property in attributesModels)
             {
@@ -52,7 +53,7 @@ namespace VTTRPG.CustomPopups
 
         private void PopulateAttribute(DAndD5_0AttributeView attributeView, PropertyAsset property)
         {
-            var value = this.characterSheetObject.GetOrCreateIntValue("Attributes", property.Id);
+            var value = this.characterSheetObject.GetOrCreateIntValue(this.config.attributes, property.Id);
 
             attributeView.InitView(value, property);
         }

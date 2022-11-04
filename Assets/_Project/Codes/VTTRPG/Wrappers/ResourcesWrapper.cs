@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using VTTRPG.Data.Assets;
+using VTTRPG.Configs;
 
 namespace VTTRPG.Assets
 {
@@ -19,6 +20,11 @@ namespace VTTRPG.Assets
         public static PropertyAsset[] LoadProperties(string systemId, string propertiesPath)
         {
             return Resources.LoadAll<PropertyAsset>($"VTTRPG/Systems/{systemId}/{propertiesPath}");
+        }
+
+        public static T LoadConfig<T>(string systemId) where T : SystemConfig
+        {
+            return Resources.Load<T>($"VTTRPG/Systems/{systemId}/Config");
         }
 
         public static SystemTypeAsset[] LoadSystemAssets()

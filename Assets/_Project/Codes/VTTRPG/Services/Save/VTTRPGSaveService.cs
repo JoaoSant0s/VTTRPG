@@ -40,6 +40,8 @@ namespace VTTRPG.CustomServices
 
             Debugs.Log("SaveData", this.config.characterSheetsKey);
             Debugs.Log(this.characterSheets);
+
+            LogInfo();
         }
 
         #endregion
@@ -53,6 +55,23 @@ namespace VTTRPG.CustomServices
 
             Debugs.Log("LoadData", this.config.characterSheetsKey);
             Debugs.Log(this.characterSheets);
+
+            LogInfo();
+        }
+
+        private void LogInfo()
+        {
+            foreach (var sheet in this.characterSheets)
+            {
+                Debug.Log("");
+                Debug.Log(sheet.systemId);
+                Debug.Log(sheet.characterName);
+                foreach (var value in sheet.intValuesCollections)
+                {
+                    Debug.Log(value.Key);
+                    Debugs.Log(value.Value);
+                }
+            }
         }
 
         #endregion

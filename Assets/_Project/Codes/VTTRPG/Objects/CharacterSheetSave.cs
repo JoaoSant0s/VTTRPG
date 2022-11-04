@@ -12,11 +12,14 @@ namespace VTTRPG.Objects
     {
         public string systemId;
 
+        public StringValue characterName;
+
         public List<IntValuesCollectionsSave> characterSheets;
 
         public CharacterSheetSave(CharacterSheetObject sheet)
         {
             this.systemId = sheet.systemId;
+            this.characterName = sheet.characterName;
             this.characterSheets = sheet.intValuesCollections.Select(characterSheet => new IntValuesCollectionsSave() { key = characterSheet.Key, values = characterSheet.Value }).ToList();
         }
     }
