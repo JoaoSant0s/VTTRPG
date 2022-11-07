@@ -34,12 +34,15 @@ namespace VTTRPG.CustomPopups
         private DAndD5_0Config dAndD5_0Config;
         private GeneralConfig generalConfing;
 
+        private List<DAndD5_0AttributeView> attributeViews;
+
         #region Protected Methods
 
         protected override void OnPopulateContent()
         {
             LoadAttributes();
             AddListeners();
+            PopulateValues();
 
             StartCoroutine(ContentLoadedRoutine());
         }
@@ -50,6 +53,7 @@ namespace VTTRPG.CustomPopups
 
         private void LoadAttributes()
         {
+            this.attributeViews = new List<DAndD5_0AttributeView>();
             this.dAndD5_0Config = ResourcesWrapper.LoadSystemConfig<DAndD5_0Config>(systemAsset.Id);
             this.generalConfing = ResourcesWrapper.LoadGeneralConfig();
             var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, this.dAndD5_0Config.attributesKey);
@@ -57,20 +61,25 @@ namespace VTTRPG.CustomPopups
             foreach (var property in attributesModels)
             {
                 var attributeView = Instantiate(attributePrefab, attributesArea);
-                PopulateAttribute(attributeView, property);
+                attributeView.InitView(property);
+                this.attributeViews.Add(attributeView);
+            }
+        }
+
+        private void PopulateValues()
+        {
+            this.characterNameInputField.text = this.characterSheetObject?.characterName.value;
+
+            foreach (var attributeView in this.attributeViews)
+            {
+                var value = this.characterSheetObject.GetOrCreateIntValue(this.dAndD5_0Config.attributesKey, attributeView.property.Id);
+                attributeView.PopulateValue(value);
             }
         }
 
         private void AddListeners()
         {
             characterNameInputField.onEndEdit.AddListener(OnCharacterNameEnded);
-        }
-
-        private void PopulateAttribute(DAndD5_0AttributeView attributeView, PropertyAsset property)
-        {
-            var value = this.characterSheetObject.GetOrCreateIntValue(this.dAndD5_0Config.attributesKey, property.Id);
-
-            attributeView.InitView(value, property);
         }
 
         private IEnumerator ContentLoadedRoutine()

@@ -35,7 +35,7 @@ namespace VTTRPG.Views
 
         private IntValue attributeValue;
 
-        private PropertyAsset propertyAsset;
+        public PropertyAsset property;
 
         #region Unity Methods
 
@@ -49,30 +49,34 @@ namespace VTTRPG.Views
 
         #region Public Methods
 
-        public void InitView(IntValue value, PropertyAsset property)
+        public void InitView(PropertyAsset property)
         {
-            attributeValue = value;
-            propertyAsset = property;
-            PopulateView();
+            this.property = property;
+            attributeName.text = this.property.displayName;
         }
+
+        public void PopulateValue(IntValue value)
+        {
+            this.attributeValue = value;
+            UpdateValue(value.value);
+        }
+
         #endregion
 
         #region Private Methods
 
-        private void PopulateView()
+        private void UpdateValue(int score)
         {
-            attributeName.text = propertyAsset.displayName;
-            attributeInputField.text = $"{attributeValue.value}";
-            ModifyModificatorView(attributeValue.value);
-        }
+            attributeInputField.text = $"{score}";
+            ModifyModificatorView(score);
+        }        
 
         private void OnEndAttributeValue(string newValue)
         {
             if (!ValidateAttributeValue(newValue, out int newScore)) return;
 
-            attributeValue.value = newScore;
-            attributeInputField.text = $"{newScore}";
-            ModifyModificatorView(newScore);
+            attributeValue.ModifyValue(newScore);
+            UpdateValue(attributeValue.value);
         }
 
         private bool ValidateAttributeValue(string newValue, out int newScore)

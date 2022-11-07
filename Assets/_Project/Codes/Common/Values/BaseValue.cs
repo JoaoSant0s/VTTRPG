@@ -15,7 +15,7 @@ namespace VTTRPG.Values
         {
             var previousValue = value;
             this.value = newValue;
-            OnChanged?.Invoke(previousValue, this.value);
+            OnChanged?.Invoke( this.value, previousValue);
         }
 
         public override string ToString()

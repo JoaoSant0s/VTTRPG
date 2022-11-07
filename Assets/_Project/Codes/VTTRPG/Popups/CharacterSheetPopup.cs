@@ -26,7 +26,7 @@ namespace VTTRPG.CustomPopups
 
         protected CharacterSheetObject characterSheetObject;
 
-        private bool isNewCharacterSheet;
+        protected bool isNewCharacterSheet;
         private VTTRPGSaveService saveService;
 
         protected abstract void OnPopulateContent();
