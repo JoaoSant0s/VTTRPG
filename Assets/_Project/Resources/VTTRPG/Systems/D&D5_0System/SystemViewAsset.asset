@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SystemViewAsset
   m_EditorClassIdentifier: 
   characterSheetPrefab: {fileID: -5387541489823798004, guid: 79686b45dcb3f4d46a835de83b601de1, type: 3}
+  characterSheetResumePrefab: {fileID: 1462625109538199595, guid: 52b261ef9add4a14098745f1897a51cd, type: 3}

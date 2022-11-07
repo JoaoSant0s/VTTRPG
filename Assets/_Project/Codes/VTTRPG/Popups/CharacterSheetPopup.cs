@@ -70,7 +70,7 @@ namespace VTTRPG.CustomPopups
 
         private void SaveCharacterSheet()
         {
-            if (this.isNewCharacterSheet) this.saveService.characterSheets.Add(this.characterSheetObject);
+            if (this.isNewCharacterSheet) this.saveService.AddCharacterSheet(this.characterSheetObject);
             this.saveService.SaveData();
             Close();
         }

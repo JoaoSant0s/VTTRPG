@@ -53,13 +53,13 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
+    m_Top: 50
+    m_Bottom: 50
+  m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 300, y: 300}
+  m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &6113665453761446337
@@ -559,6 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   createButton: {fileID: 7797062571658416506}
+  charactersResumeArea: {fileID: 7827863860828417513}
 --- !u!1 &5851117142261540721
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 using JoaoSant0s.ServicePackage.Popups;
 using JoaoSant0s.ServicePackage.General;
+using VTTRPG.CustomServices;
+using VTTRPG.Assets;
+using JoaoSant0s.CommonWrapper;
 
 namespace VTTRPG.CustomPopups
 {
@@ -15,22 +18,66 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private Button createButton;
 
+        [SerializeField]
+        private RectTransform charactersResumeArea;
+
         private PopupService popupServices;
-        
-        
+
+        private VTTRPGSaveService saveService;
+
         #region Unity Methods
 
         private void Awake()
         {
-            popupServices = Services.Get<PopupService>();
+            this.popupServices = Services.Get<PopupService>();
+            this.saveService = Services.Get<VTTRPGSaveService>();
         }
 
         private void Start()
         {
-            createButton.onClick.AddListener(() =>
+            AddListeners();
+            LoadCharacterResumeViews();
+        }
+
+        private void OnDisable()
+        {
+            this.saveService.OnCharactersSheetModified -= RefreCharactersResume;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void AddListeners()
+        {
+            this.createButton.onClick.AddListener(() => this.popupServices.Show<CreateCharacterSelectionPopup>());
+            this.saveService.OnCharactersSheetModified += RefreCharactersResume;
+        }
+
+        private void LoadCharacterResumeViews()
+        {
+            foreach (var characterSheet in this.saveService.characterSheets)
             {
-                popupServices.Show<CreateCharacterSelectionPopup>();
-            });
+                var view = ResourcesWrapper.LoadSystemViewAsset(characterSheet.systemId);
+                Debug.Assert(view != null, $"Can't find a View Asset of the System {characterSheet.systemId}");
+
+                var characterSheetResume = Instantiate(view.characterSheetResumePrefab, charactersResumeArea);
+                characterSheetResume.Populate(characterSheet);
+            }
+        }
+
+        private void RefreCharactersResume()
+        {
+            ClearChildren();
+            LoadCharacterResumeViews();
+        }
+
+        private void ClearChildren()
+        {
+            foreach (Transform child in charactersResumeArea)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
         }
 
         #endregion

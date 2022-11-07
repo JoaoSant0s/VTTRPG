@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using VTTRPG.CustomPopups;
+using VTTRPG.Views;
 
 namespace VTTRPG.Data.Assets
 {
@@ -11,5 +12,6 @@ namespace VTTRPG.Data.Assets
     public class SystemViewAsset : ScriptableObject
     {
         public CharacterSheetPopup characterSheetPrefab;
+        public CharacterSheetResumeView characterSheetResumePrefab;
     }
 }

@@ -9,11 +9,13 @@ using JoaoSant0s.ServicePackage.Save;
 using JoaoSant0s.CommonWrapper;
 
 using VTTRPG.Objects;
+using System;
 
 namespace VTTRPG.CustomServices
 {
     public class VTTRPGSaveService : Service
     {
+        public event Action OnCharactersSheetModified;
         public List<CharacterSheetObject> characterSheets { get; protected set; }
 
         private SaveLocalService saveService;
@@ -37,11 +39,13 @@ namespace VTTRPG.CustomServices
         {
             var save = new CharacterSheetCollection(this.characterSheets.Select(sheet => new CharacterSheetSave(sheet)).ToList());
             this.saveService.Set<CharacterSheetCollection>(this.config.characterSheetsKey, save);
-
-            Debugs.Log("SaveData", this.config.characterSheetsKey);
-            Debugs.Log(this.characterSheets);
-
             LogInfo();
+        }
+
+        public void AddCharacterSheet(CharacterSheetObject newCharacterSheet)
+        {
+            this.characterSheets.Add(newCharacterSheet);
+            OnCharactersSheetModified?.Invoke();
         }
 
         #endregion
@@ -52,11 +56,6 @@ namespace VTTRPG.CustomServices
         {
             var save = this.saveService.Get<CharacterSheetCollection>(this.config.characterSheetsKey) ?? new CharacterSheetCollection();
             this.characterSheets = save.characterSheets.Select(sheet => new CharacterSheetObject(sheet)).ToList();
-
-            Debugs.Log("LoadData", this.config.characterSheetsKey);
-            Debugs.Log(this.characterSheets);
-
-            LogInfo();
         }
 
         private void LogInfo()
