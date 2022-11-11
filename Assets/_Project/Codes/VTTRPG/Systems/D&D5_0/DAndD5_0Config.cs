@@ -9,5 +9,6 @@ namespace VTTRPG.Configs
     public class DAndD5_0Config : SystemConfig
     {
         public string attributesKey = "attributes";
+        public int attributeDefaultValue = 10;
     }
 }

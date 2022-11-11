@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using VTTRPG.Values;
+using VTTRPG.Assets;
 
 namespace VTTRPG.Objects
 {
@@ -15,7 +16,9 @@ namespace VTTRPG.Objects
 
         public CharacterSheetObject(string systemId)
         {
+            var generalConfig = ResourcesWrapper.LoadGeneralConfig();
             this.systemId = systemId;
+            this.characterName = new StringValue(generalConfig.characterNameKey, generalConfig.defaultCharacterName);
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();
         }
 
@@ -32,7 +35,7 @@ namespace VTTRPG.Objects
             return intValuesCollections[key];
         }
 
-        public IntValue GetOrCreateIntValue(string key, string id, int defaultValue = 10)
+        public IntValue GetOrCreateIntValue(string key, string id, int defaultValue)
         {
             var attributeValues = GetOrCreateIntValues(key);
 

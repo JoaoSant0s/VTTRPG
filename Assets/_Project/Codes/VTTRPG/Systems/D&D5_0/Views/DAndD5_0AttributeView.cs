@@ -14,10 +14,9 @@ using VTTRPG.Systems.Wrappers;
 
 namespace VTTRPG.Views
 {
-    public class DAndD5_0AttributeView : MonoBehaviour
+    public class DAndD5_0AttributeView : CustomFieldView<IntValue>
     {
-        [Header("Components", order = 1)]
-        [Header("TMProFields", order = 2)]
+        [Header("TMProFields", order = 1)]
 
         [SerializeField]
         private TextMeshProUGUI attributeName;
@@ -28,21 +27,24 @@ namespace VTTRPG.Views
         [SerializeField]
         private TMP_InputField attributeInputField;
 
-        [Header("UIFields", order = 2)]
-
-        [SerializeField]
-        private Button runDiceButton;
-
         private IntValue attributeValue;
 
-        public PropertyAsset property;
+        private PropertyAsset property;
 
-        #region Unity Methods
+        public string PropertyId => property.Id;
 
-        private void Awake()
+        #region Override Methods
+
+        public override void AddListeners()
         {
-            runDiceButton.onClick.AddListener(RunDice);
-            attributeInputField.onEndEdit.AddListener(OnEndAttributeValue);
+            attributeInputField.onEndEdit.AddListener(OnValueChanged);
+        }
+
+        public override void PopulateValue(IntValue value)
+        {
+            IsValidInput = true;
+            this.attributeValue = value;
+            ModifyVisual();
         }
 
         #endregion        
@@ -55,28 +57,27 @@ namespace VTTRPG.Views
             attributeName.text = this.property.displayName;
         }
 
-        public void PopulateValue(IntValue value)
+        #endregion
+
+        #region Protected Methods
+
+        protected override void ModifyVisual()
         {
-            this.attributeValue = value;
-            UpdateValue(value.value);
-        }
+            attributeInputField.text = $"{this.attributeValue.value}";
+            ModifyModificatorView(this.attributeValue.value);
+        }  
 
         #endregion
 
         #region Private Methods
 
-        private void UpdateValue(int score)
-        {
-            attributeInputField.text = $"{score}";
-            ModifyModificatorView(score);
-        }        
-
-        private void OnEndAttributeValue(string newValue)
+        private void OnValueChanged(string newValue)
         {
             if (!ValidateAttributeValue(newValue, out int newScore)) return;
 
             attributeValue.ModifyValue(newScore);
-            UpdateValue(attributeValue.value);
+            ModifyVisual();
+            OnValueUpdated?.Invoke();
         }
 
         private bool ValidateAttributeValue(string newValue, out int newScore)
@@ -94,11 +95,7 @@ namespace VTTRPG.Views
         private void ModifyModificatorView(int score)
         {
             attributeModification.text = UtilWrappers.ApplySignal(RPGMathfs.CalculateModifier(score));
-        }
-
-        private void RunDice()
-        {
-
+            OnValueUpdated?.Invoke();
         }
 
         #endregion

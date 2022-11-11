@@ -21,12 +21,8 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private Button closeButton;
 
-        [SerializeField]
-        private Button saveButton;
-
         protected CharacterSheetObject characterSheetObject;
 
-        protected bool isNewCharacterSheet;
         private VTTRPGSaveService saveService;
 
         protected abstract void OnPopulateContent();
@@ -36,7 +32,6 @@ namespace VTTRPG.CustomPopups
         protected override void Awake()
         {
             base.Awake();
-            this.isNewCharacterSheet = false;
             this.saveService = Services.Get<VTTRPGSaveService>();
         }
 
@@ -44,7 +39,6 @@ namespace VTTRPG.CustomPopups
         {
             base.Start();
             this.closeButton.onClick.AddListener(Close);
-            this.saveButton.onClick.AddListener(SaveCharacterSheet);
         }
 
         #endregion
@@ -59,20 +53,19 @@ namespace VTTRPG.CustomPopups
 
         public void Populate()
         {
-            this.isNewCharacterSheet = true;
             this.characterSheetObject = new CharacterSheetObject(systemAsset.Id);
+            this.saveService.AddCharacterSheet(this.characterSheetObject);
+            SaveCharacterSheet();
             OnPopulateContent();
         }
 
         #endregion
 
-        #region Private Methods
+        #region Protected Methods
 
-        private void SaveCharacterSheet()
+        protected void SaveCharacterSheet()
         {
-            if (this.isNewCharacterSheet) this.saveService.AddCharacterSheet(this.characterSheetObject);
             this.saveService.SaveData();
-            Close();
         }
 
         #endregion

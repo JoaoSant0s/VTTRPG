@@ -22,17 +22,19 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private DAndD5_0AttributeView attributePrefab;
 
+        [Header("Views", order = 3)]
+
+        [SerializeField]
+        private CharacterNameView characterNameView;
+
         [Header("References", order = 4)]
 
         [SerializeField]
         private RectTransform attributesArea;
 
         [Header("Input Fields", order = 5)]
-        [SerializeField]
-        private TMP_InputField characterNameInputField;
 
         private DAndD5_0Config dAndD5_0Config;
-        private GeneralConfig generalConfing;
 
         private List<DAndD5_0AttributeView> attributeViews;
 
@@ -41,8 +43,8 @@ namespace VTTRPG.CustomPopups
         protected override void OnPopulateContent()
         {
             LoadAttributes();
-            AddListeners();
             PopulateValues();
+            AddListeners();
 
             StartCoroutine(ContentLoadedRoutine());
         }
@@ -55,7 +57,6 @@ namespace VTTRPG.CustomPopups
         {
             this.attributeViews = new List<DAndD5_0AttributeView>();
             this.dAndD5_0Config = ResourcesWrapper.LoadSystemConfig<DAndD5_0Config>(systemAsset.Id);
-            this.generalConfing = ResourcesWrapper.LoadGeneralConfig();
             var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, this.dAndD5_0Config.attributesKey);
 
             foreach (var property in attributesModels)
@@ -68,30 +69,30 @@ namespace VTTRPG.CustomPopups
 
         private void PopulateValues()
         {
-            this.characterNameInputField.text = this.characterSheetObject?.characterName.value;
+            this.characterNameView.PopulateValue(this.characterSheetObject.characterName);
 
             foreach (var attributeView in this.attributeViews)
             {
-                var value = this.characterSheetObject.GetOrCreateIntValue(this.dAndD5_0Config.attributesKey, attributeView.property.Id);
+                var value = this.characterSheetObject.GetOrCreateIntValue(this.dAndD5_0Config.attributesKey, attributeView.PropertyId, this.dAndD5_0Config.attributeDefaultValue);
                 attributeView.PopulateValue(value);
             }
         }
 
         private void AddListeners()
         {
-            characterNameInputField.onEndEdit.AddListener(OnCharacterNameEnded);
+            this.characterNameView.AddListeners();
+            this.characterNameView.OnValueUpdated += SaveCharacterSheet;
+            foreach (var attributeView in this.attributeViews)
+            {
+                attributeView.AddListeners();
+                attributeView.OnValueUpdated += SaveCharacterSheet;
+            }
         }
 
         private IEnumerator ContentLoadedRoutine()
         {
             yield return null;
             isContentLoaded = true;
-        }
-
-        private void OnCharacterNameEnded(string newValue)
-        {
-            if (this.characterSheetObject.characterName == null) this.characterSheetObject.characterName = new StringValue(generalConfing.characterNameKey, newValue);
-            this.characterSheetObject.characterName.ModifyValue(newValue);
         }
 
         #endregion

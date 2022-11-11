@@ -9,5 +9,6 @@ namespace VTTRPG.Configs
     public class GeneralConfig : ScriptableObject
     {
         public string characterNameKey = "character_name";
+        public string defaultCharacterName = "Default Name";
     }
 }
