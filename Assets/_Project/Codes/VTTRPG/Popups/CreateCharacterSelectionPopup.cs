@@ -8,10 +8,10 @@ using UnityEngine.UI;
 using TMPro;
 
 using JoaoSant0s.ServicePackage.Popups;
+using JoaoSant0s.ServicePackage.General;
 
 using VTTRPG.Assets;
 using VTTRPG.Data.Assets;
-using JoaoSant0s.ServicePackage.General;
 
 namespace VTTRPG.CustomPopups
 {

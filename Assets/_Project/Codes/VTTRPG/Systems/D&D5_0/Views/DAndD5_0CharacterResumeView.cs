@@ -20,6 +20,9 @@ namespace VTTRPG.Views
         [SerializeField]
         private Button openCharacterSheetButton;
 
+        [SerializeField]
+        private Button deleteButton;
+
         private PopupService popupServices;
 
         private CharacterSheetObject characterSheet;
@@ -55,6 +58,7 @@ namespace VTTRPG.Views
         {
             var view = ResourcesWrapper.LoadSystemViewAsset(this.characterSheet.systemId);
 
+            this.deleteButton.onClick.AddListener(ShowDeletePopup);
             this.openCharacterSheetButton.onClick.AddListener(() =>
             {
                 if (IsCharacterSheetOpened()) return;
@@ -69,6 +73,18 @@ namespace VTTRPG.Views
         {
             var popups = popupServices.GetOpenedPopups<CharacterSheetPopup>();
             return popups.FindIndex(popup => popup.IsSameCharacterSheet(this.characterSheet)) >= 0;
+        }
+
+        private void ShowDeletePopup()
+        {
+            var popup = popupServices.Show<ConfirmPopup>((RectTransform)transform);
+            popup.SetView($"Want to delete this character sheet?", () =>
+            {
+                popup.Close();
+            }, () =>
+            {
+                popup.Close();
+            });
         }
 
         private void PopulateVisual()
