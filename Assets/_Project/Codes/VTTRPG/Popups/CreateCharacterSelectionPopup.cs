@@ -24,6 +24,9 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private Button nextButton;
 
+        [SerializeField]
+        private Button closeButton;
+
         private PopupService popupServices;
 
         private SystemTypeAsset[] systemTypeAssets;
@@ -39,6 +42,7 @@ namespace VTTRPG.CustomPopups
         private void Start()
         {
             PopulateDropdownOptions();
+            closeButton.onClick.AddListener(Close);
             nextButton.onClick.AddListener(() =>
             {
                 ShowSelectedCharacterSheet();
