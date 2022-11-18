@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using JoaoSant0s.CommonWrapper;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Popups;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VTTRPG.Assets;
+using VTTRPG.CustomPopups;
 using VTTRPG.Objects;
 
 namespace VTTRPG.Views
@@ -55,11 +57,18 @@ namespace VTTRPG.Views
 
             this.openCharacterSheetButton.onClick.AddListener(() =>
             {
-                var characterSheet = popupServices.Show(view.characterSheetPrefab);
-                characterSheet.Populate(this.characterSheet);
+                if (IsCharacterSheetOpened()) return;
+                var popup = popupServices.Show(view.characterSheetPrefab);
+                popup.Populate(this.characterSheet);
             });
 
             this.characterSheet.characterName.OnChanged += ModifyCharacterName;
+        }
+
+        private bool IsCharacterSheetOpened()
+        {
+            var popups = popupServices.GetOpenedPopups<CharacterSheetPopup>();
+            return popups.FindIndex(popup => popup.IsSameCharacterSheet(this.characterSheet)) >= 0;
         }
 
         private void PopulateVisual()

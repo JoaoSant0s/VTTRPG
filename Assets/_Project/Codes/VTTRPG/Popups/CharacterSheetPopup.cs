@@ -51,6 +51,11 @@ namespace VTTRPG.CustomPopups
             OnPopulateContent();
         }
 
+        public bool IsSameCharacterSheet(CharacterSheetObject characterSheetObject)
+        {
+            return this.characterSheetObject == characterSheetObject;
+        }
+
         public void Populate()
         {
             this.characterSheetObject = new CharacterSheetObject(systemAsset.Id);
