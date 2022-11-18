@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VTTRPG.Assets;
 using VTTRPG.CustomPopups;
+using VTTRPG.CustomServices;
 using VTTRPG.Objects;
 
 namespace VTTRPG.Views
@@ -27,11 +28,14 @@ namespace VTTRPG.Views
 
         private CharacterSheetObject characterSheet;
 
+        private VTTRPGSaveService saveService;
+
         #region Unity Methods
 
         private void Start()
         {
-            popupServices = Services.Get<PopupService>();
+            this.popupServices = Services.Get<PopupService>();
+            this.saveService = Services.Get<VTTRPGSaveService>();
         }
 
         private void OnDisable()
@@ -62,7 +66,7 @@ namespace VTTRPG.Views
             this.openCharacterSheetButton.onClick.AddListener(() =>
             {
                 if (IsCharacterSheetOpened()) return;
-                var popup = popupServices.Show(view.characterSheetPrefab);
+                var popup = this.popupServices.Show(view.characterSheetPrefab);
                 popup.Populate(this.characterSheet);
             });
 
@@ -71,20 +75,32 @@ namespace VTTRPG.Views
 
         private bool IsCharacterSheetOpened()
         {
-            var popups = popupServices.GetOpenedPopups<CharacterSheetPopup>();
+            var popups = this.popupServices.GetOpenedPopups<CharacterSheetPopup>();
             return popups.FindIndex(popup => popup.IsSameCharacterSheet(this.characterSheet)) >= 0;
         }
 
         private void ShowDeletePopup()
         {
-            var popup = popupServices.Show<ConfirmPopup>((RectTransform)transform);
+            var popup = this.popupServices.Show<ConfirmPopup>((RectTransform)transform);
             popup.SetView($"Want to delete this character sheet?", () =>
             {
+                ForceClosePopup();
+                this.saveService.RemoveCharacterSheet(this.characterSheet);
+                this.saveService.SaveData();
                 popup.Close();
             }, () =>
             {
                 popup.Close();
             });
+        }
+
+        private void ForceClosePopup()
+        {
+            var popups = this.popupServices.GetOpenedPopups<CharacterSheetPopup>();
+            var characterSheet = popups.Find(popup => popup.IsSameCharacterSheet(this.characterSheet));
+            if (characterSheet == null) return;
+
+            characterSheet.Close();
         }
 
         private void PopulateVisual()
