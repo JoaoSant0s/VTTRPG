@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PopupConfig
   m_EditorClassIdentifier: 
   priority: 0
-  mainPopupTag: BasePopup
+  mainPopupTag: BaseCanvas
   popupsInfos:
   - prefab: {fileID: 5475612817906442874, guid: f2288102f123c5f478ae2dae1658850b, type: 3}
   - prefab: {fileID: 5571909024950147283, guid: 98ec1b19ce3503f43b2c3b555f35c1db, type: 3}
