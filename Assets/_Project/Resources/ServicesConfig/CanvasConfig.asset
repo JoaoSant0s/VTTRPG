@@ -17,3 +17,5 @@ MonoBehaviour:
   canvasInfos:
   - id: BaseCanvas
     overrideCanvasPrefab: {fileID: 0}
+  - id: PopupCanvas
+    overrideCanvasPrefab: {fileID: 0}

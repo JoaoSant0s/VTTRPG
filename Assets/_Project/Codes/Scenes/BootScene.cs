@@ -7,6 +7,9 @@ using JoaoSant0s.CommonWrapper.Scenes;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Scenes;
 using NaughtyAttributes;
+using JoaoSant0s.ServicePackage.Popups;
+using VTTRPG.CustomPopups;
+using JoaoSant0s.ServicePackage.Canvases;
 
 namespace VTTRPG.Scenes
 {
@@ -24,7 +27,10 @@ namespace VTTRPG.Scenes
 
         private void Awake()
         {
+            var canvasService = Services.Get<CanvasService>();
             sceneService = Services.Get<SceneService>();
+
+            Services.Get<PopupService>().Show<VersionPopup>((RectTransform)canvasService.GetCanvas("PopupCanvas").transform);
         }
 
         #endregion
