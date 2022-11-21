@@ -22,15 +22,16 @@ namespace VTTRPG.Scenes
         private string nextScene;
 
         private SceneService sceneService;
+        private PopupService popupService;
 
         #region Unity Methods
 
         private void Awake()
         {
-            var canvasService = Services.Get<CanvasService>();
             sceneService = Services.Get<SceneService>();
+            popupService = Services.Get<PopupService>();
 
-            Services.Get<PopupService>().Show<VersionPopup>((RectTransform)canvasService.GetCanvas("PopupCanvas").transform);
+            popupService.Show<VersionPopup>();
         }
 
         #endregion
