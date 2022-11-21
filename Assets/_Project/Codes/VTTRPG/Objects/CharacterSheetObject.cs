@@ -26,7 +26,7 @@ namespace VTTRPG.Objects
         {
             this.systemId = save.systemId;
             this.characterName = save.characterName;
-            this.intValuesCollections = save.characterSheets.ToDictionary(key => key.key, value => value.values);
+            this.intValuesCollections = save.intValuesCollections.ToDictionary(key => key.key, value => value.values);
         }
 
         public List<IntValue> GetOrCreateIntValues(string key)
