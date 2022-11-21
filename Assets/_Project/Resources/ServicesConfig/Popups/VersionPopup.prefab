@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc2dc3de0244ab4981f00a4003965bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasId: PopupCanvas
   versionLabel: {fileID: 5993879270092446660}
 --- !u!1 &8363920730202441957
 GameObject:
