@@ -37,7 +37,7 @@ namespace VTTRPG.CustomPopups
 
         protected virtual void Start()
         {
-            if(!autoCloseWhenContentLoaded) return;
+            if (!autoCloseWhenContentLoaded) return;
             StartCoroutine(WaitToMakeContentVisibleRoutine());
         }
 

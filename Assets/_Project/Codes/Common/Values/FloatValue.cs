@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace VTTRPG.Values
 {
     public class FloatValue : BaseValue<float>
-    {    
+    {
         public FloatValue(string id, float value)
         {
             this.id = id;

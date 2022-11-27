@@ -23,7 +23,7 @@ namespace VTTRPG.Objects
             this.intValuesCollections = sheet.intValuesCollections.Select(characterSheet => new IntValuesCollectionsSave() { key = characterSheet.Key, values = characterSheet.Value }).ToList();
         }
     }
-    
+
     [System.Serializable]
     public struct IntValuesCollectionsSave
     {

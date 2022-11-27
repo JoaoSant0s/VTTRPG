@@ -65,7 +65,7 @@ namespace VTTRPG.Views
         {
             attributeInputField.text = $"{this.attributeValue.value}";
             ModifyModificatorView(this.attributeValue.value);
-        }  
+        }
 
         #endregion
 

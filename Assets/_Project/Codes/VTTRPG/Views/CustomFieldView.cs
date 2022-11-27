@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace VTTRPG.Views
-{    
+{
     public abstract class CustomFieldView<T> : MonoBehaviour
     {
         public bool IsValidInput { get; protected set; }
@@ -18,5 +18,5 @@ namespace VTTRPG.Views
         public abstract void PopulateValue(T nameValue);
 
         protected abstract void ModifyVisual();
-    }    
+    }
 }

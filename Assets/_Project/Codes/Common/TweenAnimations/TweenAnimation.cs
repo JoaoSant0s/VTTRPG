@@ -7,10 +7,10 @@ using UnityEngine;
 using DG.Tweening;
 
 namespace VTTRPG.CommonAnimations
-{    
+{
     public class TweenAnimation : MonoBehaviour
     {
-    [Header("Control")]
+        [Header("Control")]
         public bool autoRun = true;
 
         protected Sequence sequence;
@@ -52,5 +52,5 @@ namespace VTTRPG.CommonAnimations
         }
 
         #endregion
-    }    
+    }
 }

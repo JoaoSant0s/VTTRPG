@@ -7,6 +7,7 @@ using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
 
+
 namespace VTTRPG.CommonAnimations
 {
     public class RotateAnimation : TweenAnimation
