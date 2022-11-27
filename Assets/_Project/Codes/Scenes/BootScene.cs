@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
+
+using NaughtyAttributes;
 
 using JoaoSant0s.CommonWrapper.Scenes;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Scenes;
-using NaughtyAttributes;
 using JoaoSant0s.ServicePackage.Popups;
+
 using VTTRPG.CustomPopups;
-using JoaoSant0s.ServicePackage.Canvases;
 
 namespace VTTRPG.Scenes
 {

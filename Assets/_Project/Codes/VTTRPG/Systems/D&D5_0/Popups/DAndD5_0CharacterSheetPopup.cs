@@ -5,12 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using VTTRPG.Views;
-using VTTRPG.Data.Assets;
 using VTTRPG.Assets;
 using VTTRPG.Configs;
-using TMPro;
-using VTTRPG.Values;
-using JoaoSant0s.CommonWrapper;
 
 namespace VTTRPG.CustomPopups
 {

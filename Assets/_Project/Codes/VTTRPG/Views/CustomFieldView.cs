@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.UI;
-using VTTRPG.Values;
 
 namespace VTTRPG.Views
 {    

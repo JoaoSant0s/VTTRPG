@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using JoaoSant0s.CommonWrapper;
-using JoaoSant0s.ServicePackage.General;
-using JoaoSant0s.ServicePackage.Popups;
-using TMPro;
+
 using UnityEngine;
 using UnityEngine.UI;
+
+using TMPro;
+
+using JoaoSant0s.ServicePackage.General;
+using JoaoSant0s.ServicePackage.Popups;
+
 using VTTRPG.Assets;
 using VTTRPG.CustomPopups;
 using VTTRPG.CustomServices;
