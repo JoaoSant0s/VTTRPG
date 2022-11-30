@@ -15,7 +15,6 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private TextMeshProUGUI versionLabel;
 
-
         #region Unity Methods
 
         private void Start()

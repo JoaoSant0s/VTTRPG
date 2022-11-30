@@ -6,7 +6,7 @@ using UnityEngine;
 
 using DG.Tweening;
 
-namespace VTTRPG.CommonAnimations
+namespace VTTRPG.TweenAnimations
 {
     public class TweenAnimation : MonoBehaviour
     {
