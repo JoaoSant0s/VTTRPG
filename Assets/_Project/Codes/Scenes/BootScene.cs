@@ -9,9 +9,9 @@ using NaughtyAttributes;
 using JoaoSant0s.CommonWrapper.Scenes;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Scenes;
-using JoaoSant0s.ServicePackage.Popups;
 
 using VTTRPG.CustomPopups;
+using VTTRPG.CustomServices;
 
 namespace VTTRPG.Scenes
 {
@@ -24,16 +24,13 @@ namespace VTTRPG.Scenes
         private string nextScene;
 
         private SceneService sceneService;
-        private PopupService popupService;
 
         #region Unity Methods
 
         private void Awake()
         {
             sceneService = Services.Get<SceneService>();
-            popupService = Services.Get<PopupService>();
-
-            popupService.Show<VersionPopup>();
+            PopupWrapper.Show<VersionPopup>();
         }
 
         #endregion

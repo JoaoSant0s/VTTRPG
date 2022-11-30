@@ -3,15 +3,14 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Popups;
+using VTTRPG.CustomServices;
 
 namespace VTTRPG.CustomPopups
 {
     public class BaseContentPopup : Popup
     {
         [Header("Base Content Popup")]
-
         [SerializeField]
         protected CanvasGroup canvasGroup;
 
@@ -22,8 +21,6 @@ namespace VTTRPG.CustomPopups
 
         private LoadingPopup loadingPopup;
 
-        private PopupService popupService;
-
         protected bool isContentLoaded;
 
         #region Unity Methods
@@ -31,7 +28,6 @@ namespace VTTRPG.CustomPopups
         protected virtual void Awake()
         {
             isContentLoaded = false;
-            this.popupService = Services.Get<PopupService>();
             SetContentInvisible();
         }
 
@@ -51,7 +47,7 @@ namespace VTTRPG.CustomPopups
             isContentVisible = false;
             canvasGroup.alpha = 0;
 
-            this.loadingPopup = this.popupService.Show<LoadingPopup>((RectTransform)transform);
+            this.loadingPopup = PopupWrapper.Show<LoadingPopup>((RectTransform)transform);
         }
 
         protected void SetContentVisible()

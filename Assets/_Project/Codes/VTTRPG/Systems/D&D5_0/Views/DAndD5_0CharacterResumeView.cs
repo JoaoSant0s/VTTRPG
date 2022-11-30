@@ -7,7 +7,6 @@ using UnityEngine.UI;
 using TMPro;
 
 using JoaoSant0s.ServicePackage.General;
-using JoaoSant0s.ServicePackage.Popups;
 
 using VTTRPG.Wrappers;
 using VTTRPG.CustomPopups;
@@ -27,17 +26,16 @@ namespace VTTRPG.Views
         [SerializeField]
         private Button deleteButton;
 
-        private PopupService popupServices;
-
         private CharacterSheetObject characterSheet;
 
         private VTTRPGSaveService saveService;
+        private VTTRPGPopupService customPopupService;
 
         #region Unity Methods
 
         private void Start()
         {
-            this.popupServices = Services.Get<PopupService>();
+            this.customPopupService = Services.Get<VTTRPGPopupService>();
             this.saveService = Services.Get<VTTRPGSaveService>();
         }
 
@@ -68,42 +66,25 @@ namespace VTTRPG.Views
             this.deleteButton.onClick.AddListener(ShowDeletePopup);
             this.openCharacterSheetButton.onClick.AddListener(() =>
             {
-                if (IsCharacterSheetOpened()) return;
-                var popup = this.popupServices.Show(view.characterSheetPrefab);
-                popup.Populate(this.characterSheet);
+                this.customPopupService.TryShowCharacterSheetPopup(view.characterSheetPrefab, this.characterSheet);
             });
 
             this.characterSheet.characterName.OnChanged += ModifyCharacterName;
         }
 
-        private bool IsCharacterSheetOpened()
-        {
-            var popups = this.popupServices.GetOpenedPopups<CharacterSheetPopup>();
-            return popups.FindIndex(popup => popup.IsSameCharacterSheet(this.characterSheet)) >= 0;
-        }
-
         private void ShowDeletePopup()
         {
-            var popup = this.popupServices.Show<ConfirmPopup>((RectTransform)transform);
-            popup.SetView($"Want to delete this character sheet?", () =>
+            this.customPopupService.ShowDeleteCharacterPopup(() =>
             {
                 ForceClosePopup();
                 this.saveService.RemoveCharacterSheet(this.characterSheet);
                 this.saveService.SaveData();
-                popup.Close();
-            }, () =>
-            {
-                popup.Close();
-            });
+            }, (RectTransform)transform);
         }
 
         private void ForceClosePopup()
         {
-            var popups = this.popupServices.GetOpenedPopups<CharacterSheetPopup>();
-            var characterSheet = popups.Find(popup => popup.IsSameCharacterSheet(this.characterSheet));
-            if (characterSheet == null) return;
-
-            characterSheet.Close();
+            this.customPopupService.TryClosePopupByCondition<CharacterSheetPopup>((popup) => popup.IsSameCharacterSheet(this.characterSheet));
         }
 
         private void PopulateVisual()

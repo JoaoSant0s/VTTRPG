@@ -12,6 +12,7 @@ using JoaoSant0s.ServicePackage.General;
 
 using VTTRPG.Wrappers;
 using VTTRPG.Assets;
+using VTTRPG.CustomServices;
 
 namespace VTTRPG.CustomPopups
 {
@@ -27,7 +28,7 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private Button closeButton;
 
-        private PopupService popupServices;
+        private VTTRPGPopupService customPopupService;
 
         private SystemTypeAsset[] systemTypeAssets;
 
@@ -36,7 +37,7 @@ namespace VTTRPG.CustomPopups
         private void Awake()
         {
             systemTypeAssets = ResourcesWrapper.LoadSystemAssets();
-            popupServices = Services.Get<PopupService>();
+            customPopupService = Services.Get<VTTRPGPopupService>();
         }
 
         private void Start()
@@ -57,9 +58,7 @@ namespace VTTRPG.CustomPopups
         private void ShowSelectedCharacterSheet()
         {
             var view = ResourcesWrapper.LoadSystemViewAsset(systemTypeAssets[this.dropdown.value].Id);
-
-            var characterSheet = popupServices.Show(view.characterSheetPrefab);
-            characterSheet.Populate();
+            customPopupService.ShowCharacterSheetPopup(view.characterSheetPrefab);
         }
 
         private void PopulateDropdownOptions()

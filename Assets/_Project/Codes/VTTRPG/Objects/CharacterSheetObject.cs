@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using ObjectValues.CoreValues;
 
 using VTTRPG.Wrappers;
-using VTTRPG.Data;
 
 namespace VTTRPG.Objects
 {

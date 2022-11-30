@@ -19,17 +19,14 @@ namespace VTTRPG.CustomPopups
         private Button createButton;
 
         [SerializeField]
-        private RectTransform charactersResumeArea;
-
-        private PopupService popupServices;
+        private RectTransform charactersResumeArea;        
 
         private VTTRPGSaveService saveService;
 
         #region Unity Methods
 
         private void Awake()
-        {
-            this.popupServices = Services.Get<PopupService>();
+        {            
             this.saveService = Services.Get<VTTRPGSaveService>();
         }
 
@@ -50,7 +47,7 @@ namespace VTTRPG.CustomPopups
 
         private void AddListeners()
         {
-            this.createButton.onClick.AddListener(() => this.popupServices.Show<CreateCharacterSelectionPopup>());
+            this.createButton.onClick.AddListener(() => PopupWrapper.Show<CreateCharacterSelectionPopup>());
             this.saveService.OnCharactersSheetModified += RefreCharactersResume;
         }
 
