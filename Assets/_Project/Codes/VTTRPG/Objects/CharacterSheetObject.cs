@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-using VTTRPG.Values;
+using ObjectValues.CoreValues;
 using VTTRPG.Assets;
 
 namespace VTTRPG.Objects

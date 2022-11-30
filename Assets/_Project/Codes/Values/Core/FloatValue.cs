@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VTTRPG.Values
+namespace ObjectValues.CoreValues
 {
-    [System.Serializable]
-    public class IntValue : BaseValue<int>
+    public class FloatValue : BaseValue<float>
     {
-        public IntValue(string id, int value)
+        public FloatValue(string id, float value)
         {
             this.id = id;
             this.value = value;
         }
 
-        public void AddValue(int incremet)
+        public void AddValue(float incremet)
         {
             ModifyValue(this.value + incremet);
         }

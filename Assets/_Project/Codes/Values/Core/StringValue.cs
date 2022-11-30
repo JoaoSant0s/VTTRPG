@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VTTRPG.Values
+namespace ObjectValues.CoreValues
 {
     [System.Serializable]
     public class StringValue : BaseValue<string>

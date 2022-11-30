@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 using TMPro;
 
-using VTTRPG.Values;
+using ObjectValues.CoreValues;
 
 namespace VTTRPG.Views
 {

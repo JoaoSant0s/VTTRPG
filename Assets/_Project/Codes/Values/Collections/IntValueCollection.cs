@@ -2,7 +2,9 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VTTRPG.Values
+using ObjectValues.CoreValues;
+
+namespace ObjectValues.CollectionValues
 {
     public class IntValueCollection : NumberCollection<IntValue, int>
     {

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VTTRPG.Values
+namespace ObjectValues.CoreValues
 {
     public abstract class BaseValue<T>
     {

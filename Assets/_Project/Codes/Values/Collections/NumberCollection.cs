@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace VTTRPG.Values
+namespace ObjectValues.CollectionValues
 {
     public abstract class NumberCollection<T, Q>
     {

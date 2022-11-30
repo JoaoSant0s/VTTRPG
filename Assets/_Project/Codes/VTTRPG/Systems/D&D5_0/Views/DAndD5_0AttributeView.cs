@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 using TMPro;
 
+using ObjectValues.CoreValues;
+
 using VTTRPG.Data.Assets;
-using VTTRPG.Values;
 using VTTRPG.Wrappers;
 using VTTRPG.Systems.Wrappers;
 
