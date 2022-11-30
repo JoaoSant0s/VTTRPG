@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using ObjectValues.CoreValues;
+
 using VTTRPG.Wrappers;
 using VTTRPG.Data;
 
@@ -15,19 +16,14 @@ namespace VTTRPG.Objects
         public StringValue characterName;
         public Dictionary<string, List<IntValue>> intValuesCollections;
 
+        public CharacterSheetObject() { }
+
         public CharacterSheetObject(string systemId)
         {
             var generalConfig = ResourcesWrapper.LoadGeneralConfig();
             this.systemId = systemId;
             this.characterName = new StringValue(generalConfig.characterNameKey, generalConfig.defaultCharacterName);
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();
-        }
-
-        public CharacterSheetObject(CharacterSheetData save)
-        {
-            this.systemId = save.systemId;
-            this.characterName = save.characterName;
-            this.intValuesCollections = save.intValuesCollections.ToDictionary(key => key.key, value => value.values);
         }
 
         public List<IntValue> GetOrCreateIntValues(string key)
