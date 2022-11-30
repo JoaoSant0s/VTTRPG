@@ -8,7 +8,7 @@ using JoaoSant0s.ServicePackage.Popups;
 using JoaoSant0s.ServicePackage.General;
 
 using VTTRPG.CustomServices;
-using VTTRPG.Assets;
+using VTTRPG.Wrappers;
 
 namespace VTTRPG.CustomPopups
 {

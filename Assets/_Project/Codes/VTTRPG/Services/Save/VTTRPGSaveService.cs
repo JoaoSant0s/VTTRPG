@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,8 +8,8 @@ using UnityEngine;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Save;
 
+using VTTRPG.Data;
 using VTTRPG.Objects;
-using System;
 
 namespace VTTRPG.CustomServices
 {
@@ -36,8 +37,8 @@ namespace VTTRPG.CustomServices
 
         public void SaveData()
         {
-            var save = new CharacterSheetCollection(this.characterSheets.Select(sheet => new CharacterSheetSave(sheet)).ToList());
-            this.saveService.Set<CharacterSheetCollection>(this.config.characterSheetsKey, save);
+            var save = new CharacterSheetDataCollection(this.characterSheets.Select(sheet => new CharacterSheetData(sheet)).ToList());
+            this.saveService.Set<CharacterSheetDataCollection>(this.config.characterSheetsKey, save);
         }
 
         public void AddCharacterSheet(CharacterSheetObject characterSheet)
@@ -58,7 +59,7 @@ namespace VTTRPG.CustomServices
 
         private void LoadData()
         {
-            var save = this.saveService.Get<CharacterSheetCollection>(this.config.characterSheetsKey) ?? new CharacterSheetCollection();
+            var save = this.saveService.Get<CharacterSheetDataCollection>(this.config.characterSheetsKey) ?? new CharacterSheetDataCollection();
             this.characterSheets = save.characterSheets.Select(sheet => new CharacterSheetObject(sheet)).ToList();
         }
 

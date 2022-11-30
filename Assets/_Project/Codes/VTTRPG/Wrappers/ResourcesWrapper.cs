@@ -3,10 +3,9 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using VTTRPG.Data.Assets;
-using VTTRPG.Configs;
+using VTTRPG.Assets;
 
-namespace VTTRPG.Assets
+namespace VTTRPG.Wrappers
 {
     public static class ResourcesWrapper
     {

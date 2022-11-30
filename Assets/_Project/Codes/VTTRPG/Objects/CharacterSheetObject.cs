@@ -4,7 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 using ObjectValues.CoreValues;
-using VTTRPG.Assets;
+using VTTRPG.Wrappers;
+using VTTRPG.Data;
 
 namespace VTTRPG.Objects
 {
@@ -22,7 +23,7 @@ namespace VTTRPG.Objects
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();
         }
 
-        public CharacterSheetObject(CharacterSheetSave save)
+        public CharacterSheetObject(CharacterSheetData save)
         {
             this.systemId = save.systemId;
             this.characterName = save.characterName;

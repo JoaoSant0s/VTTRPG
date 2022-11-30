@@ -6,7 +6,7 @@ using UnityEngine;
 using VTTRPG.CustomPopups;
 using VTTRPG.Views;
 
-namespace VTTRPG.Data.Assets
+namespace VTTRPG.Assets
 {
     [CreateAssetMenu(fileName = "SystemViewAsset", menuName = "VTTRPG/Sheet/SystemViewAsset")]
     public class SystemViewAsset : ScriptableObject

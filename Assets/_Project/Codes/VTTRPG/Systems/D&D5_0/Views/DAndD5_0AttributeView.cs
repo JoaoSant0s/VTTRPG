@@ -9,9 +9,8 @@ using TMPro;
 
 using ObjectValues.CoreValues;
 
-using VTTRPG.Data.Assets;
+using VTTRPG.Assets;
 using VTTRPG.Wrappers;
-using VTTRPG.Systems.Wrappers;
 
 namespace VTTRPG.Views
 {

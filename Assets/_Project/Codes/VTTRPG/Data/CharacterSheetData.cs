@@ -1,14 +1,16 @@
+using System;
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
 using ObjectValues.CoreValues;
+using VTTRPG.Objects;
 
-namespace VTTRPG.Objects
+namespace VTTRPG.Data
 {
     [System.Serializable]
-    public class CharacterSheetSave
+    public class CharacterSheetData
     {
         public string systemId;
 
@@ -16,7 +18,7 @@ namespace VTTRPG.Objects
 
         public List<IntValuesCollectionsSave> intValuesCollections;
 
-        public CharacterSheetSave(CharacterSheetObject sheet)
+        public CharacterSheetData(CharacterSheetObject sheet)
         {
             this.systemId = sheet.systemId;
             this.characterName = sheet.characterName;
@@ -24,26 +26,10 @@ namespace VTTRPG.Objects
         }
     }
 
-    [System.Serializable]
+    [Serializable]
     public struct IntValuesCollectionsSave
     {
         public string key;
         public List<IntValue> values;
-    }
-
-    [System.Serializable]
-    public class CharacterSheetCollection
-    {
-        public List<CharacterSheetSave> characterSheets;
-
-        public CharacterSheetCollection(List<CharacterSheetSave> characterSheetSaves)
-        {
-            this.characterSheets = characterSheetSaves;
-        }
-
-        public CharacterSheetCollection()
-        {
-            this.characterSheets = new List<CharacterSheetSave>();
-        }
     }
 }

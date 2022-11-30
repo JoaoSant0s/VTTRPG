@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace VTTRPG.Configs
+namespace VTTRPG.Assets
 {
     [CreateAssetMenu(fileName = "Config", menuName = "VTTRPG/Systems/General Config")]
     public class GeneralConfig : ScriptableObject

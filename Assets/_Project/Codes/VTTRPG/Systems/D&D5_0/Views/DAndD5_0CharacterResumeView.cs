@@ -9,7 +9,7 @@ using TMPro;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Popups;
 
-using VTTRPG.Assets;
+using VTTRPG.Wrappers;
 using VTTRPG.CustomPopups;
 using VTTRPG.CustomServices;
 using VTTRPG.Objects;

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using JoaoSant0s.ServicePackage.General;
 
 using VTTRPG.CustomServices;
-using VTTRPG.Data.Assets;
+using VTTRPG.Assets;
 using VTTRPG.Objects;
 
 namespace VTTRPG.CustomPopups

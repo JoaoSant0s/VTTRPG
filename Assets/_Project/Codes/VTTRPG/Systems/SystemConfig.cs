@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace VTTRPG.Configs
+namespace VTTRPG.Assets
 {
     public abstract class SystemConfig : ScriptableObject
     {
