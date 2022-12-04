@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e69508ac8bd05c49ad6ceee4adeccf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  viewAsset: {fileID: 11400000, guid: 74d1270176fe39743b2f7c97fd06bf5a, type: 2}
   characterNameLabel: {fileID: 5849816358193823406}
   openCharacterSheetButton: {fileID: 8909847443089010677}
   deleteButton: {fileID: 6410188435602850420}

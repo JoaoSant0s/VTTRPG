@@ -10,5 +10,7 @@ namespace VTTRPG.Assets
     {
         public string attributesKey = "attributes";
         public int attributeDefaultValue = 10;
+
+        public PropertyAsset[] attributes;
     }
 }

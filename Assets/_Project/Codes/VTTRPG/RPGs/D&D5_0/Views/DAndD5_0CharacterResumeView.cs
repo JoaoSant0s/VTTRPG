@@ -12,11 +12,20 @@ using VTTRPG.Wrappers;
 using VTTRPG.CustomPopups;
 using VTTRPG.CustomServices;
 using VTTRPG.Objects;
+using VTTRPG.Assets;
 
 namespace VTTRPG.Views
 {
     public class DAndD5_0CharacterResumeView : CharacterSheetResumeView
     {
+        [Header("Character Resume View", order = 1)]
+
+        [Header("Assets", order = 2)]
+        [SerializeField]
+        private RPGViewAsset viewAsset;
+
+        [Header("Views", order = 3)]
+
         [SerializeField]
         private TextMeshProUGUI characterNameLabel;
 
@@ -61,12 +70,10 @@ namespace VTTRPG.Views
 
         private void AddListeners()
         {
-            var view = ResourcesWrapper.LoadRPGViewAsset(this.characterSheet.rpgId);
-
             this.deleteButton.onClick.AddListener(ShowDeletePopup);
             this.openCharacterSheetButton.onClick.AddListener(() =>
             {
-                this.customPopupService.TryShowCharacterSheetPopup(view.characterSheetPrefab, this.characterSheet);
+                this.customPopupService.TryShowCharacterSheetPopup(viewAsset.characterSheetPrefab, this.characterSheet);
             });
 
             this.characterSheet.characterName.OnChanged += ModifyCharacterName;

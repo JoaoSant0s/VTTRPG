@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfe53eb1d43764409a7978db7d2c573, type: 3}
   m_Name: RPGConfig
   m_EditorClassIdentifier: 
-  attributes: attributes
+  attributesKey: attributes
+  attributeDefaultValue: 10
+  attributes:
+  - {fileID: 11400000, guid: 4ac268949b640f845a0c49b51b5f8fce, type: 2}
+  - {fileID: 11400000, guid: f3f84f3636862ac49a32dabf2fd4e778, type: 2}
+  - {fileID: 11400000, guid: b2c2593214ba694488a831ed0667beb1, type: 2}
+  - {fileID: 11400000, guid: b637f064fc48c8a42afdee5587918e4c, type: 2}
+  - {fileID: 11400000, guid: 29086daf4a76e1b44897735d24054dcc, type: 2}
+  - {fileID: 11400000, guid: 49ad6c6d73bd67c4094f29224e33b488, type: 2}
