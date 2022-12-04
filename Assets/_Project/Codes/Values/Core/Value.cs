@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ObjectValues.CoreValues
 {
-    public abstract class BaseValue<T>
+    public abstract class Value<T>
     {
         public event Action<T, T> OnChanged;
 

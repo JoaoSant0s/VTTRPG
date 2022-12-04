@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace ObjectValues.CoreValues
 {
     [System.Serializable]
-    public class StringValue : BaseValue<string>
+    public class StringValue : Value<string>
     {
         public StringValue(string id, string value)
         {

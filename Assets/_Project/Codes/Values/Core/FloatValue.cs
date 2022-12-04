@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ObjectValues.CoreValues
 {
-    public class FloatValue : BaseValue<float>
+    public class FloatValue : Value<float>
     {
         public FloatValue(string id, float value)
         {
