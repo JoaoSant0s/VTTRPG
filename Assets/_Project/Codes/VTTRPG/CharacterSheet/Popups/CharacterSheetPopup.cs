@@ -16,7 +16,7 @@ namespace VTTRPG.CustomPopups
         [Header("Character Sheet Popup")]
 
         [SerializeField]
-        protected SystemTypeAsset systemAsset;
+        protected RPGTypeAsset rpgAsset;
 
         [SerializeField]
         private Button closeButton;
@@ -58,7 +58,7 @@ namespace VTTRPG.CustomPopups
 
         public void Populate()
         {
-            this.characterSheetObject = new CharacterSheetObject(systemAsset.Id);
+            this.characterSheetObject = new CharacterSheetObject(rpgAsset.Id);
             this.saveService.AddCharacterSheet(this.characterSheetObject);
             SaveCharacterSheet();
             OnPopulateContent();

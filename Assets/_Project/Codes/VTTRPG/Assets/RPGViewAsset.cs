@@ -8,8 +8,8 @@ using VTTRPG.Views;
 
 namespace VTTRPG.Assets
 {
-    [CreateAssetMenu(fileName = "SystemViewAsset", menuName = "VTTRPG/Sheet/SystemViewAsset")]
-    public class SystemViewAsset : ScriptableObject
+    [CreateAssetMenu(fileName = "RPGViewAsset", menuName = "VTTRPG/Sheet/RPGViewAsset")]
+    public class RPGViewAsset : ScriptableObject
     {
         public CharacterSheetPopup characterSheetPrefab;
         public CharacterSheetResumeView characterSheetResumePrefab;

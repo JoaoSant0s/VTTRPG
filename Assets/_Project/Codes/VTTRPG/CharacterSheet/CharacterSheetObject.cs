@@ -11,16 +11,16 @@ namespace VTTRPG.Objects
 {
     public class CharacterSheetObject
     {
-        public string systemId;
+        public string rpgId;
         public StringValue characterName;
         public Dictionary<string, List<IntValue>> intValuesCollections;
 
         public CharacterSheetObject() { }
 
-        public CharacterSheetObject(string systemId)
+        public CharacterSheetObject(string rpgId)
         {
             var generalConfig = ResourcesWrapper.LoadGeneralConfig();
-            this.systemId = systemId;
+            this.rpgId = rpgId;
             this.characterName = new StringValue(generalConfig.characterNameKey, generalConfig.defaultCharacterName);
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();
         }
@@ -48,7 +48,7 @@ namespace VTTRPG.Objects
 
         public override string ToString()
         {
-            return $"{this.systemId} {this.intValuesCollections.Count}";
+            return $"{this.rpgId} {this.intValuesCollections.Count}";
         }
     }
 }

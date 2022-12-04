@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3cfe53eb1d43764409a7978db7d2c573, type: 3}
-  m_Name: Config
+  m_Name: RPGConfig
   m_EditorClassIdentifier: 
   attributes: attributes

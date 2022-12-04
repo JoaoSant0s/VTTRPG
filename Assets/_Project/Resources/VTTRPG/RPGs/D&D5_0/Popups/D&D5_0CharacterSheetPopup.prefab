@@ -1347,7 +1347,7 @@ MonoBehaviour:
   canvasId: BaseCanvas
   canvasGroup: {fileID: 1607423446801245022}
   autoCloseWhenContentLoaded: 1
-  systemAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
+  rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
   closeButton: {fileID: 8923237486489705427}
   attributePrefab: {fileID: 2980911064512330562, guid: e1fabf6aec9f91142aa71ab3c08567fa, type: 3}
   characterNameView: {fileID: 1204700094284759663}

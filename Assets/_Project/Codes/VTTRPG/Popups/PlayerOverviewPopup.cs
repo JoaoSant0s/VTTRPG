@@ -55,8 +55,8 @@ namespace VTTRPG.CustomPopups
         {
             foreach (var characterSheet in this.saveService.characterSheets)
             {
-                var view = ResourcesWrapper.LoadSystemViewAsset(characterSheet.systemId);
-                Debug.Assert(view != null, $"Can't find a View Asset of the System {characterSheet.systemId}");
+                var view = ResourcesWrapper.LoadRPGViewAsset(characterSheet.rpgId);
+                Debug.Assert(view != null, $"Can't find a View Asset of the RPG {characterSheet.rpgId}");
 
                 var characterSheetResume = Instantiate(view.characterSheetResumePrefab, charactersResumeArea);
                 characterSheetResume.Populate(characterSheet);

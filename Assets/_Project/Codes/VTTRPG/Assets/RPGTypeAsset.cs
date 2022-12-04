@@ -7,8 +7,8 @@ using NaughtyAttributes;
 
 namespace VTTRPG.Assets
 {
-    [CreateAssetMenu(fileName = "SystemTypeAsset", menuName = "VTTRPG/Sheet/SystemTypeAsset")]
-    public class SystemTypeAsset : ScriptableObject
+    [CreateAssetMenu(fileName = "RPGTypeAsset", menuName = "VTTRPG/Sheet/RPGTypeAsset")]
+    public class RPGTypeAsset : ScriptableObject
     {
         [ShowNativeProperty]
         public string Id => name;

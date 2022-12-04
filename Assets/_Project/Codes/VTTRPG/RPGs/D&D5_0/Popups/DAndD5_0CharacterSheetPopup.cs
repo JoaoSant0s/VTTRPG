@@ -52,8 +52,8 @@ namespace VTTRPG.CustomPopups
         private void LoadAttributes()
         {
             this.attributeViews = new List<DAndD5_0AttributeView>();
-            this.dAndD5_0Config = ResourcesWrapper.LoadSystemConfig<DAndD5_0Config>(systemAsset.Id);
-            var attributesModels = ResourcesWrapper.LoadProperties(systemAsset.Id, this.dAndD5_0Config.attributesKey);
+            this.dAndD5_0Config = ResourcesWrapper.LoadRPGConfig<DAndD5_0Config>(rpgAsset.Id);
+            var attributesModels = ResourcesWrapper.LoadProperties(rpgAsset.Id, this.dAndD5_0Config.attributesKey);
 
             foreach (var property in attributesModels)
             {

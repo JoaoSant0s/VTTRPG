@@ -61,7 +61,7 @@ namespace VTTRPG.Views
 
         private void AddListeners()
         {
-            var view = ResourcesWrapper.LoadSystemViewAsset(this.characterSheet.systemId);
+            var view = ResourcesWrapper.LoadRPGViewAsset(this.characterSheet.rpgId);
 
             this.deleteButton.onClick.AddListener(ShowDeletePopup);
             this.openCharacterSheetButton.onClick.AddListener(() =>

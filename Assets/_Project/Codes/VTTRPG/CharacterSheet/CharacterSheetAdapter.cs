@@ -14,7 +14,7 @@ namespace VTTRPG.Wrappers
         {
             var characterObject = new CharacterSheetObject();
 
-            characterObject.systemId = data.systemId;
+            characterObject.rpgId = data.rpgId;
             characterObject.characterName = data.characterName;
             characterObject.intValuesCollections = data.intValuesCollections.ToDictionary(key => key.key, value => value.values);
 
@@ -25,7 +25,7 @@ namespace VTTRPG.Wrappers
         {
             var characterData = new CharacterSheetData();
 
-            characterData.systemId = characterSheetObject.systemId;
+            characterData.rpgId = characterSheetObject.rpgId;
             characterData.characterName = characterSheetObject.characterName;
             characterData.intValuesCollections = characterSheetObject.intValuesCollections.Select(characterSheet => new IntValuesCollectionsSave() { key = characterSheet.Key, values = characterSheet.Value }).ToList();
 

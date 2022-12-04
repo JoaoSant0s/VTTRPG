@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace ObjectValues.CoreValues
 {
-    [System.Serializable]
+    [Serializable]
     public class StringValue : Value<string>
     {
         public StringValue(string id, string value)

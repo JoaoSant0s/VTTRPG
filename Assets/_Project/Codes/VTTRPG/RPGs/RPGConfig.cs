@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace VTTRPG.Assets
 {
-    public abstract class SystemConfig : ScriptableObject
+    public abstract class RPGConfig : ScriptableObject
     {
 
     }

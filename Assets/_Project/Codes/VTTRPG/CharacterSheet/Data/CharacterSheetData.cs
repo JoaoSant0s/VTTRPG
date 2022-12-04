@@ -9,10 +9,10 @@ using ObjectValues.CoreValues;
 
 namespace VTTRPG.Data
 {
-    [System.Serializable]
+    [Serializable]
     public class CharacterSheetData
     {
-        public string systemId;
+        public string rpgId;
 
         public StringValue characterName;
 
