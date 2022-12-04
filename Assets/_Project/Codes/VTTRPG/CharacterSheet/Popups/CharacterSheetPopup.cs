@@ -11,7 +11,7 @@ using VTTRPG.Objects;
 
 namespace VTTRPG.CustomPopups
 {
-    public abstract class CharacterSheetPopup : BaseContentPopup
+    public abstract class CharacterSheetPopup : ContentPopup
     {
         [Header("Character Sheet Popup")]
 
