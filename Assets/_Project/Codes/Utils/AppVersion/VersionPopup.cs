@@ -8,7 +8,7 @@ using TMPro;
 
 using JoaoSant0s.ServicePackage.Popups;
 
-namespace VTTRPG.CustomPopups
+namespace Common.CustomPopups
 {
     public class VersionPopup : Popup
     {

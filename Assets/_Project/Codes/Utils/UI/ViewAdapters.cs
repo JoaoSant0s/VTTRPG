@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace VTTRPG.Wrappers
 {
-    public static class UtilWrappers
+    public static class ViewAdapters
     {
         public static string ApplySignal(int value)
         {

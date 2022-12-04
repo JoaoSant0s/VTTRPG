@@ -94,7 +94,7 @@ namespace VTTRPG.Views
 
         private void ModifyModificatorView(int score)
         {
-            attributeModification.text = UtilWrappers.ApplySignal(RPGMathfs.CalculateModifier(score));
+            attributeModification.text = ViewAdapters.ApplySignal(RPGMathfs.CalculateModifier(score));
             OnValueUpdated?.Invoke();
         }
 
