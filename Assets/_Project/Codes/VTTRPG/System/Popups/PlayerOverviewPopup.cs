@@ -9,6 +9,8 @@ using JoaoSant0s.ServicePackage.General;
 
 using VTTRPG.CustomServices;
 using VTTRPG.Wrappers;
+using VTTRPG.Objects;
+using VTTRPG.Assets;
 
 namespace VTTRPG.CustomPopups
 {
@@ -19,15 +21,17 @@ namespace VTTRPG.CustomPopups
         private Button createButton;
 
         [SerializeField]
-        private RectTransform charactersResumeArea;        
+        private RectTransform charactersResumeArea;
 
         private CustomSaveService saveService;
+        private RPGContentService contentService;
 
         #region Unity Methods
 
         private void Awake()
-        {            
+        {
             this.saveService = Services.Get<CustomSaveService>();
+            this.contentService = Services.Get<RPGContentService>();
         }
 
         private void Start()
@@ -55,12 +59,17 @@ namespace VTTRPG.CustomPopups
         {
             foreach (var characterSheet in this.saveService.characterSheets)
             {
-                var view = ResourcesWrapper.LoadRPGViewAsset(characterSheet.rpgId);
-                Debug.Assert(view != null, $"Can't find a View Asset of the RPG {characterSheet.rpgId}");
-
-                var characterSheetResume = Instantiate(view.characterSheetResumePrefab, charactersResumeArea);
-                characterSheetResume.Populate(characterSheet);
+                this.contentService.RequestRPGViewAsset(characterSheet.rpgId, (viewAsset) =>
+                {
+                    CreateCharacterResumeView(characterSheet, viewAsset);
+                });
             }
+        }
+
+        private void CreateCharacterResumeView(CharacterSheetObject characterSheet, RPGViewAsset viewAsset)
+        {
+            var characterSheetResume = Instantiate(viewAsset.characterSheetResumePrefab, charactersResumeArea);
+            characterSheetResume.Populate(characterSheet);
         }
 
         private void RefreCharactersResume()

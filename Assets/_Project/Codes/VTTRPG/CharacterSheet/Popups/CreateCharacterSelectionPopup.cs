@@ -30,13 +30,13 @@ namespace VTTRPG.CustomPopups
 
         private CustomPopupService customPopupService;
 
-        private RPGTypeAsset[] rpgTypes;
+        private RPGContentService contentService;
 
         #region Unity Methods
 
         private void Awake()
         {
-            rpgTypes = Services.Get<RPGContentService>().RpgTypes;
+            contentService = Services.Get<RPGContentService>();
             customPopupService = Services.Get<CustomPopupService>();
         }
 
@@ -57,14 +57,18 @@ namespace VTTRPG.CustomPopups
 
         private void ShowSelectedCharacterSheet()
         {
-            var view = ResourcesWrapper.LoadRPGViewAsset(rpgTypes[this.dropdown.value].Id);
-            customPopupService.ShowCharacterSheetPopup(view.characterSheetPrefab);
+            var rpgId = contentService.RpgTypes[this.dropdown.value].Id;
+
+            contentService.RequestRPGViewAsset(rpgId, (viewAsset) =>
+            {
+                customPopupService.ShowCharacterSheetPopup(viewAsset.characterSheetPrefab);
+            });
         }
 
         private void PopulateDropdownOptions()
         {
             this.dropdown.ClearOptions();
-            this.dropdown.AddOptions(rpgTypes.Select(asset => asset.displayName).ToList());
+            this.dropdown.AddOptions(contentService.RpgTypes.Select(asset => asset.displayName).ToList());
         }
 
         #endregion

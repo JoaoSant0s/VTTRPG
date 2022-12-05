@@ -10,6 +10,5 @@ namespace VTTRPG.CustomPopups
 {
     public class LoadingPopup : Popup
     {
-
     }
 }
