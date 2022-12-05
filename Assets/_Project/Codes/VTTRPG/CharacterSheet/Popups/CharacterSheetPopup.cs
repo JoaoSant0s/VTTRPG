@@ -23,7 +23,7 @@ namespace VTTRPG.CustomPopups
 
         protected CharacterSheetObject characterSheetObject;
 
-        private VTTRPGSaveService saveService;
+        private CustomSaveService saveService;
 
         protected abstract void OnPopulateContent();
 
@@ -32,7 +32,7 @@ namespace VTTRPG.CustomPopups
         protected override void Awake()
         {
             base.Awake();
-            this.saveService = Services.Get<VTTRPGSaveService>();
+            this.saveService = Services.Get<CustomSaveService>();
         }
 
         protected override void Start()

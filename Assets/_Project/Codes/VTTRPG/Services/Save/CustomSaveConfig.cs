@@ -7,8 +7,8 @@ using JoaoSant0s.CommonWrapper;
 
 namespace VTTRPG.CustomServices
 {
-    [CreateAssetMenu(fileName = "VTTRPGSaveConfig", menuName = "VTTRPG/Services/VTTRPGSaveConfig")]
-    public class VTTRPGSaveConfig : CustomScriptableObject<VTTRPGSaveConfig>
+    [CreateAssetMenu(fileName = "CustomSaveConfig", menuName = "VTTRPG/Services/CustomSaveConfig")]
+    public class CustomSaveConfig : CustomScriptableObject<CustomSaveConfig>
     {
         [Header("VTTRPG Save Config")]
 

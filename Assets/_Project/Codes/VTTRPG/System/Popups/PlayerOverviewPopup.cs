@@ -21,13 +21,13 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private RectTransform charactersResumeArea;        
 
-        private VTTRPGSaveService saveService;
+        private CustomSaveService saveService;
 
         #region Unity Methods
 
         private void Awake()
         {            
-            this.saveService = Services.Get<VTTRPGSaveService>();
+            this.saveService = Services.Get<CustomSaveService>();
         }
 
         private void Start()

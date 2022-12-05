@@ -12,7 +12,6 @@ namespace VTTRPG.Scenes
 {
     public class MenuScene : MainScene
     {
-
         #region Unity Methods     
 
         #endregion

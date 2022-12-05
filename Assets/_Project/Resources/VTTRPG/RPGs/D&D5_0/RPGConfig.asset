@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfe53eb1d43764409a7978db7d2c573, type: 3}
   m_Name: RPGConfig
   m_EditorClassIdentifier: 
+  viewAsset: {fileID: 11400000, guid: 74d1270176fe39743b2f7c97fd06bf5a, type: 2}
   attributesKey: attributes
   attributeDefaultValue: 10
   attributes:

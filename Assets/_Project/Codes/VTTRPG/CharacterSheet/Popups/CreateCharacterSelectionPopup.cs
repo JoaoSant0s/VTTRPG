@@ -28,16 +28,16 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private Button closeButton;
 
-        private VTTRPGPopupService customPopupService;
+        private CustomPopupService customPopupService;
 
-        private RPGTypeAsset[] rpgTypeAssets;
+        private RPGTypeAsset[] rpgTypes;
 
         #region Unity Methods
 
         private void Awake()
         {
-            rpgTypeAssets = ResourcesWrapper.LoadRPGAssets();
-            customPopupService = Services.Get<VTTRPGPopupService>();
+            rpgTypes = Services.Get<RPGContentService>().RpgTypes;
+            customPopupService = Services.Get<CustomPopupService>();
         }
 
         private void Start()
@@ -57,14 +57,14 @@ namespace VTTRPG.CustomPopups
 
         private void ShowSelectedCharacterSheet()
         {
-            var view = ResourcesWrapper.LoadRPGViewAsset(rpgTypeAssets[this.dropdown.value].Id);
+            var view = ResourcesWrapper.LoadRPGViewAsset(rpgTypes[this.dropdown.value].Id);
             customPopupService.ShowCharacterSheetPopup(view.characterSheetPrefab);
         }
 
         private void PopulateDropdownOptions()
         {
             this.dropdown.ClearOptions();
-            this.dropdown.AddOptions(rpgTypeAssets.Select(asset => asset.displayName).ToList());
+            this.dropdown.AddOptions(rpgTypes.Select(asset => asset.displayName).ToList());
         }
 
         #endregion

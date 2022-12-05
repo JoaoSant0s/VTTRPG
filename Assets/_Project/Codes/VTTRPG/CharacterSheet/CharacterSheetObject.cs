@@ -4,8 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 using ObjectValues.CoreValues;
-
-using VTTRPG.Wrappers;
+using VTTRPG.CustomServices;
+using JoaoSant0s.ServicePackage.General;
 
 namespace VTTRPG.Objects
 {
@@ -19,7 +19,7 @@ namespace VTTRPG.Objects
 
         public CharacterSheetObject(string rpgId)
         {
-            var generalConfig = ResourcesWrapper.LoadGeneralConfig();
+            var generalConfig = Services.Get<RPGContentService>().GetCharacterSheetConfig();
             this.rpgId = rpgId;
             this.characterName = new StringValue(generalConfig.characterNameKey, generalConfig.defaultCharacterName);
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();

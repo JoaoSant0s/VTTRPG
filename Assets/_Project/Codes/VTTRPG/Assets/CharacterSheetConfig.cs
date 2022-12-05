@@ -6,7 +6,7 @@ using UnityEngine;
 namespace VTTRPG.Assets
 {
     [CreateAssetMenu(fileName = "Config", menuName = "VTTRPG/RPGs/General Config")]
-    public class GeneralConfig : ScriptableObject
+    public class CharacterSheetConfig : ScriptableObject
     {
         public string characterNameKey = "character_name";
         public string defaultCharacterName = "Default Name";

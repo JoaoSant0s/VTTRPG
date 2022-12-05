@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2acf04369ac7547b04ab23790d79e0, type: 3}
-  m_Name: GeneralConfig
+  m_Script: {fileID: 11500000, guid: 48950c8746b0e7d44959a740b46b5784, type: 3}
+  m_Name: RPGContentConfig
   m_EditorClassIdentifier: 
-  characterNameKey: character_name
+  priority: 0
+  rpgTypes:
+  - {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}

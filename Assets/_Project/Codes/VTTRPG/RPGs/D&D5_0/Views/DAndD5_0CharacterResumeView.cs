@@ -37,15 +37,15 @@ namespace VTTRPG.Views
 
         private CharacterSheetObject characterSheet;
 
-        private VTTRPGSaveService saveService;
-        private VTTRPGPopupService customPopupService;
+        private CustomSaveService saveService;
+        private CustomPopupService customPopupService;
 
         #region Unity Methods
 
         private void Start()
         {
-            this.customPopupService = Services.Get<VTTRPGPopupService>();
-            this.saveService = Services.Get<VTTRPGSaveService>();
+            this.customPopupService = Services.Get<CustomPopupService>();
+            this.saveService = Services.Get<CustomSaveService>();
         }
 
         private void OnDisable()

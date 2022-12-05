@@ -14,19 +14,19 @@ using VTTRPG.Wrappers;
 
 namespace VTTRPG.CustomServices
 {
-    public class VTTRPGSaveService : Service
+    public class CustomSaveService : Service
     {
         public event Action OnCharactersSheetModified;
         public List<CharacterSheetObject> characterSheets { get; protected set; }
 
         private SaveLocalService saveService;
-        private VTTRPGSaveConfig config;
+        private CustomSaveConfig config;
 
         #region Override Methods
 
         public override void OnInit()
         {
-            this.config = VTTRPGSaveConfig.Get();
+            this.config = CustomSaveConfig.Get();
             this.saveService = Services.Get<SaveLocalService>();
             this.characterSheets = new List<CharacterSheetObject>();
             LoadData();

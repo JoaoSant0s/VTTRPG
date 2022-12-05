@@ -11,7 +11,7 @@ using VTTRPG.Objects;
 
 namespace VTTRPG.CustomServices
 {
-    public class VTTRPGPopupService : Service
+    public class CustomPopupService : Service
     {
         public delegate bool CheckCondition<T>(T popup);
 
