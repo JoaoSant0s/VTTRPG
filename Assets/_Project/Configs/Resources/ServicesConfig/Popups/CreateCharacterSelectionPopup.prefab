@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b078406bade474aa641b8f19160273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasId: BaseCanvas
+  canvasId: DefaultCanvas
   dropdown: {fileID: 8633615900403763489}
   nextButton: {fileID: 1683645237849167124}
   closeButton: {fileID: 424427467641191485}

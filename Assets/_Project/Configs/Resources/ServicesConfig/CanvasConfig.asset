@@ -15,9 +15,12 @@ MonoBehaviour:
   priority: 0
   defaultCanvasPrefab: {fileID: 1374640290781463013, guid: 7aae5fb3c3b917d42a54efd19a174485, type: 3}
   canvasInfos:
-  - id: BaseCanvas
+  - id: DefaultCanvas
     sortOrder: 0
     overrideCanvasPrefab: {fileID: 0}
   - id: PopupCanvas
     sortOrder: 1
+    overrideCanvasPrefab: {fileID: 0}
+  - id: VersionCanvas
+    sortOrder: 2
     overrideCanvasPrefab: {fileID: 0}

@@ -558,9 +558,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c514bbe6e90a4a64e956cc310da1a990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasId: BaseCanvas
+  canvasId: DefaultCanvas
   createButton: {fileID: 7797062571658416506}
-  charactersResumeArea: {fileID: 7827863860828417513}
+  charactersResumeArea: {fileID: 182046921453281203}
+  charactersResumeContent: {fileID: 7827863860828417513}
 --- !u!1 &5851117142261540721
 GameObject:
   m_ObjectHideFlags: 0

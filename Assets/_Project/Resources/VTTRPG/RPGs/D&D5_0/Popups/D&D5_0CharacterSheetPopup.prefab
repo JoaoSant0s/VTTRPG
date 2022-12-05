@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6354a87dbae402a489ed4f870c18bd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasId: BaseCanvas
+  canvasId: PopupCanvas
   canvasGroup: {fileID: 1607423446801245022}
   autoCloseWhenContentLoaded: 1
   rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
