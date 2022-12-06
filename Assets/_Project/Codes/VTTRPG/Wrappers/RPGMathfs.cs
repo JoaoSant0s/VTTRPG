@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace VTTRPG.Systems.Wrappers
+namespace VTTRPG.Wrappers
 {
     public static class RPGMathfs
     {

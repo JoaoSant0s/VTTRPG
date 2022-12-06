@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.UI;
+
+using NaughtyAttributes;
 
 using JoaoSant0s.CommonWrapper.Scenes;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Scenes;
-using NaughtyAttributes;
-using JoaoSant0s.ServicePackage.Popups;
-using VTTRPG.CustomPopups;
-using JoaoSant0s.ServicePackage.Canvases;
+
+using VTTRPG.CustomServices;
+using Common.CustomPopups;
 
 namespace VTTRPG.Scenes
 {
@@ -22,16 +24,13 @@ namespace VTTRPG.Scenes
         private string nextScene;
 
         private SceneService sceneService;
-        private PopupService popupService;
 
         #region Unity Methods
 
         private void Awake()
         {
             sceneService = Services.Get<SceneService>();
-            popupService = Services.Get<PopupService>();
-
-            popupService.Show<VersionPopup>();
+            PopupWrapper.Show<VersionPopup>();
         }
 
         #endregion
