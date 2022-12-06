@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using JoaoSant0s.ServicePackage.General;
 using VTTRPG.Assets;
-using System;
 
 namespace VTTRPG.CustomServices
 {

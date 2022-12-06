@@ -3,9 +3,10 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
-using ObjectValues.CoreValues;
-using VTTRPG.CustomServices;
 using JoaoSant0s.ServicePackage.General;
+
+using VTTRPG.CustomServices;
+using ObjectValues.CoreValues;
 
 namespace VTTRPG.Objects
 {

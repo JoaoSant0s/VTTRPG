@@ -65,9 +65,5 @@ namespace VTTRPG.CustomServices
                 popup.Close();
             });
         }
-
-
-
-
     }
 }
