@@ -51,7 +51,9 @@ jobs:
             Library-build-
             Library-
       - uses: game-ci/unity-builder@v2
+        id: builderStep
         with:
+          versioning: None
           targetPlatform: StandaloneWindows64
 
       - uses: actions/upload-artifact@v2
