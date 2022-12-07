@@ -4,6 +4,7 @@ on:
   push:    
     branches: 
       - main
+      - hotfix/fix_version_2
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -51,11 +52,12 @@ jobs:
             Library-build-
             Library-
       - uses: game-ci/unity-builder@v2
+        id: builderStep
         with:
           versioning: None
           targetPlatform: StandaloneWindows64
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-StandaloneWindows64
+          name: build-StandaloneWindows64-${{ steps.builderStep.outputs.buildVersion }}
           path: build/StandaloneWindows64
