@@ -479,9 +479,9 @@ GameObject:
   - component: {fileID: 5475612817906442875}
   - component: {fileID: 5475612817906442872}
   - component: {fileID: 5475612817906442873}
-  - component: {fileID: 5475612817906442874}
+  - component: {fileID: 928005069116089342}
   m_Layer: 5
-  m_Name: PlayerOverviewPopup
+  m_Name: PlayerOverviewScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,7 +546,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5475612817906442874
+--- !u!114 &928005069116089342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -555,12 +555,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5475612817906442876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c514bbe6e90a4a64e956cc310da1a990, type: 3}
+  m_Script: {fileID: 11500000, guid: e8c47e0e1cc732846a9526d8348016d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasId: DefaultCanvas
+  canvasId: ScreenCanvas
   createButton: {fileID: 7797062571658416506}
-  charactersResumeArea: {fileID: 182046921453281203}
   charactersResumeContent: {fileID: 7827863860828417513}
 --- !u!1 &5851117142261540721
 GameObject:

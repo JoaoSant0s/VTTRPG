@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using JoaoSant0s.CommonWrapper.Scenes;
+using JoaoSant0s.ServicePackage.General;
+using JoaoSant0s.ServicePackage.Screens;
 
 using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
+using VTTRPG.InternalScreens;
 
 namespace VTTRPG.Scenes
 {
@@ -21,7 +24,7 @@ namespace VTTRPG.Scenes
         protected override void Start()
         {
             base.Start();
-            PopupWrapper.Show<PlayerOverviewPopup>();
+            Services.Get<ScreenService>().GoToScreen<PlayerOverviewScreen>();
         }
 
         #endregion
