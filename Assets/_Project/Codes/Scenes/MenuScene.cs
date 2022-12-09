@@ -7,8 +7,6 @@ using JoaoSant0s.CommonWrapper.Scenes;
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Screens;
 
-using VTTRPG.InternalPopups;
-using VTTRPG.CustomServices;
 using VTTRPG.InternalScreens;
 
 namespace VTTRPG.Scenes
