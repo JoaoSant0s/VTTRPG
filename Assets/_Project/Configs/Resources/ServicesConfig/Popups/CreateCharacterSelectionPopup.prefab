@@ -715,6 +715,7 @@ GameObject:
   - component: {fileID: 5475612817906442872}
   - component: {fileID: 5475612817906442873}
   - component: {fileID: 5571909024950147283}
+  - component: {fileID: 1099585755354044070}
   m_Layer: 5
   m_Name: CreateCharacterSelectionPopup
   m_TagString: Untagged
@@ -797,6 +798,18 @@ MonoBehaviour:
   dropdown: {fileID: 8633615900403763489}
   nextButton: {fileID: 1683645237849167124}
   closeButton: {fileID: 424427467641191485}
+--- !u!114 &1099585755354044070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a6aa732dd60904eba07d7ee68566ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5968446014946684394
 GameObject:
   m_ObjectHideFlags: 0

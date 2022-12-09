@@ -1264,6 +1264,7 @@ GameObject:
   - component: {fileID: 5475612817906442872}
   - component: {fileID: 5475612817906442873}
   - component: {fileID: -5387541489823798004}
+  - component: {fileID: 6299063987915848888}
   - component: {fileID: 6367403898816934047}
   m_Layer: 5
   m_Name: D&D5_0CharacterSheetPopup
@@ -1353,6 +1354,18 @@ MonoBehaviour:
   rpgConfig: {fileID: 11400000, guid: 025f8b818750e0e40a3d054e5b206dc8, type: 2}
   characterNameView: {fileID: 1204700094284759663}
   attributesArea: {fileID: 6857637506641294559}
+--- !u!114 &6299063987915848888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a6aa732dd60904eba07d7ee68566ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6367403898816934047
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 3367278078206982330}
   - component: {fileID: 5411769034074533674}
   - component: {fileID: 2854313444503068114}
+  - component: {fileID: 1710855524362821743}
   m_Layer: 5
   m_Name: ConfirmPopup
   m_TagString: Untagged
@@ -322,6 +323,18 @@ MonoBehaviour:
   confirmButton: {fileID: 8186934345559060426}
   cancelButton: {fileID: 7747769685092752105}
   descriptionLabel: {fileID: 8489262619770738981}
+--- !u!114 &1710855524362821743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293692673449583239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a6aa732dd60904eba07d7ee68566ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5548512337349929831
 GameObject:
   m_ObjectHideFlags: 0

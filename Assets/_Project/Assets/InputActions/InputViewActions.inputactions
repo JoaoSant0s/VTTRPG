@@ -1,0 +1,34 @@
+{
+    "name": "InputViewActions",
+    "maps": [
+        {
+            "name": "Popups",
+            "id": "0e0e2cd8-6a05-4a12-be79-e6fbaab036d2",
+            "actions": [
+                {
+                    "name": "Close",
+                    "type": "Button",
+                    "id": "d715b6fb-7051-4a72-a1d8-e0419cb6a407",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e7cf07a4-d7ca-436e-b8f3-93a127de2c46",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
