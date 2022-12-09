@@ -9,7 +9,7 @@ using VTTRPG.CustomServices;
 using VTTRPG.Assets;
 using VTTRPG.Objects;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
     public abstract class CharacterSheetPopup : ContentPopup
     {

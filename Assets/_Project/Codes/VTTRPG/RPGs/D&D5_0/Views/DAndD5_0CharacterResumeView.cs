@@ -8,7 +8,7 @@ using TMPro;
 
 using JoaoSant0s.ServicePackage.General;
 
-using VTTRPG.CustomPopups;
+using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
 using VTTRPG.Objects;
 using VTTRPG.Assets;

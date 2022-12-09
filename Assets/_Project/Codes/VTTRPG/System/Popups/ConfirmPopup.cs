@@ -10,7 +10,7 @@ using TMPro;
 
 using JoaoSant0s.ServicePackage.Popups;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
     public class ConfirmPopup : Popup
     {

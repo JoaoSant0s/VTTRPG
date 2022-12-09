@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using VTTRPG.Views;
 using VTTRPG.Assets;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
     public class DAndD5_0CharacterSheetPopup : CharacterSheetPopup
     {

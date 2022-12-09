@@ -5,7 +5,7 @@ using UnityEngine;
 
 using JoaoSant0s.CommonWrapper.Scenes;
 
-using VTTRPG.CustomPopups;
+using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
 
 namespace VTTRPG.Scenes

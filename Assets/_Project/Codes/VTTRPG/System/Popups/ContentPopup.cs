@@ -6,7 +6,7 @@ using UnityEngine;
 using JoaoSant0s.ServicePackage.Popups;
 using VTTRPG.CustomServices;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
     public class ContentPopup : Popup
     {

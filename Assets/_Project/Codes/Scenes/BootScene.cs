@@ -11,7 +11,7 @@ using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Scenes;
 
 using VTTRPG.CustomServices;
-using Common.CustomPopups;
+using Common.InternalPopups;
 
 namespace VTTRPG.Scenes
 {

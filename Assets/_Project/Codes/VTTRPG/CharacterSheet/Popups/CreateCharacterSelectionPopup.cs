@@ -12,7 +12,7 @@ using JoaoSant0s.ServicePackage.General;
 
 using VTTRPG.CustomServices;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
     public class CreateCharacterSelectionPopup : Popup
     {

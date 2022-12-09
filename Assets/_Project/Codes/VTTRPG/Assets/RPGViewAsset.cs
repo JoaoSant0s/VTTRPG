@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-using VTTRPG.CustomPopups;
+using VTTRPG.InternalPopups;
 using VTTRPG.Views;
 
 namespace VTTRPG.Assets

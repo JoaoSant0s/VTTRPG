@@ -12,7 +12,7 @@ using VTTRPG.Objects;
 using VTTRPG.Assets;
 using VTTRPG.Views;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
     public class PlayerOverviewPopup : Popup
     {
