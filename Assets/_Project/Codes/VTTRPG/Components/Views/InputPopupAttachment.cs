@@ -10,13 +10,14 @@ using VTTRPG.Inputs;
 
 namespace VTTRPG.Views.Attachment
 {
-    [RequireComponent(typeof(Popup))]
+    [RequireComponent(typeof(Popup), typeof(FocusViewAttachment))]
     public class InputPopupAttachment : MonoBehaviour
     {
         [SerializeField]
         private bool closeInputEnabled = true;
         private InputViewActions inputView;
         private Popup popup;
+        private FocusViewAttachment focusView;
 
         #region Unity Methods
 
@@ -24,17 +25,20 @@ namespace VTTRPG.Views.Attachment
         {
             inputView = new InputViewActions();
             popup = GetComponent<Popup>();
+            focusView = GetComponent<FocusViewAttachment>();
         }
 
         private void OnEnable()
         {
             inputView.Popups.Enable();
+
             inputView.Popups.Close.performed += Close;
         }
         private void OnDisable()
         {
-            inputView.Popups.Disable();
             inputView.Popups.Close.performed -= Close;
+
+            inputView.Popups.Disable();
         }
 
         #endregion
@@ -43,6 +47,7 @@ namespace VTTRPG.Views.Attachment
         private void Close(InputAction.CallbackContext context)
         {
             if (!closeInputEnabled) return;
+            if (FocusViewAttachment.FocusedGameObject != gameObject) return;
             popup.Close();
         }
 
