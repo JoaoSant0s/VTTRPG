@@ -8,13 +8,13 @@ using JoaoSant0s.ServicePackage.Popups;
 
 using VTTRPG.Inputs;
 
-namespace VTTRPG.InternalPopups.Attachment
+namespace VTTRPG.Views.Attachment
 {
     [RequireComponent(typeof(Popup))]
     public class InputPopupAttachment : MonoBehaviour
     {
         [SerializeField]
-        private bool closeAccessoryEnabled = true;
+        private bool closeInputEnabled = true;
         private InputViewActions inputView;
         private Popup popup;
 
@@ -36,7 +36,7 @@ namespace VTTRPG.InternalPopups.Attachment
         }
         private void Close(InputAction.CallbackContext context)
         {
-            if (!closeAccessoryEnabled) return;
+            if (!closeInputEnabled) return;
             popup.Close();
         }
     }
