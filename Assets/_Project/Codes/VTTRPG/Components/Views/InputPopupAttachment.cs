@@ -18,6 +18,8 @@ namespace VTTRPG.Views.Attachment
         private InputViewActions inputView;
         private Popup popup;
 
+        #region Unity Methods
+
         private void Awake()
         {
             inputView = new InputViewActions();
@@ -34,10 +36,16 @@ namespace VTTRPG.Views.Attachment
             inputView.Popups.Disable();
             inputView.Popups.Close.performed -= Close;
         }
+
+        #endregion
+
+        #region Private Methods
         private void Close(InputAction.CallbackContext context)
         {
             if (!closeInputEnabled) return;
             popup.Close();
         }
+
+        #endregion
     }
 }

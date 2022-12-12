@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace VTTRPG.CommonUI
+namespace VTTRPG.WrapperUI
 {
     public class DraggableUIBehaviour : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
     {
