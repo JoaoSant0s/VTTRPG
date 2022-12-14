@@ -8,7 +8,7 @@ using VTTRPG.CustomServices;
 
 namespace VTTRPG.InternalPopups
 {
-    public class ContentPopup : Popup
+    public abstract class ContentPopup : Popup
     {
         [Header("Base Content Popup")]
         [SerializeField]
