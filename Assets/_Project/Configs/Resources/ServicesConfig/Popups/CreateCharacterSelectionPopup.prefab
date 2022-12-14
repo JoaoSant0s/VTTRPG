@@ -716,6 +716,9 @@ GameObject:
   - component: {fileID: 5475612817906442873}
   - component: {fileID: 5571909024950147283}
   - component: {fileID: 1099585755354044070}
+  - component: {fileID: 8428097307996076575}
+  - component: {fileID: 6592891657385982691}
+  - component: {fileID: 1990329779348719954}
   m_Layer: 5
   m_Name: CreateCharacterSelectionPopup
   m_TagString: Untagged
@@ -765,7 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.20392157, g: 0.20392157, b: 0.20392157, a: 0.5882353}
+  m_Color: {r: 0.20392157, g: 0.20392157, b: 0.20392157, a: 0.6862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -810,6 +813,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a6aa732dd60904eba07d7ee68566ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closeInputEnabled: 1
+--- !u!114 &8428097307996076575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace5af876dbec7f4094931ead1f993d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &6592891657385982691
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1990329779348719954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c6aeca4826fc84e9bf4fb91c446cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRun: 1
+  tweenerParameters:
+    usingCustomEase: 0
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ease: 12
+    setRelative: 0
+    isFrom: 0
+  sequenceParameters:
+    loops: 0
+    loopType: 0
+    startInterval: 0
+    endInterval: 0
+  startValue: {r: 0.20392157, g: 0.20392157, b: 0.20392157, a: 0}
+  endValue: {r: 0.20392157, g: 0.20392157, b: 0.20392157, a: 0.6862745}
+  duration: 0.5
 --- !u!1 &5968446014946684394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1696,7 @@ GameObject:
   - component: {fileID: 3077511792601740697}
   - component: {fileID: 5814954587462574182}
   - component: {fileID: 7830177858554902455}
+  - component: {fileID: 2365177548683451688}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -1730,6 +1791,38 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &2365177548683451688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8520725221308502003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e080635bbd2ede6458389bd9696cc54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRun: 1
+  tweenerParameters:
+    usingCustomEase: 0
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ease: 30
+    setRelative: 0
+    isFrom: 0
+  sequenceParameters:
+    loops: 0
+    loopType: 0
+    startInterval: 0.2
+    endInterval: 0
+  startValue: {x: 0, y: 0, z: 1}
+  endValue: {x: 1, y: 1, z: 1}
+  duration: 0.6
 --- !u!1 &9035646705783824092
 GameObject:
   m_ObjectHideFlags: 0

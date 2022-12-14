@@ -1073,6 +1073,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3657754934196131442, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657754934196131442, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657754934196131442, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5245906086864919360, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1171,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6636973142121696740, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 323.88428
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7549785567466700912, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1234,7 +1246,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5245906086864919367, guid: 34d030373ca310648920771ffc2d2964, type: 3}
   m_PrefabInstance: {fileID: 229818898407962939}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6181811721045230218
+--- !u!225 &1661510415571961335
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1642416232354117883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1243,18 +1267,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5475612817906442876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6354a87dbae402a489ed4f870c18bd68, type: 3}
+  m_Script: {fileID: 11500000, guid: e90f62b39c11adb4ba51b3f60a7aee74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasId: PopupCanvas
-  canvasGroup: {fileID: 1607423446801245022}
-  autoCloseWhenContentLoaded: 1
-  rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
-  closeButton: {fileID: 8923237486489705427}
-  attributePrefab: {fileID: 2980911064512330562, guid: e1fabf6aec9f91142aa71ab3c08567fa, type: 3}
-  rpgConfig: {fileID: 11400000, guid: 025f8b818750e0e40a3d054e5b206dc8, type: 2}
-  characterNameView: {fileID: 6006557132396814397}
-  attributesArea: {fileID: 6857637506641294559}
+  autoRun: 1
+  tweenerParameters:
+    usingCustomEase: 0
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ease: 9
+    setRelative: 0
+    isFrom: 0
+  sequenceParameters:
+    loops: 0
+    loopType: 0
+    startInterval: 0
+    endInterval: 0
+  startValue: 0
+  endValue: 1
+  duration: 0.5
 --- !u!114 &1979762031587136534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1280,6 +1315,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace5af876dbec7f4094931ead1f993d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6181811721045230218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6354a87dbae402a489ed4f870c18bd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasId: PopupCanvas
+  canvasGroup: {fileID: 1607423446801245022}
+  autoCloseWhenContentLoaded: 1
+  rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
+  closeButton: {fileID: 8923237486489705427}
+  attributePrefab: {fileID: 2980911064512330562, guid: e1fabf6aec9f91142aa71ab3c08567fa, type: 3}
+  rpgConfig: {fileID: 11400000, guid: 025f8b818750e0e40a3d054e5b206dc8, type: 2}
+  characterNameView: {fileID: 6006557132396814397}
+  attributesArea: {fileID: 6857637506641294559}
+--- !u!114 &8122778054950737497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e080635bbd2ede6458389bd9696cc54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRun: 1
+  tweenerParameters:
+    usingCustomEase: 0
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ease: 30
+    setRelative: 0
+    isFrom: 0
+  sequenceParameters:
+    loops: 0
+    loopType: 0
+    startInterval: 0
+    endInterval: 0
+  startValue: {x: 0.25, y: 0.25, z: 1}
+  endValue: {x: 1, y: 1, z: 1}
+  duration: 0.75
 --- !u!224 &6857637506641294559 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6636973142121696740, guid: 34d030373ca310648920771ffc2d2964, type: 3}

@@ -181,10 +181,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoRun: 1
-  startValue: {x: 0, y: 0, z: 0, w: 1}
-  endValue: {x: 0, y: 0, z: 360}
-  duration: 1.5
-  mode: 3
+  tweenerParameters:
+    usingCustomEase: 0
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ease: 1
+    setRelative: 0
+    isFrom: 0
+  sequenceParameters:
+    loops: -1
+    loopType: 2
+    startInterval: -1
+    endInterval: -1
+  usingCustomEase: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   ease: 1
   setRelative: 0
   isFrom: 0
@@ -192,3 +211,7 @@ MonoBehaviour:
   loopType: 2
   startInterval: -1
   endInterval: -1
+  startValue: {x: 0, y: 0, z: 0, w: 1}
+  endValue: {x: 0, y: 0, z: 360}
+  duration: 1.5
+  mode: 3

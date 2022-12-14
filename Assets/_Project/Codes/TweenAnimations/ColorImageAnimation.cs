@@ -1,32 +1,44 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
+using UnityEngine.UI;
 
 using DG.Tweening;
 
+
 namespace Common.TweenAnimations
 {
-    public class RotateAnimation : TweenAnimation
+    [RequireComponent(typeof(Image))]
+    public class ColorImageAnimation : TweenAnimation
     {
-        [Header("Rotate Parameters")]
-        public Quaternion startValue = Quaternion.identity;
-        public Vector3 endValue = new Vector3(0, 0, 360);
-        public float duration = 3;
-        public RotateMode mode = RotateMode.Fast;
+        [Header("Fade Parameters")]
+        public Color startValue;
+
+        public Color endValue;
+        public float duration;
+
+        private Image image;
+
+        #region Unity Methods
+
+        private void Awake()
+        {
+            this.image = GetComponent<Image>();
+        }
+
+        #endregion
 
         #region Override Methods
 
         public override void CompleteTween()
         {
             base.CompleteTween();
-            transform.localRotation = startValue;
+            image.color = startValue;
         }
 
         protected override Tweener BuildAnimation()
         {
-            var animation = transform.DOLocalRotate(this.endValue, this.duration, this.mode);
+            var animation = image.DOColor(this.endValue, this.duration);
 
             if (this.tweenerParameters.usingCustomEase)
                 animation = animation.SetEase(this.tweenerParameters.curve);
@@ -40,5 +52,6 @@ namespace Common.TweenAnimations
         }
 
         #endregion
+
     }
 }
