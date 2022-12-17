@@ -56,7 +56,11 @@ namespace VTTRPG.Views.Attachment
         private void TrySetFocusView(InputAction.CallbackContext context)
         {
             var point = this.defaultInputService.UIScreenPoint();
-            if (!RaycastWrapper.RaycastUIFirst(point, out FocusViewAttachment result)) return;
+            if (!RaycastWrapper.RaycastUIFirst(point, out FocusViewAttachment result))
+            {
+                FocusedGameObject = null;
+                return;
+            }
             if (result != this) return;
 
             SetFocusView();
