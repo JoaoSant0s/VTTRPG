@@ -1183,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6636973142121696740, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 323.88428
       objectReference: {fileID: 0}
     - target: {fileID: 7549785567466700912, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   verticalTypeWhenAwake: 0
   verticalOffset: 25
   horizontalTypeWhenAwake: 2
-  horizontalOffset: 0
+  horizontalOffset: 25
 --- !u!224 &6857637506641294559 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6636973142121696740, guid: 34d030373ca310648920771ffc2d2964, type: 3}

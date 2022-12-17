@@ -142,12 +142,14 @@ namespace VTTRPG.Views.Attachment
 
         private void TryChangeHorizontalToLeft()
         {
-
+            var newXAxis = this.rectTransform.anchoredPosition.x - RectLimits.x;
+            if (newXAxis < -ScreenLimits.x) this.rectTransform.ModifyAnchoredPositionX(Mathf.Abs(newXAxis + ScreenLimits.x) + horizontalOffset);
         }
 
         private void TryChangeHorizontalToRight()
         {
-
+            var newXAxis = this.rectTransform.anchoredPosition.x + RectLimits.x;
+            if (newXAxis > ScreenLimits.x) this.rectTransform.ModifyAnchoredPositionX(-(newXAxis + horizontalOffset - ScreenLimits.x));
         }
 
         #endregion
