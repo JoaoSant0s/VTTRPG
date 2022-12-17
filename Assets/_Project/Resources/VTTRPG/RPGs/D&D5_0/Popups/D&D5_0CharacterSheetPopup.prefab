@@ -1151,11 +1151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5245906086864919360, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 307.26825
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5245906086864919360, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -132.31702
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5245906086864919360, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1183,7 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6636973142121696740, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 323.88428
       objectReference: {fileID: 0}
     - target: {fileID: 7549785567466700912, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1368,6 +1368,20 @@ MonoBehaviour:
   startValue: {x: 0.25, y: 0.25, z: 1}
   endValue: {x: 1, y: 1, z: 1}
   duration: 0.75
+--- !u!114 &9170106260762993221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b095263937dc93448c10d5d45bca705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasId: ScreenCanvas
+  centralizePointWhenAwake: 1
 --- !u!224 &6857637506641294559 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6636973142121696740, guid: 34d030373ca310648920771ffc2d2964, type: 3}

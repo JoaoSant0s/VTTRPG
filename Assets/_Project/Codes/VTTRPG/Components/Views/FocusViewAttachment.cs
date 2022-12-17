@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using JoaoSant0s.CommonWrapper;
+using JoaoSant0s.ServicePackage.General;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Utilities;
+using VTTRPG.CustomServices;
 using VTTRPG.Inputs;
 using VTTRPG.WrapperPhysics;
 
@@ -13,7 +12,8 @@ namespace VTTRPG.Views.Attachment
     [RequireComponent(typeof(RectTransform))]
     public class FocusViewAttachment : MonoBehaviour
     {
-        private DefaultInputActions defaultInputActions;
+        private DefaultInputService defaultInputService;
+
         private InputViewActions inputView;
 
         public static GameObject FocusedGameObject { get; private set; }
@@ -22,8 +22,8 @@ namespace VTTRPG.Views.Attachment
 
         private void Awake()
         {
+            this.defaultInputService = Services.Get<DefaultInputService>();
             inputView = new InputViewActions();
-            defaultInputActions = new DefaultInputActions();
         }
 
         private void Start()
@@ -39,17 +39,13 @@ namespace VTTRPG.Views.Attachment
 
         private void OnEnable()
         {
-            defaultInputActions.UI.Enable();
             inputView.UI.Enable();
-
             inputView.UI.Click.performed += TrySetFocusView;
         }
 
         private void OnDisable()
         {
             inputView.UI.Click.performed -= TrySetFocusView;
-            defaultInputActions.UI.Disable();
-
             inputView.UI.Disable();
         }
 
@@ -59,7 +55,7 @@ namespace VTTRPG.Views.Attachment
 
         private void TrySetFocusView(InputAction.CallbackContext context)
         {
-            var point = defaultInputActions.UI.Point.ReadValue<Vector2>();
+            var point = this.defaultInputService.UIScreenPoint();
             if (!RaycastWrapper.RaycastUIFirst(point, out FocusViewAttachment result)) return;
             if (result != this) return;
 

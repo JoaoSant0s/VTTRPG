@@ -30,6 +30,7 @@ namespace VTTRPG.Scenes
         private void Awake()
         {
             sceneService = Services.Get<SceneService>();
+            Services.Get<DefaultInputService>().EnableActions();
             PopupWrapper.Show<VersionPopup>();
         }
 
