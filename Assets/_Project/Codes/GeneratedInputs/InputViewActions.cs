@@ -65,6 +65,15 @@ namespace VTTRPG.Inputs
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""f06557b5-6470-492c-8ef9-dc7761e7100c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -111,6 +120,17 @@ namespace VTTRPG.Inputs
                     ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""adad6d67-9e14-4247-bcff-c865ccbf0ba7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -123,6 +143,7 @@ namespace VTTRPG.Inputs
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+            m_UI_Exit = m_UI.FindAction("Exit", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -216,11 +237,13 @@ namespace VTTRPG.Inputs
         private readonly InputActionMap m_UI;
         private IUIActions m_UIActionsCallbackInterface;
         private readonly InputAction m_UI_Click;
+        private readonly InputAction m_UI_Exit;
         public struct UIActions
         {
             private @InputViewActions m_Wrapper;
             public UIActions(@InputViewActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Click => m_Wrapper.m_UI_Click;
+            public InputAction @Exit => m_Wrapper.m_UI_Exit;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -233,6 +256,9 @@ namespace VTTRPG.Inputs
                     @Click.started -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                     @Click.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
                     @Click.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnClick;
+                    @Exit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
+                    @Exit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
+                    @Exit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnExit;
                 }
                 m_Wrapper.m_UIActionsCallbackInterface = instance;
                 if (instance != null)
@@ -240,6 +266,9 @@ namespace VTTRPG.Inputs
                     @Click.started += instance.OnClick;
                     @Click.performed += instance.OnClick;
                     @Click.canceled += instance.OnClick;
+                    @Exit.started += instance.OnExit;
+                    @Exit.performed += instance.OnExit;
+                    @Exit.canceled += instance.OnExit;
                 }
             }
         }
@@ -251,6 +280,7 @@ namespace VTTRPG.Inputs
         public interface IUIActions
         {
             void OnClick(InputAction.CallbackContext context);
+            void OnExit(InputAction.CallbackContext context);
         }
     }
 }

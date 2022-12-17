@@ -56,7 +56,7 @@ namespace VTTRPG.Views.Attachment
         [SerializeField]
         private float horizontalOffset;
 
-        private DefaultInputService defaultInputService;
+        private InputService inputService;
 
         private RectTransform rectTransform;
 
@@ -67,7 +67,7 @@ namespace VTTRPG.Views.Attachment
 
         private void Awake()
         {
-            this.defaultInputService = Services.Get<DefaultInputService>();
+            this.inputService = Services.Get<InputService>();
             this.rectTransform = ((RectTransform)transform);
 
             if (!this.centralizePointWhenAwake) return;
@@ -82,7 +82,7 @@ namespace VTTRPG.Views.Attachment
 
         private void CentralizeByInputPoint()
         {
-            if (!this.defaultInputService.UIPoint(canvasId, out Vector2 point)) return;
+            if (!this.inputService.UIPoint(canvasId, out Vector2 point)) return;
             this.rectTransform.anchoredPosition = point;
         }
 

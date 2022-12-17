@@ -13,8 +13,7 @@ namespace VTTRPG.Views.Attachment
     [RequireComponent(typeof(Popup), typeof(FocusViewAttachment))]
     public class InputPopupAttachment : MonoBehaviour
     {
-        [SerializeField]
-        private bool closeInputEnabled = true;
+        public bool closeInputEnabled = true;
         private InputViewActions inputView;
         private Popup popup;
         private FocusViewAttachment focusView;

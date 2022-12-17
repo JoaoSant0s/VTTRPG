@@ -12,17 +12,19 @@ namespace VTTRPG.Views.Attachment
     [RequireComponent(typeof(RectTransform))]
     public class FocusViewAttachment : MonoBehaviour
     {
-        private DefaultInputService defaultInputService;
+        private InputService inputService;
 
         private InputViewActions inputView;
 
         public static GameObject FocusedGameObject { get; private set; }
 
+        public static bool HasFocusedView => FocusedGameObject != null;
+
         #region Unity Methods
 
         private void Awake()
         {
-            this.defaultInputService = Services.Get<DefaultInputService>();
+            this.inputService = Services.Get<InputService>();
             inputView = new InputViewActions();
         }
 
@@ -34,7 +36,7 @@ namespace VTTRPG.Views.Attachment
         private void OnDestroy()
         {
             if (FocusedGameObject != gameObject) return;
-            FocusedGameObject = null;
+            CleanFocused();
         }
 
         private void OnEnable()
@@ -55,15 +57,20 @@ namespace VTTRPG.Views.Attachment
 
         private void TrySetFocusView(InputAction.CallbackContext context)
         {
-            var point = this.defaultInputService.UIScreenPoint();
+            var point = this.inputService.UIScreenPoint();
             if (!RaycastWrapper.RaycastUIFirst(point, out FocusViewAttachment result))
             {
-                FocusedGameObject = null;
+                CleanFocused();
                 return;
             }
             if (result != this) return;
 
             SetFocusView();
+        }
+
+        private void CleanFocused()
+        {
+            FocusedGameObject = null;
         }
 
         #endregion
