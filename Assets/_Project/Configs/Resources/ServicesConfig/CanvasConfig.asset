@@ -24,3 +24,6 @@ MonoBehaviour:
   - id: VersionCanvas
     sortOrder: 2
     overrideCanvasPrefab: {fileID: 0}
+  - id: Debug
+    sortOrder: 3
+    overrideCanvasPrefab: {fileID: 22331464, guid: 67117722a812a2e46ab8cb8eafbf5f5e, type: 3}

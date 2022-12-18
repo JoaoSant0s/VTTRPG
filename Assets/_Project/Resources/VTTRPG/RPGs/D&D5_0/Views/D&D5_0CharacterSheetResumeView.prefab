@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8867924, g: 0.09620863, b: 0.111691184, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewAsset: {fileID: 11400000, guid: 74d1270176fe39743b2f7c97fd06bf5a, type: 2}
+  sheetBackground: {fileID: 2934127666796427965}
   characterNameLabel: {fileID: 5849816358193823406}
   openCharacterSheetButton: {fileID: 8909847443089010677}
   deleteButton: {fileID: 6410188435602850420}

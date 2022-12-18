@@ -10,7 +10,6 @@ using VTTRPG.Extensions;
 
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Canvases;
-using JoaoSant0s.CommonWrapper;
 
 namespace VTTRPG.Views.Attachment
 {
@@ -22,7 +21,6 @@ namespace VTTRPG.Views.Attachment
             Left,
             Right,
             Adaptive
-
         }
 
         private enum VerticalConfinerType

@@ -1209,6 +1209,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8847794512463322333, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847794512463322333, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847794512463322333, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847794512463322333, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9008226012931098917, guid: 34d030373ca310648920771ffc2d2964, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1241,6 +1257,17 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 1548899663917079141, guid: 34d030373ca310648920771ffc2d2964, type: 3}
   m_PrefabInstance: {fileID: 229818898407962939}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5475612817906442873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5245906086864919362, guid: 34d030373ca310648920771ffc2d2964, type: 3}
+  m_PrefabInstance: {fileID: 229818898407962939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5475612817906442876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5245906086864919367, guid: 34d030373ca310648920771ffc2d2964, type: 3}
@@ -1334,6 +1361,7 @@ MonoBehaviour:
   closeButton: {fileID: 8923237486489705427}
   attributePrefab: {fileID: 2980911064512330562, guid: e1fabf6aec9f91142aa71ab3c08567fa, type: 3}
   rpgConfig: {fileID: 11400000, guid: 025f8b818750e0e40a3d054e5b206dc8, type: 2}
+  sheetBackground: {fileID: 5475612817906442873}
   characterNameView: {fileID: 6006557132396814397}
   attributesArea: {fileID: 6857637506641294559}
 --- !u!114 &8122778054950737497
@@ -1383,9 +1411,9 @@ MonoBehaviour:
   canvasId: ScreenCanvas
   centralizePointWhenAwake: 1
   verticalTypeWhenAwake: 0
-  verticalOffset: 25
+  verticalOffset: 15
   horizontalTypeWhenAwake: 2
-  horizontalOffset: 25
+  horizontalOffset: 15
 --- !u!224 &6857637506641294559 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6636973142121696740, guid: 34d030373ca310648920771ffc2d2964, type: 3}

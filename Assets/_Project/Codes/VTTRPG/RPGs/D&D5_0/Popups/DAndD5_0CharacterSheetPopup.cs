@@ -21,6 +21,8 @@ namespace VTTRPG.InternalPopups
         private DAndD5_0Config rpgConfig;
         
         [Header("Views", order = 3)]
+        [SerializeField]
+        private Image sheetBackground;
 
         [SerializeField]
         private CharacterNameView characterNameView;
@@ -64,6 +66,7 @@ namespace VTTRPG.InternalPopups
         private void PopulateValues()
         {
             this.characterNameView.PopulateValue(this.characterSheetObject.characterName);
+            this.sheetBackground.color = this.characterSheetObject.sheetColor.value;
 
             foreach (var attributeView in this.attributeViews)
             {

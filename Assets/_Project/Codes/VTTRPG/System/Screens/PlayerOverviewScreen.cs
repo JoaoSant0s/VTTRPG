@@ -80,6 +80,8 @@ namespace VTTRPG.InternalScreens
                     CreateCharacterResumeView(characterSheet, viewAsset);
                 });
             }
+
+            if (this.saveService.characterSheets.Count == 0) TryCloseLoading();
         }
 
         private void CreateCharacterResumeView(CharacterSheetObject characterSheet, RPGViewAsset viewAsset)
@@ -88,9 +90,17 @@ namespace VTTRPG.InternalScreens
             characterSheetResume.Populate(characterSheet);
             this.resumeViews.Add(characterSheetResume);
 
-            if (this.loadingPopup == null || this.resumeViews.Count != this.saveService.characterSheets.Count) return;
+            if (this.resumeViews.Count != this.saveService.characterSheets.Count) return;
+
+            TryCloseLoading();
+        }
+
+        private void TryCloseLoading()
+        {
+            if (this.loadingPopup == null) return;
 
             this.loadingPopup.Close();
+            this.loadingPopup = null;
         }
 
         private void RefreCharactersResume()

@@ -12,6 +12,7 @@ using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
 using VTTRPG.Objects;
 using VTTRPG.Assets;
+using VTTRPG.ColorWrappers;
 
 namespace VTTRPG.Views
 {
@@ -24,6 +25,9 @@ namespace VTTRPG.Views
         private RPGViewAsset viewAsset;
 
         [Header("Views", order = 3)]
+
+        [SerializeField]
+        private Image sheetBackground;
 
         [SerializeField]
         private TextMeshProUGUI characterNameLabel;
@@ -50,6 +54,7 @@ namespace VTTRPG.Views
         private void OnDisable()
         {
             this.characterSheet.characterName.OnChanged -= ModifyCharacterName;
+            this.characterSheet.sheetColor.OnChanged -= ModifySheetColor;
         }
 
         #endregion
@@ -76,6 +81,7 @@ namespace VTTRPG.Views
             });
 
             this.characterSheet.characterName.OnChanged += ModifyCharacterName;
+            this.characterSheet.sheetColor.OnChanged += ModifySheetColor;
         }
 
         private void ShowDeletePopup()
@@ -96,11 +102,19 @@ namespace VTTRPG.Views
         private void PopulateVisual()
         {
             ModifyCharacterName(characterSheet.characterName.value);
+            ModifySheetColor(characterSheet.sheetColor.value, Color.black);
         }
 
         private void ModifyCharacterName(string name, string previousName = null)
         {
             this.characterNameLabel.text = name;
+        }
+
+        private void ModifySheetColor(Color color, Color previousColor)
+        {
+            //var converted = ColorWrapper.HexToColor("#FF00FF", out Color color, 0.5f);
+            //if (converted) 
+            this.sheetBackground.color = color;
         }
 
         #endregion
