@@ -60,7 +60,6 @@ namespace VTTRPG.InternalPopups
         {
             this.characterSheetObject = new CharacterSheetObject(rpgAsset.Id);
             this.saveService.AddCharacterSheet(this.characterSheetObject);
-            SaveCharacterSheet();
             OnPopulateContent();
         }
 

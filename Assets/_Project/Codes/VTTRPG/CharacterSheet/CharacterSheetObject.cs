@@ -43,6 +43,24 @@ namespace VTTRPG.Objects
             this.rpgId = rpgId;
         }
 
+        public CharacterSheetObject MakeCopy()
+        {
+            var copy = new CharacterSheetObject(this.rpgId);
+
+            copy.characterName = new StringValue(this.characterName.id, $"Copy of {this.characterName.value}");
+            copy.characterResume = new StringValue(this.characterResume.id, this.characterResume.value);
+            copy.sheetColor = new ColorValue(this.sheetColor.id, this.sheetColor.value);
+            copy.intValuesCollections = new Dictionary<string, List<IntValue>>();
+
+            foreach (var item in this.intValuesCollections)
+            {
+                var values = item.Value.Select(item => new IntValue(item.id, item.value)).ToList();
+                copy.intValuesCollections.Add(item.Key, values);
+            }
+
+            return copy;
+        }
+
         public List<IntValue> GetOrCreateIntValues(string key)
         {
             if (!intValuesCollections.ContainsKey(key)) intValuesCollections[key] = new List<IntValue>();

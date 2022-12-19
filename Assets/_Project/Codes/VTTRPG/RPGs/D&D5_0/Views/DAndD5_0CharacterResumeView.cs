@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
+using NaughtyAttributes;
 
 using JoaoSant0s.ServicePackage.General;
 
@@ -12,7 +13,6 @@ using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
 using VTTRPG.Objects;
 using VTTRPG.Assets;
-using VTTRPG.ColorWrappers;
 
 namespace VTTRPG.Views
 {
@@ -32,14 +32,19 @@ namespace VTTRPG.Views
         [SerializeField]
         private TextMeshProUGUI characterNameLabel;
 
+        [BoxGroup("Buttons")]
         [SerializeField]
         private Button openCharacterSheetButton;
 
+        [BoxGroup("Buttons")]
         [SerializeField]
         private Button deleteButton;
 
-        private CharacterSheetObject characterSheet;
+        [BoxGroup("Buttons")]
+        [SerializeField]
+        private Button dubplicateButton;
 
+        private CharacterSheetObject characterSheet;
         private CustomSaveService saveService;
         private CustomPopupService customPopupService;
 
@@ -74,6 +79,7 @@ namespace VTTRPG.Views
 
         private void AddListeners()
         {
+            this.dubplicateButton.onClick.AddListener(DuplicateCharacterSheet);
             this.deleteButton.onClick.AddListener(ShowDeletePopup);
             this.openCharacterSheetButton.onClick.AddListener(() =>
             {
@@ -84,13 +90,18 @@ namespace VTTRPG.Views
             this.characterSheet.sheetColor.OnChanged += ModifySheetColor;
         }
 
+        private void DuplicateCharacterSheet()
+        {
+            var nextIndex = this.saveService.GetCharacterSheetIndex(this.characterSheet) + 1;
+            this.saveService.AddCharacterSheet(this.characterSheet.MakeCopy(), nextIndex);
+        }
+
         private void ShowDeletePopup()
         {
             this.customPopupService.ShowDeleteCharacterPopup(() =>
             {
                 ForceClosePopup();
                 this.saveService.RemoveCharacterSheet(this.characterSheet);
-                this.saveService.SaveData();
             }, (RectTransform)transform);
         }
 
