@@ -19,13 +19,16 @@ namespace VTTRPG.InternalPopups
 
         [SerializeField]
         private DAndD5_0Config rpgConfig;
-        
+
         [Header("Views", order = 3)]
         [SerializeField]
         private Image sheetBackground;
 
         [SerializeField]
-        private CharacterNameView characterNameView;
+        private StringFieldView stringFieldView;
+
+        [SerializeField]
+        private ButtonColorFieldView buttonColorFieldView;
 
         [Header("References", order = 4)]
 
@@ -33,7 +36,6 @@ namespace VTTRPG.InternalPopups
         private RectTransform attributesArea;
 
         [Header("Input Fields", order = 5)]
-
         private List<DAndD5_0AttributeView> attributeViews;
 
         #region Protected Methods
@@ -65,7 +67,9 @@ namespace VTTRPG.InternalPopups
 
         private void PopulateValues()
         {
-            this.characterNameView.PopulateValue(this.characterSheetObject.characterName);
+            this.stringFieldView.PopulateValue(this.characterSheetObject.characterName);
+            this.buttonColorFieldView.SetBasePopupArea((RectTransform)transform);
+            this.buttonColorFieldView.PopulateValue(this.characterSheetObject.sheetColor);
             this.sheetBackground.color = this.characterSheetObject.sheetColor.value;
 
             foreach (var attributeView in this.attributeViews)
@@ -77,8 +81,10 @@ namespace VTTRPG.InternalPopups
 
         private void AddListeners()
         {
-            this.characterNameView.AddListeners();
-            this.characterNameView.OnValueUpdated += SaveCharacterSheet;
+            this.stringFieldView.AddListeners();
+            this.buttonColorFieldView.AddListeners();
+            this.stringFieldView.OnValueUpdated += SaveCharacterSheet;
+
             foreach (var attributeView in this.attributeViews)
             {
                 attributeView.AddListeners();

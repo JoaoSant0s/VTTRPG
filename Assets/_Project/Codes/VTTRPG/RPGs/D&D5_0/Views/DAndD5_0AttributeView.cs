@@ -10,6 +10,7 @@ using TMPro;
 using ObjectValues.CoreValues;
 
 using VTTRPG.Assets;
+using VTTRPG.UIWrappers;
 using VTTRPG.Wrappers;
 
 namespace VTTRPG.Views

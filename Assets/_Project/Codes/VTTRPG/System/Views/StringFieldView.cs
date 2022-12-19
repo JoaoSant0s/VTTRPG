@@ -11,7 +11,7 @@ using ObjectValues.CoreValues;
 
 namespace VTTRPG.Views
 {
-    public class CharacterNameView : CustomFieldView<StringValue>
+    public class StringFieldView : CustomFieldView<StringValue>
     {
         [Header("TMProFields", order = 2)]
 
@@ -23,7 +23,7 @@ namespace VTTRPG.Views
 
         private StringValue nameValue;
 
-        #region Public Methods
+        #region Protected Override Methods
 
         public override void AddListeners()
         {

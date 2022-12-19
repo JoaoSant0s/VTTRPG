@@ -28,6 +28,8 @@ namespace VTTRPG.InternalPopups
 
         private InputPopupAttachment inputAttachment;
 
+        #region Unity Methods
+
         private void Awake()
         {
             this.inputAttachment = GetComponent<InputPopupAttachment>();
@@ -38,6 +40,8 @@ namespace VTTRPG.InternalPopups
             yield return null;
             this.inputAttachment.closeInputEnabled = true;
         }
+
+        #endregion
 
         #region Public Methods
 

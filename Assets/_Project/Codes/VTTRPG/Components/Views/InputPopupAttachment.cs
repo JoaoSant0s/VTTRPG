@@ -10,21 +10,19 @@ using VTTRPG.Inputs;
 
 namespace VTTRPG.Views.Attachment
 {
-    [RequireComponent(typeof(Popup), typeof(FocusViewAttachment))]
+    [RequireComponent(typeof(Popup))]
     public class InputPopupAttachment : MonoBehaviour
     {
         public bool closeInputEnabled = true;
         private InputViewActions inputView;
         private Popup popup;
-        private FocusViewAttachment focusView;
 
         #region Unity Methods
 
         private void Awake()
         {
             inputView = new InputViewActions();
-            popup = GetComponent<Popup>();
-            focusView = GetComponent<FocusViewAttachment>();
+            popup = GetComponent<Popup>();            
         }
 
         private void OnEnable()
