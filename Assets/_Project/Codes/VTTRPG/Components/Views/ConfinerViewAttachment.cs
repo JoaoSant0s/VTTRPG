@@ -6,10 +6,10 @@ using UnityEngine;
 using NaughtyAttributes;
 
 using VTTRPG.CustomServices;
-using VTTRPG.Extensions;
 
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Canvases;
+using JoaoSant0s.Extensions.RectTransforms;
 
 namespace VTTRPG.Views.Attachment
 {
@@ -110,13 +110,13 @@ namespace VTTRPG.Views.Attachment
         private void TryChangeVerticalToTop()
         {
             var newYAxis = this.rectTransform.anchoredPosition.y + RectLimits.y;
-            if (newYAxis > ScreenLimits.y) this.rectTransform.ModifyAnchoredPositionY(-(newYAxis + verticalOffset - ScreenLimits.y));
+            if (newYAxis > ScreenLimits.y) this.rectTransform.IncrementAnchoredPositionY(-(newYAxis + verticalOffset - ScreenLimits.y));
         }
 
         private void TryChangeVerticalToBottom()
         {
             var newYAxis = this.rectTransform.anchoredPosition.y - RectLimits.y;
-            if (newYAxis < -ScreenLimits.y) this.rectTransform.ModifyAnchoredPositionY(Mathf.Abs(newYAxis + ScreenLimits.y) + verticalOffset);
+            if (newYAxis < -ScreenLimits.y) this.rectTransform.IncrementAnchoredPositionY(Mathf.Abs(newYAxis + ScreenLimits.y) + verticalOffset);
         }
 
         private void ModifyHorizontalConfiner()
@@ -141,13 +141,13 @@ namespace VTTRPG.Views.Attachment
         private void TryChangeHorizontalToLeft()
         {
             var newXAxis = this.rectTransform.anchoredPosition.x - RectLimits.x;
-            if (newXAxis < -ScreenLimits.x) this.rectTransform.ModifyAnchoredPositionX(Mathf.Abs(newXAxis + ScreenLimits.x) + horizontalOffset);
+            if (newXAxis < -ScreenLimits.x) this.rectTransform.IncrementAnchoredPositionX(Mathf.Abs(newXAxis + ScreenLimits.x) + horizontalOffset);
         }
 
         private void TryChangeHorizontalToRight()
         {
             var newXAxis = this.rectTransform.anchoredPosition.x + RectLimits.x;
-            if (newXAxis > ScreenLimits.x) this.rectTransform.ModifyAnchoredPositionX(-(newXAxis + horizontalOffset - ScreenLimits.x));
+            if (newXAxis > ScreenLimits.x) this.rectTransform.IncrementAnchoredPositionX(-(newXAxis + horizontalOffset - ScreenLimits.x));
         }
 
         #endregion

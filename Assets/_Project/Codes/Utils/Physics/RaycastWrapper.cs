@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-using VTTRPG.Extensions;
+using JoaoSant0s.Extensions.GameObjects;
 
 namespace VTTRPG.WrapperPhysics
 {
