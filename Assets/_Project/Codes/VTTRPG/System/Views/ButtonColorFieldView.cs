@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,17 +8,21 @@ using UnityEngine.UI;
 using ObjectValues.CoreValues;
 using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
+using VTTRPG.Views.Attachment;
 
 namespace VTTRPG.Views
 {
     public class ButtonColorFieldView : CustomFieldView<ColorValue>
     {
+        public delegate View RequestMainView();
+        public RequestMainView OnRequestMainView;
+
+        public event Action<ColorPickPopup> OnColorPickPopupAppeared;    
+
         [SerializeField]
         private Button buttonAction;
 
         private ColorPickPopup colorPickPopup;
-
-        private RectTransform popupArea;
 
         #region Protected Override Methods
 
@@ -32,23 +37,18 @@ namespace VTTRPG.Views
 
         #endregion
 
-        #region Public Methods
-
-        public void SetBasePopupArea(RectTransform parent)
-        {
-            this.popupArea = parent;
-        }
-
-        #endregion
-
         #region Private Methods
 
         private void ShowColorPickPopup()
         {
             if (this.colorPickPopup != null) return;
-            this.colorPickPopup = PopupWrapper.Show<ColorPickPopup>(this.popupArea);
 
+            var mainView = OnRequestMainView.Invoke();
+
+            this.colorPickPopup = PopupWrapper.Show<ColorPickPopup>();
             this.colorPickPopup.OnBeforeClose += () => this.colorPickPopup = null;
+
+            OnColorPickPopupAppeared?.Invoke(this.colorPickPopup);
         }
 
         #endregion

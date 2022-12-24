@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using VTTRPG.Views;
 using VTTRPG.Views.Attachment;
 
 using JoaoSant0s.ServicePackage.Popups;
 
 namespace VTTRPG.InternalPopups
 {
-    public class ColorPickPopup : Popup
-    {
-
-    }
+    [RequireComponent(typeof(FocusViewAttachment))]
+    public class ColorPickPopup : Popup { }
 }

@@ -38,6 +38,12 @@ namespace VTTRPG.Views.Attachment
             inputView.Popups.Disable();
         }
 
+        private void OnDestroy() {
+            inputView.Popups.Close.performed -= Close;
+
+            inputView.Popups.Disable();
+        }
+
         #endregion
 
         #region Private Methods

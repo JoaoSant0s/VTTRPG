@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using JoaoSant0s.ServicePackage.General;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+using JoaoSant0s.ServicePackage.General;
+
 using VTTRPG.CustomServices;
 using VTTRPG.Inputs;
 using VTTRPG.WrapperPhysics;
@@ -13,11 +16,9 @@ namespace VTTRPG.Views.Attachment
     public class FocusViewAttachment : MonoBehaviour
     {
         private InputService inputService;
-
         private InputViewActions inputView;
 
         public static GameObject FocusedGameObject { get; private set; }
-
         public static bool HasFocusedView => FocusedGameObject != null;
 
         #region Unity Methods
@@ -63,8 +64,8 @@ namespace VTTRPG.Views.Attachment
                 CleanFocused();
                 return;
             }
-            if (result != this) return;
 
+            if (result != this) return;
             SetFocusView();
         }
 
@@ -73,12 +74,10 @@ namespace VTTRPG.Views.Attachment
             FocusedGameObject = null;
         }
 
-        #endregion
-
-        #region Public Methods
-
-        public void SetFocusView()
+        private void SetFocusView()
         {
+            if (FocusedGameObject == gameObject) return;
+
             ((RectTransform)transform).SetAsLastSibling();
             FocusedGameObject = gameObject;
         }

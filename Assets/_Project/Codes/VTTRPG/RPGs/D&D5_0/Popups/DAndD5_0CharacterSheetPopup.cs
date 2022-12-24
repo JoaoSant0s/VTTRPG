@@ -68,7 +68,6 @@ namespace VTTRPG.InternalPopups
         private void PopulateValues()
         {
             this.stringFieldView.PopulateValue(this.characterSheetObject.characterName);
-            this.buttonColorFieldView.SetBasePopupArea((RectTransform)transform);
             this.buttonColorFieldView.PopulateValue(this.characterSheetObject.sheetColor);
             this.sheetBackground.color = this.characterSheetObject.sheetColor.value;
 
@@ -83,6 +82,8 @@ namespace VTTRPG.InternalPopups
         {
             this.stringFieldView.AddListeners();
             this.buttonColorFieldView.AddListeners();
+            this.buttonColorFieldView.OnColorPickPopupAppeared += ShowColorPickPopup;
+            this.buttonColorFieldView.OnRequestMainView += () => this;
             this.stringFieldView.OnValueUpdated += SaveCharacterSheet;
 
             foreach (var attributeView in this.attributeViews)
@@ -96,6 +97,14 @@ namespace VTTRPG.InternalPopups
         {
             yield return null;
             isContentLoaded = true;
+        }
+
+        private void ShowColorPickPopup(ColorPickPopup colorPickPopup)
+        {
+            OnBeforeClose += () =>
+            {
+                if (colorPickPopup != null) colorPickPopup.Close();
+            };
         }
 
         #endregion

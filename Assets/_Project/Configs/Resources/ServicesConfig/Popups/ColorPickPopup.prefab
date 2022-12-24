@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 70957616533027281}
   - component: {fileID: 3367278078206982330}
   - component: {fileID: 6806488021256847004}
+  - component: {fileID: 7327218872913512104}
   - component: {fileID: 3230298831172543374}
   - component: {fileID: 4663286312724431966}
+  - component: {fileID: 6287862482681122329}
   m_Layer: 5
   m_Name: ColorPickPopup
   m_TagString: Untagged
@@ -92,7 +94,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d151c93713a130e4b8a6940affb67d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasId: PopupCanvas
+  canvasId: PopupOverlayCanvas
+--- !u!114 &7327218872913512104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293692673449583239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace5af876dbec7f4094931ead1f993d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3230298831172543374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +138,19 @@ MonoBehaviour:
   verticalOffset: 0
   horizontalTypeWhenAwake: 2
   horizontalOffset: 0
+--- !u!114 &6287862482681122329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293692673449583239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a6aa732dd60904eba07d7ee68566ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeInputEnabled: 1
 --- !u!1 &3479019461348331643
 GameObject:
   m_ObjectHideFlags: 0
