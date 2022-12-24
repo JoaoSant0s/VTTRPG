@@ -21,8 +21,6 @@ namespace VTTRPG.Views
         [SerializeField]
         private TextMeshProUGUI errorLabel;
 
-        private StringValue nameValue;
-
         #region Protected Override Methods
 
         public override void AddListeners()
@@ -32,14 +30,14 @@ namespace VTTRPG.Views
 
         public override void PopulateValue(StringValue nameValue)
         {
-            this.nameValue = nameValue;
+            this.fieldViewValue = nameValue;
             MakeValid(true);
             ModifyVisual();
         }
 
         protected override void ModifyVisual()
         {
-            this.characterNameInputField.text = this.nameValue.value;
+            this.characterNameInputField.text = this.fieldViewValue.value;
         }
 
         #endregion
@@ -50,7 +48,7 @@ namespace VTTRPG.Views
         {
             if (!ValidateNameValue(name, out string newName)) return;
 
-            this.nameValue.ModifyValue(newName);
+            this.fieldViewValue.ModifyValue(newName);
             OnValueUpdated?.Invoke();
             MakeValid(true);
         }

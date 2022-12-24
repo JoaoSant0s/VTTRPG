@@ -12,6 +12,8 @@ namespace VTTRPG.Views
 
         public Action OnValueUpdated;
 
+        protected T fieldViewValue;
+
         public abstract void AddListeners();
 
         public abstract void PopulateValue(T nameValue);

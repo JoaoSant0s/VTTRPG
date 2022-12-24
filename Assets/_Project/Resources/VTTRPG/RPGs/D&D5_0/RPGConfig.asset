@@ -13,7 +13,19 @@ MonoBehaviour:
   m_Name: RPGConfig
   m_EditorClassIdentifier: 
   viewAsset: {fileID: 11400000, guid: 74d1270176fe39743b2f7c97fd06bf5a, type: 2}
+  attributeConfig:
+    attributesKey: attributes
+    attributePrefab: {fileID: 2980911064512330562, guid: e1fabf6aec9f91142aa71ab3c08567fa, type: 3}
+    attributeDefaultValue: 10
+    attributes:
+    - {fileID: 11400000, guid: 4ac268949b640f845a0c49b51b5f8fce, type: 2}
+    - {fileID: 11400000, guid: f3f84f3636862ac49a32dabf2fd4e778, type: 2}
+    - {fileID: 11400000, guid: b2c2593214ba694488a831ed0667beb1, type: 2}
+    - {fileID: 11400000, guid: b637f064fc48c8a42afdee5587918e4c, type: 2}
+    - {fileID: 11400000, guid: 29086daf4a76e1b44897735d24054dcc, type: 2}
+    - {fileID: 11400000, guid: 49ad6c6d73bd67c4094f29224e33b488, type: 2}
   attributesKey: attributes
+  attributePrefab: {fileID: 2980911064512330562, guid: e1fabf6aec9f91142aa71ab3c08567fa, type: 3}
   attributeDefaultValue: 10
   attributes:
   - {fileID: 11400000, guid: 4ac268949b640f845a0c49b51b5f8fce, type: 2}

@@ -13,10 +13,6 @@ namespace VTTRPG.InternalPopups
     {
         [Header("Character Sheet Popup", order = 1)]
         [Header("Assets", order = 2)]
-
-        [SerializeField]
-        private DAndD5_0AttributeView attributePrefab;
-
         [SerializeField]
         private DAndD5_0Config rpgConfig;
 
@@ -38,10 +34,14 @@ namespace VTTRPG.InternalPopups
         [Header("Input Fields", order = 5)]
         private List<DAndD5_0AttributeView> attributeViews;
 
+        private AttributeConfig attributeConfig;
+
         #region Protected Methods
 
         protected override void OnPopulateContent()
         {
+            this.attributeConfig = rpgConfig.attributeConfig;
+
             LoadAttributes();
             PopulateValues();
             AddListeners();
@@ -57,9 +57,9 @@ namespace VTTRPG.InternalPopups
         {
             this.attributeViews = new List<DAndD5_0AttributeView>();
 
-            foreach (var property in this.rpgConfig.attributes)
+            foreach (var property in this.attributeConfig.attributes)
             {
-                var attributeView = Instantiate(attributePrefab, attributesArea);
+                var attributeView = Instantiate(this.attributeConfig.attributePrefab, attributesArea);
                 attributeView.InitView(property);
                 this.attributeViews.Add(attributeView);
             }
@@ -74,7 +74,7 @@ namespace VTTRPG.InternalPopups
 
             foreach (var attributeView in this.attributeViews)
             {
-                var value = this.characterSheetObject.GetOrCreateIntValue(this.rpgConfig.attributesKey, attributeView.PropertyId, this.rpgConfig.attributeDefaultValue);
+                var value = this.characterSheetObject.GetOrCreateIntValue(this.attributeConfig.attributesKey, attributeView.PropertyId, this.attributeConfig.attributeDefaultValue);
                 attributeView.PopulateValue(value);
             }
         }

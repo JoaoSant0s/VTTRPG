@@ -1988,7 +1988,6 @@ MonoBehaviour:
   autoCloseWhenContentLoaded: 1
   rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
   closeButton: {fileID: 8923237486489705427}
-  attributePrefab: {fileID: 2980911064512330562, guid: e1fabf6aec9f91142aa71ab3c08567fa, type: 3}
   rpgConfig: {fileID: 11400000, guid: 025f8b818750e0e40a3d054e5b206dc8, type: 2}
   sheetBackground: {fileID: 5475612817906442873}
   stringFieldView: {fileID: 6006557132396814397}
