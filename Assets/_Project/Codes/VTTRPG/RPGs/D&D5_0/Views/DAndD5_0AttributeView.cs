@@ -41,8 +41,8 @@ namespace VTTRPG.Views
 
         public override void PopulateValue(IntValue value)
         {
-            IsValidInput = true;
-            this.fieldViewValue = value;
+            base.PopulateValue(value);
+            IsValidInput = true;            
             ModifyVisual();
         }
 

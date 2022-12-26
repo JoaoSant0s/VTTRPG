@@ -28,9 +28,10 @@ namespace VTTRPG.Views
             this.characterNameInputField.onEndEdit.AddListener(OnValueChanged);
         }
 
-        public override void PopulateValue(StringValue nameValue)
+        public override void PopulateValue(StringValue fieldViewValue)
         {
-            this.fieldViewValue = nameValue;
+            base.PopulateValue(fieldViewValue);
+        
             MakeValid(true);
             ModifyVisual();
         }

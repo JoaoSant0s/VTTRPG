@@ -14,7 +14,7 @@ using VTTRPG.Views.Attachment;
 namespace VTTRPG.InternalPopups
 {
     [RequireComponent(typeof(FocusViewAttachment))]
-    public abstract class CharacterSheetPopup : ContentPopup, View
+    public abstract class CharacterSheetPopup : ContentPopup
     {
         [Header("Character Sheet Popup")]
 
@@ -27,10 +27,6 @@ namespace VTTRPG.InternalPopups
         protected CharacterSheetObject characterSheetObject;
 
         private CustomSaveService saveService;
-
-        public RectTransform GetRectTransform => (RectTransform)transform;
-
-        public FocusViewAttachment GetFocusViewAttachment => GetComponent<FocusViewAttachment>();
 
         protected abstract void OnPopulateContent();
 

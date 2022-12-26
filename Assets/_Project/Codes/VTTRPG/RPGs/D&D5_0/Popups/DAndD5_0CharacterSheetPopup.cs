@@ -83,7 +83,6 @@ namespace VTTRPG.InternalPopups
             this.stringFieldView.AddListeners();
             this.buttonColorFieldView.AddListeners();
             this.buttonColorFieldView.OnColorPickPopupAppeared += ShowColorPickPopup;
-            this.buttonColorFieldView.OnRequestMainView += () => this;
             this.stringFieldView.OnValueUpdated += SaveCharacterSheet;
 
             foreach (var attributeView in this.attributeViews)

@@ -8,16 +8,12 @@ using UnityEngine.UI;
 using ObjectValues.CoreValues;
 using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
-using VTTRPG.Views.Attachment;
 
 namespace VTTRPG.Views
 {
     public class ButtonColorFieldView : CustomFieldView<ColorValue>
     {
-        public delegate View RequestMainView();
-        public RequestMainView OnRequestMainView;
-
-        public event Action<ColorPickPopup> OnColorPickPopupAppeared;    
+        public event Action<ColorPickPopup> OnColorPickPopupAppeared;
 
         [SerializeField]
         private Button buttonAction;
@@ -31,7 +27,9 @@ namespace VTTRPG.Views
             this.buttonAction.onClick.AddListener(ShowColorPickPopup);
         }
 
-        public override void PopulateValue(ColorValue nameValue) { }
+        public override void PopulateValue(ColorValue parameterValue)
+        {
+            base.PopulateValue(parameterValue);
 
         protected override void ModifyVisual() { }
 
