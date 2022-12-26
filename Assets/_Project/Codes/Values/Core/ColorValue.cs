@@ -13,5 +13,16 @@ namespace ObjectValues.CoreValues
             this.id = id;
             this.value = value;
         }
+
+        public void ModifyValueIfNew(Color newColor)
+        {
+            if (this.value.Equals(newColor)) return;
+            ModifyValue(newColor);
+        }
+
+        public void ModifyRedComponentValue(float redValue)
+        {
+            this.value.r = redValue;
+        }
     }
 }

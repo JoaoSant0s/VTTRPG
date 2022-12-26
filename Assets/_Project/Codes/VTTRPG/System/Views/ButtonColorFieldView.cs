@@ -18,6 +18,9 @@ namespace VTTRPG.Views
         [SerializeField]
         private Button buttonAction;
 
+        [SerializeField]
+        private Image selectedColorImage;
+
         private ColorPickPopup colorPickPopup;
 
         #region Protected Override Methods
@@ -31,7 +34,13 @@ namespace VTTRPG.Views
         {
             base.PopulateValue(parameterValue);
 
-        protected override void ModifyVisual() { }
+            ModifyVisual();
+        }
+
+        protected override void ModifyVisual()
+        {
+            this.selectedColorImage.color = fieldViewValue.value;
+        }
 
         #endregion
 
@@ -41,9 +50,8 @@ namespace VTTRPG.Views
         {
             if (this.colorPickPopup != null) return;
 
-            var mainView = OnRequestMainView.Invoke();
-
             this.colorPickPopup = PopupWrapper.Show<ColorPickPopup>();
+            this.colorPickPopup.Init(fieldViewValue, OnValueUpdated);
             this.colorPickPopup.OnBeforeClose += () => this.colorPickPopup = null;
 
             OnColorPickPopupAppeared?.Invoke(this.colorPickPopup);
