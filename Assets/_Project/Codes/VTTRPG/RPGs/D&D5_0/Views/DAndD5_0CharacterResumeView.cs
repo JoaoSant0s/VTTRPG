@@ -123,8 +123,6 @@ namespace VTTRPG.Views
 
         private void ModifySheetColor(Color color, Color previousColor)
         {
-            //var converted = ColorWrapper.HexToColor("#FF00FF", out Color color, 0.5f);
-            //if (converted) 
             this.sheetBackground.color = color;
         }
 

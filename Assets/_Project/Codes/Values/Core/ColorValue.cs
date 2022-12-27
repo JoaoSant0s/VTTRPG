@@ -20,9 +20,37 @@ namespace ObjectValues.CoreValues
             ModifyValue(newColor);
         }
 
-        public void ModifyRedComponentValue(float redValue)
+        private Color CloneColor()
         {
-            this.value.r = redValue;
+            return new Color(this.value.r, this.value.g, this.value.b, this.value.a);
+        }
+
+        public void ModifyRedComponentValue(float newValue)
+        {
+            var clonedColor = CloneColor();
+            clonedColor.r = newValue;
+            ModifyValue(clonedColor);
+        }
+
+        public void ModifyGreenComponentValue(float newValue)
+        {
+            var clonedColor = CloneColor();
+            clonedColor.g = newValue;
+            ModifyValue(clonedColor);
+        }
+
+        public void ModifyBlueComponentValue(float newValue)
+        {
+            var clonedColor = CloneColor();
+            clonedColor.b = newValue;
+            ModifyValue(clonedColor);
+        }
+
+        public void ModifyAlphaComponentValue(float newValue)
+        {
+            var clonedColor = CloneColor();
+            clonedColor.a = newValue;
+            ModifyValue(clonedColor);
         }
     }
 }

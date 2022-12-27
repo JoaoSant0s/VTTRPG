@@ -49,6 +49,11 @@ namespace VTTRPG.InternalPopups
             StartCoroutine(ContentLoadedRoutine());
         }
 
+        protected override void BeforeClose()
+        {
+            this.characterSheetObject.sheetColor.OnChanged -= ModifySheetColor;
+        }
+
         #endregion
 
         #region Private Methods
@@ -69,7 +74,7 @@ namespace VTTRPG.InternalPopups
         {
             this.stringFieldView.PopulateValue(this.characterSheetObject.characterName);
             this.buttonColorFieldView.PopulateValue(this.characterSheetObject.sheetColor);
-            this.sheetBackground.color = this.characterSheetObject.sheetColor.value;
+            ModifySheetColor(this.characterSheetObject.sheetColor.value, Color.black);
 
             foreach (var attributeView in this.attributeViews)
             {
@@ -78,12 +83,20 @@ namespace VTTRPG.InternalPopups
             }
         }
 
+        private void ModifySheetColor(Color color, Color _)
+        {
+            this.sheetBackground.color = color;
+        }
+
         private void AddListeners()
         {
             this.stringFieldView.AddListeners();
             this.buttonColorFieldView.AddListeners();
             this.buttonColorFieldView.OnColorPickPopupAppeared += ShowColorPickPopup;
+            this.buttonColorFieldView.OnValueUpdated += SaveCharacterSheet;
+
             this.stringFieldView.OnValueUpdated += SaveCharacterSheet;
+            this.characterSheetObject.sheetColor.OnChanged += ModifySheetColor;
 
             foreach (var attributeView in this.attributeViews)
             {

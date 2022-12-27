@@ -21,5 +21,10 @@ namespace VTTRPG.ColorWrappers
         {
             return (int)Mathf.Lerp(0, 255, Mathf.Clamp01(percange));
         }
+
+        public static float NumericalToPercentage(int numerical)
+        {
+            return (float) (Mathf.Clamp(numerical, 0, 255) / 255f);
+        }
     }
 }

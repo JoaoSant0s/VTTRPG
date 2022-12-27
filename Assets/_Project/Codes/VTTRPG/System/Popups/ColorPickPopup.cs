@@ -15,7 +15,6 @@ using ObjectValues.CoreValues;
 using VTTRPG.Views.Attachment;
 using VTTRPG.ColorWrappers;
 
-
 namespace VTTRPG.InternalPopups
 {
     [RequireComponent(typeof(FocusViewAttachment))]
@@ -53,38 +52,27 @@ namespace VTTRPG.InternalPopups
         [SerializeField]
         private Button closeButton;
 
+        public bool IsToSaveValue { get; private set; }
 
         private ColorValue colorValue;
-        private bool isToSaveValue;
-        private Color startColor;
-
-        private Action onValueUpdated;
 
         #region Public Methods
 
-        public void Init(ColorValue fieldViewValue, Action OnValueUpdated)
+        public void Init(ColorValue fieldViewValue)
         {
             this.colorValue = fieldViewValue;
-            this.onValueUpdated = OnValueUpdated;
-            this.startColor = fieldViewValue.value;
 
             ModifyVisual();
             AddListeners();
         }
 
-        #endregion
+        #endregion        
 
         #region Protected Methods
 
         protected override void BeforeClose()
         {
-            if (this.isToSaveValue)
-            {
-                this.onValueUpdated?.Invoke();
-                return;
-            }
-
-            colorValue.ModifyValueIfNew(this.startColor);
+            this.colorValue.OnChanged -= ValueChanged;
         }
 
         #endregion
@@ -93,10 +81,24 @@ namespace VTTRPG.InternalPopups
 
         private void ModifyVisual()
         {
-            this.hexadecimalInputField.text = colorValue.value.ToHex();
-            this.lastSelectedColor.color = colorValue.value;
-            this.newSelectedColor.color = colorValue.value;
+            ModifyStartInfo();
+            ModifyMutableInfo();
+            ModifyComponents();
+        }
 
+        private void ModifyStartInfo()
+        {
+            this.lastSelectedColor.color = colorValue.value;
+        }
+
+        private void ModifyMutableInfo()
+        {
+            this.hexadecimalInputField.text = colorValue.value.ToHex();
+            this.newSelectedColor.color = colorValue.value;
+        }
+
+        private void ModifyComponents()
+        {
             this.redComponent.Value = ColorWrapper.PercentageToNumerical(colorValue.value.r);
             this.greenComponent.Value = ColorWrapper.PercentageToNumerical(colorValue.value.g);
             this.blueComponent.Value = ColorWrapper.PercentageToNumerical(colorValue.value.b);
@@ -113,13 +115,29 @@ namespace VTTRPG.InternalPopups
             this.closeButton.onClick.AddListener(Close);
             this.saveButton.onClick.AddListener(() =>
             {
-                this.isToSaveValue = true;
+                IsToSaveValue = true;
                 Close();
             });
 
-            //this.redComponent.OnValueChanged += 
+            this.redComponent.OnValueChanged += (componentValue) => this.colorValue.ModifyRedComponentValue(componentValue);
+            this.greenComponent.OnValueChanged += (componentValue) => this.colorValue.ModifyGreenComponentValue(componentValue);
+            this.blueComponent.OnValueChanged += (componentValue) => this.colorValue.ModifyBlueComponentValue(componentValue);
+            this.alphaComponent.OnValueChanged += (componentValue) => this.colorValue.ModifyAlphaComponentValue(componentValue);
+            this.hexadecimalInputField.onEndEdit.AddListener(OnHexadecimalEnd);
+            this.colorValue.OnChanged += ValueChanged;
+        }
 
-            this.colorValue.OnChanged += (newColor, previousColor) => {};
+        private void OnHexadecimalEnd(string hexadecimalColor)
+        {
+            if (!ColorWrapper.HexToColor(hexadecimalColor, out Color color, this.alphaComponent.Value)) return;
+            this.colorValue.ModifyValueIfNew(color);
+
+        }
+
+        private void ValueChanged(Color newColor, Color previousColor)
+        {
+            ModifyMutableInfo();
+            ModifyComponents();
         }
 
         #endregion
@@ -138,6 +156,8 @@ namespace VTTRPG.InternalPopups
 
         private int componentValue;
 
+        private float PercentageValue => ColorWrapper.NumericalToPercentage(Value);
+
         public int Value
         {
             get => componentValue;
@@ -154,13 +174,14 @@ namespace VTTRPG.InternalPopups
             this.slider.onValueChanged.AddListener((newValue) =>
             {
                 Value = (int)newValue;
-                OnValueChanged?.Invoke(Value);
+
+                OnValueChanged?.Invoke(PercentageValue);
             });
 
             this.inputField.onEndEdit.AddListener((newValue) =>
             {
                 Value = (int)Mathf.Clamp(int.Parse(newValue), 0, 255);
-                OnValueChanged?.Invoke(Value);
+                OnValueChanged?.Invoke(PercentageValue);
             });
         }
     }

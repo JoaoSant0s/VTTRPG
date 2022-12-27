@@ -22,6 +22,16 @@ namespace VTTRPG.Views
         private Image selectedColorImage;
 
         private ColorPickPopup colorPickPopup;
+        private Color startColor;
+
+        #region Unity Methods
+
+        private void OnDestroy()
+        {
+            this.fieldViewValue.OnChanged -= ValueChanged;
+        }
+
+        #endregion
 
         #region Protected Override Methods
 
@@ -33,6 +43,8 @@ namespace VTTRPG.Views
         public override void PopulateValue(ColorValue parameterValue)
         {
             base.PopulateValue(parameterValue);
+
+            this.fieldViewValue.OnChanged += ValueChanged;
 
             ModifyVisual();
         }
@@ -49,12 +61,34 @@ namespace VTTRPG.Views
         private void ShowColorPickPopup()
         {
             if (this.colorPickPopup != null) return;
+            this.startColor = fieldViewValue.value;
 
             this.colorPickPopup = PopupWrapper.Show<ColorPickPopup>();
-            this.colorPickPopup.Init(fieldViewValue, OnValueUpdated);
-            this.colorPickPopup.OnBeforeClose += () => this.colorPickPopup = null;
+            this.colorPickPopup.Init(fieldViewValue);
+            this.colorPickPopup.OnBeforeClose += BeforeCloseColorPickPopup;
 
             OnColorPickPopupAppeared?.Invoke(this.colorPickPopup);
+        }
+
+        private void BeforeCloseColorPickPopup()
+        {
+            if (this.colorPickPopup == null) return;
+
+            if (this.colorPickPopup.IsToSaveValue)
+            {
+                OnValueUpdated?.Invoke();
+            }
+            else
+            {
+                fieldViewValue.ModifyValueIfNew(this.startColor);
+            }
+
+            this.colorPickPopup = null;
+        }
+
+        private void ValueChanged(Color newColor, Color previousColor)
+        {
+            ModifyVisual();
         }
 
         #endregion
