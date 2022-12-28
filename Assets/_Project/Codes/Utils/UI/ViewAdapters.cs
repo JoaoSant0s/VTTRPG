@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace VTTRPG.Wrappers
+namespace VTTRPG.UIWrappers
 {
     public static class ViewAdapters
     {

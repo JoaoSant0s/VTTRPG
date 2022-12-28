@@ -9,9 +9,11 @@ using UnityEngine.Events;
 using TMPro;
 
 using JoaoSant0s.ServicePackage.Popups;
+using VTTRPG.Views.Attachment;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
+    [RequireComponent(typeof(InputPopupAttachment))]
     public class ConfirmPopup : Popup
     {
         [Header("Confirm Popup")]
@@ -24,6 +26,22 @@ namespace VTTRPG.CustomPopups
         [SerializeField]
         private TextMeshProUGUI descriptionLabel;
 
+        private InputPopupAttachment inputAttachment;
+
+        #region Unity Methods
+
+        private void Awake()
+        {
+            this.inputAttachment = GetComponent<InputPopupAttachment>();
+        }
+
+        private IEnumerator Start()
+        {
+            yield return null;
+            this.inputAttachment.closeInputEnabled = true;
+        }
+
+        #endregion
 
         #region Public Methods
 

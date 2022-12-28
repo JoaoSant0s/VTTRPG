@@ -5,10 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using TMPro;
+using NaughtyAttributes;
 
 using JoaoSant0s.ServicePackage.General;
 
-using VTTRPG.CustomPopups;
+using VTTRPG.InternalPopups;
 using VTTRPG.CustomServices;
 using VTTRPG.Objects;
 using VTTRPG.Assets;
@@ -26,16 +27,24 @@ namespace VTTRPG.Views
         [Header("Views", order = 3)]
 
         [SerializeField]
+        private Image sheetBackground;
+
+        [SerializeField]
         private TextMeshProUGUI characterNameLabel;
 
+        [BoxGroup("Buttons")]
         [SerializeField]
         private Button openCharacterSheetButton;
 
+        [BoxGroup("Buttons")]
         [SerializeField]
         private Button deleteButton;
 
-        private CharacterSheetObject characterSheet;
+        [BoxGroup("Buttons")]
+        [SerializeField]
+        private Button dubplicateButton;
 
+        private CharacterSheetObject characterSheet;
         private CustomSaveService saveService;
         private CustomPopupService customPopupService;
 
@@ -50,6 +59,7 @@ namespace VTTRPG.Views
         private void OnDisable()
         {
             this.characterSheet.characterName.OnChanged -= ModifyCharacterName;
+            this.characterSheet.sheetColor.OnChanged -= ModifySheetColor;
         }
 
         #endregion
@@ -69,6 +79,7 @@ namespace VTTRPG.Views
 
         private void AddListeners()
         {
+            this.dubplicateButton.onClick.AddListener(DuplicateCharacterSheet);
             this.deleteButton.onClick.AddListener(ShowDeletePopup);
             this.openCharacterSheetButton.onClick.AddListener(() =>
             {
@@ -76,6 +87,13 @@ namespace VTTRPG.Views
             });
 
             this.characterSheet.characterName.OnChanged += ModifyCharacterName;
+            this.characterSheet.sheetColor.OnChanged += ModifySheetColor;
+        }
+
+        private void DuplicateCharacterSheet()
+        {
+            var nextIndex = this.saveService.GetCharacterSheetIndex(this.characterSheet) + 1;
+            this.saveService.AddCharacterSheet(this.characterSheet.MakeCopy(), nextIndex);
         }
 
         private void ShowDeletePopup()
@@ -84,7 +102,6 @@ namespace VTTRPG.Views
             {
                 ForceClosePopup();
                 this.saveService.RemoveCharacterSheet(this.characterSheet);
-                this.saveService.SaveData();
             }, (RectTransform)transform);
         }
 
@@ -96,11 +113,17 @@ namespace VTTRPG.Views
         private void PopulateVisual()
         {
             ModifyCharacterName(characterSheet.characterName.value);
+            ModifySheetColor(characterSheet.sheetColor.value, Color.black);
         }
 
         private void ModifyCharacterName(string name, string previousName = null)
         {
             this.characterNameLabel.text = name;
+        }
+
+        private void ModifySheetColor(Color color, Color previousColor)
+        {
+            this.sheetBackground.color = color;
         }
 
         #endregion

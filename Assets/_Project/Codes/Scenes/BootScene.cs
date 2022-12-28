@@ -11,7 +11,7 @@ using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Scenes;
 
 using VTTRPG.CustomServices;
-using Common.CustomPopups;
+using Common.InternalPopups;
 
 namespace VTTRPG.Scenes
 {
@@ -30,6 +30,7 @@ namespace VTTRPG.Scenes
         private void Awake()
         {
             sceneService = Services.Get<SceneService>();
+            Services.Get<InputService>().EnableActions();
             PopupWrapper.Show<VersionPopup>();
         }
 

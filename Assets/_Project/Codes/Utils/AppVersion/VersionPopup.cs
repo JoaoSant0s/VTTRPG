@@ -7,7 +7,7 @@ using TMPro;
 
 using JoaoSant0s.ServicePackage.Popups;
 
-namespace Common.CustomPopups
+namespace Common.InternalPopups
 {
     public class VersionPopup : Popup
     {
