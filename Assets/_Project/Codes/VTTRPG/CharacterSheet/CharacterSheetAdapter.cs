@@ -5,6 +5,7 @@ using UnityEngine;
 
 using VTTRPG.Data;
 using VTTRPG.Objects;
+using VTTRPG.ValueAdapters;
 
 namespace VTTRPG.Wrappers
 {
@@ -16,6 +17,8 @@ namespace VTTRPG.Wrappers
 
             characterObject.rpgId = data.rpgId;
             characterObject.characterName = data.characterName;
+            characterObject.characterResume = data.characterResume ?? characterObject.characterResume;
+            characterObject.sheetColor = ValueAdapter.ToColorValue(data.sheetColor) ?? characterObject.sheetColor;
             characterObject.intValuesCollections = data.intValuesCollections.ToDictionary(key => key.key, value => value.values);
 
             return characterObject;
@@ -27,6 +30,8 @@ namespace VTTRPG.Wrappers
 
             characterData.rpgId = characterSheetObject.rpgId;
             characterData.characterName = characterSheetObject.characterName;
+            characterData.characterResume = characterSheetObject.characterResume;
+            characterData.sheetColor = ValueAdapter.ToStringValue(characterSheetObject.sheetColor); ;
             characterData.intValuesCollections = characterSheetObject.intValuesCollections.Select(characterSheet => new IntValuesCollectionsSave() { key = characterSheet.Key, values = characterSheet.Value }).ToList();
 
             return characterData;

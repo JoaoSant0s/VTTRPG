@@ -42,15 +42,26 @@ namespace VTTRPG.CustomServices
             this.saveService.Set<CharacterSheetDataCollection>(this.config.characterSheetsKey, save);
         }
 
-        public void AddCharacterSheet(CharacterSheetObject characterSheet)
+        public int GetCharacterSheetIndex(CharacterSheetObject characterSheet)
         {
-            this.characterSheets.Add(characterSheet);
+            return this.characterSheets.IndexOf(characterSheet);
+        }
+
+        public void AddCharacterSheet(CharacterSheetObject characterSheet, int indexPosition = -1)
+        {
+            if (indexPosition < 0)
+                this.characterSheets.Add(characterSheet);
+            else
+                this.characterSheets.Insert(indexPosition, characterSheet);
+
+            SaveData();
             OnCharactersSheetModified?.Invoke();
         }
 
         public void RemoveCharacterSheet(CharacterSheetObject characterSheet)
         {
             this.characterSheets.Remove(characterSheet);
+            SaveData();
             OnCharactersSheetModified?.Invoke();
         }
 

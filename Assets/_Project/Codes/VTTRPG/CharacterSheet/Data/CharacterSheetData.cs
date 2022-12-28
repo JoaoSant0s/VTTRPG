@@ -14,9 +14,19 @@ namespace VTTRPG.Data
     {
         public string rpgId;
 
+        #region Character Sheet Header Configs
+
         public StringValue characterName;
+        public StringValue characterResume;
+        public StringValue sheetColor;
+
+        #endregion
+
+        #region Character Sheet Body Configs
 
         public List<IntValuesCollectionsSave> intValuesCollections;
+
+        #endregion
 
         public CharacterSheetData() { }
     }

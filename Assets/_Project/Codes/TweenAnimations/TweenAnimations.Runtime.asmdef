@@ -2,7 +2,8 @@
     "name": "TweenAnimations.Runtime",
     "rootNamespace": "",
     "references": [
-        "GUID:776d03a35f1b52c4a9aed9f56d7b4229"
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
+        "GUID:86aeaf5dae2db4f4d9c8a3df49fd1c62"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

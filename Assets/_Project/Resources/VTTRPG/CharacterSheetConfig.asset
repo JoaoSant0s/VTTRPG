@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: CharacterSheetConfig
   m_EditorClassIdentifier: 
   characterNameKey: character_name
+  defaultCharacterName: Default Name
+  characterResumeKey: character_resume
+  defaultCharacterResume: Default Resume
+  sheetColorKey: sheet_color
+  defaultSheetColor: {r: 1, g: 0, b: 1, a: 1}

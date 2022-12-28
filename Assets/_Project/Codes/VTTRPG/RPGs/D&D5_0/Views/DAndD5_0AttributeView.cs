@@ -10,6 +10,7 @@ using TMPro;
 using ObjectValues.CoreValues;
 
 using VTTRPG.Assets;
+using VTTRPG.UIWrappers;
 using VTTRPG.Wrappers;
 
 namespace VTTRPG.Views
@@ -27,8 +28,6 @@ namespace VTTRPG.Views
         [SerializeField]
         private TMP_InputField attributeInputField;
 
-        private IntValue attributeValue;
-
         private PropertyAsset property;
 
         public string PropertyId => property.Id;
@@ -42,8 +41,8 @@ namespace VTTRPG.Views
 
         public override void PopulateValue(IntValue value)
         {
-            IsValidInput = true;
-            this.attributeValue = value;
+            base.PopulateValue(value);
+            IsValidInput = true;            
             ModifyVisual();
         }
 
@@ -63,8 +62,8 @@ namespace VTTRPG.Views
 
         protected override void ModifyVisual()
         {
-            attributeInputField.text = $"{this.attributeValue.value}";
-            ModifyModificatorView(this.attributeValue.value);
+            attributeInputField.text = $"{this.fieldViewValue.value}";
+            ModifyModificatorView(this.fieldViewValue.value);
         }
 
         #endregion
@@ -75,7 +74,7 @@ namespace VTTRPG.Views
         {
             if (!ValidateAttributeValue(newValue, out int newScore)) return;
 
-            attributeValue.ModifyValue(newScore);
+            this.fieldViewValue.ModifyValue(newScore);
             ModifyVisual();
             OnValueUpdated?.Invoke();
         }
@@ -85,7 +84,7 @@ namespace VTTRPG.Views
             newScore = string.IsNullOrEmpty(newValue) ? 0 : int.Parse(newValue);
             if (newScore < 1 || newScore > 30)
             {
-                attributeInputField.text = $"{attributeValue.value}";
+                attributeInputField.text = $"{this.fieldViewValue.value}";
                 return false;
             }
 

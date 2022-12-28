@@ -13,17 +13,52 @@ namespace VTTRPG.Objects
     public class CharacterSheetObject
     {
         public string rpgId;
+
+        #region Character Sheet Header Configs
+
         public StringValue characterName;
+        public StringValue characterResume;
+        public ColorValue sheetColor;
+
+        #endregion
+
+        #region Character Sheet Body Configs
+
         public Dictionary<string, List<IntValue>> intValuesCollections;
 
-        public CharacterSheetObject() { }
+        #endregion
 
-        public CharacterSheetObject(string rpgId)
+        public CharacterSheetObject()
         {
             var generalConfig = Services.Get<RPGContentService>().GetCharacterSheetConfig();
-            this.rpgId = rpgId;
+
             this.characterName = new StringValue(generalConfig.characterNameKey, generalConfig.defaultCharacterName);
+            this.characterResume = new StringValue(generalConfig.characterResumeKey, generalConfig.defaultCharacterResume);
+            this.sheetColor = new ColorValue(generalConfig.sheetColorKey, generalConfig.defaultSheetColor);
             this.intValuesCollections = new Dictionary<string, List<IntValue>>();
+        }
+
+        public CharacterSheetObject(string rpgId) : this()
+        {
+            this.rpgId = rpgId;
+        }
+
+        public CharacterSheetObject MakeCopy()
+        {
+            var copy = new CharacterSheetObject(this.rpgId);
+
+            copy.characterName = new StringValue(this.characterName.id, $"Copy of {this.characterName.value}");
+            copy.characterResume = new StringValue(this.characterResume.id, this.characterResume.value);
+            copy.sheetColor = new ColorValue(this.sheetColor.id, this.sheetColor.value);
+            copy.intValuesCollections = new Dictionary<string, List<IntValue>>();
+
+            foreach (var item in this.intValuesCollections)
+            {
+                var values = item.Value.Select(item => new IntValue(item.id, item.value)).ToList();
+                copy.intValuesCollections.Add(item.Key, values);
+            }
+
+            return copy;
         }
 
         public List<IntValue> GetOrCreateIntValues(string key)

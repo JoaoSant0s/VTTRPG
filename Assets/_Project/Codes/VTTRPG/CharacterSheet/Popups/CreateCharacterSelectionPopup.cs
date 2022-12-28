@@ -10,9 +10,10 @@ using TMPro;
 using JoaoSant0s.ServicePackage.Popups;
 using JoaoSant0s.ServicePackage.General;
 
+using Common.TweenAnimations;
 using VTTRPG.CustomServices;
 
-namespace VTTRPG.CustomPopups
+namespace VTTRPG.InternalPopups
 {
     public class CreateCharacterSelectionPopup : Popup
     {
@@ -27,7 +28,6 @@ namespace VTTRPG.CustomPopups
         private Button closeButton;
 
         private CustomPopupService customPopupService;
-
         private RPGContentService contentService;
 
         #region Unity Methods

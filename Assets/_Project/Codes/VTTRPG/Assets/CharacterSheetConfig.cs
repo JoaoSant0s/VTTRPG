@@ -10,5 +10,11 @@ namespace VTTRPG.Assets
     {
         public string characterNameKey = "character_name";
         public string defaultCharacterName = "Default Name";
+
+        public string characterResumeKey = "character_resume";
+        public string defaultCharacterResume = "Default Resume";
+
+        public string sheetColorKey = "sheet_color";
+        public Color defaultSheetColor;
     }
 }
