@@ -26,6 +26,9 @@ namespace VTTRPG.InternalPopups
         [SerializeField]
         private ButtonColorFieldView buttonColorFieldView;
 
+        [SerializeField]
+        private MultiStringFieldView multiStringFieldView;
+
         [Header("References", order = 4)]
 
         [SerializeField]
@@ -73,6 +76,7 @@ namespace VTTRPG.InternalPopups
         private void PopulateValues()
         {
             this.stringFieldView.PopulateValue(this.characterSheetObject.characterName);
+            this.multiStringFieldView.PopulateValue(this.characterSheetObject.characterResume);
             this.buttonColorFieldView.PopulateValue(this.characterSheetObject.sheetColor);
             ModifySheetColor(this.characterSheetObject.sheetColor.value, Color.black);
 
@@ -92,10 +96,12 @@ namespace VTTRPG.InternalPopups
         {
             this.stringFieldView.AddListeners();
             this.buttonColorFieldView.AddListeners();
+            this.multiStringFieldView.AddListeners();
             this.buttonColorFieldView.OnColorPickPopupAppeared += ShowColorPickPopup;
             this.buttonColorFieldView.OnValueUpdated += SaveCharacterSheet;
 
             this.stringFieldView.OnValueUpdated += SaveCharacterSheet;
+            this.multiStringFieldView.OnValueUpdated += SaveCharacterSheet;
             this.characterSheetObject.sheetColor.OnChanged += ModifySheetColor;
 
             foreach (var attributeView in this.attributeViews)

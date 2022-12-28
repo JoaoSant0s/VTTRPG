@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using NaughtyAttributes;
 using TMPro;
 
 using ObjectValues.CoreValues;
@@ -13,11 +14,14 @@ namespace VTTRPG.Views
 {
     public class StringFieldView : CustomFieldView<StringValue>
     {
-        [Header("TMProFields", order = 2)]
+        [Header("String FieldView")]
+        [SerializeField]
+        private TMP_InputField stringInputField;
 
         [SerializeField]
-        private TMP_InputField characterNameInputField;
+        private bool hasErrorLabel = true;
 
+        [ShowIf(nameof(hasErrorLabel))]
         [SerializeField]
         private TextMeshProUGUI errorLabel;
 
@@ -25,20 +29,20 @@ namespace VTTRPG.Views
 
         public override void AddListeners()
         {
-            this.characterNameInputField.onEndEdit.AddListener(OnValueChanged);
+            this.stringInputField.onEndEdit.AddListener(OnValueChanged);
         }
 
         public override void PopulateValue(StringValue fieldViewValue)
         {
             base.PopulateValue(fieldViewValue);
-        
+
             MakeValid(true);
             ModifyVisual();
         }
 
         protected override void ModifyVisual()
         {
-            this.characterNameInputField.text = this.fieldViewValue.value;
+            this.stringInputField.text = this.fieldViewValue.value;
         }
 
         #endregion
@@ -57,7 +61,7 @@ namespace VTTRPG.Views
         private bool ValidateNameValue(string value, out string newValue)
         {
             newValue = value;
-            if (string.IsNullOrEmpty(value))
+            if (hasErrorLabel && string.IsNullOrEmpty(value))
             {
                 errorLabel.text = "The character name must be not empty";
                 MakeValid(false);
@@ -70,6 +74,7 @@ namespace VTTRPG.Views
 
         private void MakeValid(bool value)
         {
+            if (!hasErrorLabel) return;
             IsValidInput = value;
             errorLabel.gameObject.SetActive(!value);
         }
