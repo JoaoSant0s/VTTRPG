@@ -8,7 +8,6 @@ using JoaoSant0s.ServicePackage.General;
 using VTTRPG.CustomServices;
 using VTTRPG.Assets;
 using VTTRPG.Objects;
-using VTTRPG.Views;
 using VTTRPG.Views.Attachment;
 
 namespace VTTRPG.InternalPopups

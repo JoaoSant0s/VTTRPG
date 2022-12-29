@@ -10,7 +10,6 @@ using TMPro;
 using JoaoSant0s.ServicePackage.Popups;
 using JoaoSant0s.ServicePackage.General;
 
-using Common.TweenAnimations;
 using VTTRPG.CustomServices;
 
 namespace VTTRPG.InternalPopups

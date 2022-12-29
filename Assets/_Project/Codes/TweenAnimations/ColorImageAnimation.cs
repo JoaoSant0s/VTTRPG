@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 using DG.Tweening;
 
-
 namespace Common.TweenAnimations
 {
     [RequireComponent(typeof(Image))]

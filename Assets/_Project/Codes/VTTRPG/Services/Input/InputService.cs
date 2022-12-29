@@ -6,8 +6,9 @@ using UnityEngine.InputSystem;
 
 using JoaoSant0s.ServicePackage.General;
 using JoaoSant0s.ServicePackage.Canvases;
-using VTTRPG.Inputs;
 using JoaoSant0s.ServicePackage.Popups;
+
+using VTTRPG.Inputs;
 using VTTRPG.InternalPopups;
 using VTTRPG.Views.Attachment;
 
