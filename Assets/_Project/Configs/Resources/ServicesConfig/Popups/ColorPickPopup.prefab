@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 3230298831172543374}
   - component: {fileID: 4663286312724431966}
   - component: {fileID: 6287862482681122329}
+  - component: {fileID: 2136613985888721975}
   m_Layer: 5
   m_Name: ColorPickPopup
   m_TagString: Untagged
@@ -1164,6 +1165,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeInputEnabled: 1
+--- !u!114 &2136613985888721975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293692673449583239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e080635bbd2ede6458389bd9696cc54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoRun: 1
+  tweenerParameters:
+    usingCustomEase: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.44870222
+        value: 1.0787807
+        inSlope: 0.7351885
+        outSlope: 0.7351885
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7724997
+        value: 0.8821878
+        inSlope: -0.5108215
+        outSlope: -0.5108215
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ease: 30
+    setRelative: 0
+    isFrom: 0
+  sequenceParameters:
+    loops: 0
+    loopType: 0
+    startInterval: 0
+    endInterval: 0
+  startValue: {x: 0.25, y: 0.25, z: 1}
+  endValue: {x: 1, y: 1, z: 1}
+  duration: 0.3
 --- !u!1 &2440361614984971128
 GameObject:
   m_ObjectHideFlags: 0

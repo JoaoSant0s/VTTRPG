@@ -438,7 +438,7 @@ MonoBehaviour:
     endInterval: 0
   startValue: {x: 0.25, y: 0.25, z: 1}
   endValue: {x: 1, y: 1, z: 1}
-  duration: 0.4
+  duration: 0.3
 --- !u!1 &5548512337349929831
 GameObject:
   m_ObjectHideFlags: 0

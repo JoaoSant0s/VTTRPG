@@ -1,18 +1,24 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using JoaoSant0s.ServicePackage.General;
-using NaughtyAttributes;
-using TMPro;
+
 using UnityEngine;
+
+using TMPro;
 using UnityEngine.UI;
+
+using Common.TweenAnimations;
+using JoaoSant0s.ServicePackage.General;
+
 using VTTRPG.Assets;
 using VTTRPG.CustomServices;
 using VTTRPG.InternalPopups;
 using VTTRPG.Objects;
+using VTTRPG.Wrappers;
 
 namespace VTTRPG.Views
 {
+    [RequireComponent(typeof(ScaleAnimation))]
     public abstract class CharacterSheetResumeView : MonoBehaviour
     {
         [Header("Character Resume View", order = 1)]
@@ -40,7 +46,14 @@ namespace VTTRPG.Views
         protected CustomSaveService saveService;
         protected CustomPopupService customPopupService;
 
+        private ScaleAnimation scaleAnimation;
+
         #region Unity Methods
+
+        private void Awake()
+        {
+            this.scaleAnimation = GetComponent<ScaleAnimation>();
+        }
 
         private void Start()
         {
@@ -61,46 +74,15 @@ namespace VTTRPG.Views
         public void Populate(CharacterSheetObject characterSheet)
         {
             this.characterSheet = characterSheet;
+
             PopulateVisual();
             AddListeners();
+            TryShowAnimation();
         }
 
         #endregion
 
-        #region Private Methods
-
-        private void AddListeners()
-        {
-            this.dubplicateButton.onClick.AddListener(DuplicateCharacterSheet);
-            this.deleteButton.onClick.AddListener(ShowDeletePopup);
-            this.openCharacterSheetButton.onClick.AddListener(() =>
-            {
-                this.customPopupService.TryShowCharacterSheetPopup(ViewAsset.characterSheetPrefab, this.characterSheet);
-            });
-
-            this.characterSheet.characterName.OnChanged += ModifyCharacterName;
-            this.characterSheet.sheetColor.OnChanged += ModifySheetColor;
-        }
-
-        private void DuplicateCharacterSheet()
-        {
-            var nextIndex = this.saveService.GetCharacterSheetIndex(this.characterSheet) + 1;
-            this.saveService.AddCharacterSheet(this.characterSheet.MakeCopy(), nextIndex);
-        }
-
-        private void ShowDeletePopup()
-        {
-            this.customPopupService.ShowDeleteCharacterPopup(() =>
-            {
-                ForceClosePopup();
-                this.saveService.RemoveCharacterSheet(this.characterSheet);
-            }, (RectTransform)transform);
-        }
-
-        private void ForceClosePopup()
-        {
-            this.customPopupService.TryClosePopupByCondition<CharacterSheetPopup>((popup) => popup.IsSameCharacterSheet(this.characterSheet));
-        }
+        #region Private Methods     
 
         private void PopulateVisual()
         {
@@ -118,7 +100,48 @@ namespace VTTRPG.Views
             this.sheetBackground.color = color;
         }
 
-        #endregion
+        private void AddListeners()
+        {
+            this.dubplicateButton.onClick.AddListener(DuplicateCharacterSheet);
+            this.deleteButton.onClick.AddListener(ShowDeletePopup);
+            this.openCharacterSheetButton.onClick.AddListener(() =>
+            {
+                this.customPopupService.TryShowCharacterSheetPopup(ViewAsset.characterSheetPrefab, this.characterSheet);
+            });
 
+            this.characterSheet.characterName.OnChanged += ModifyCharacterName;
+            this.characterSheet.sheetColor.OnChanged += ModifySheetColor;
+        }
+
+        private void TryShowAnimation()
+        {
+            if (!CharacterSheetAdapter.RemoveClonedCharacterSheets(this.characterSheet)) return;
+
+            this.scaleAnimation.Run();
+        }
+
+        private void DuplicateCharacterSheet()
+        {
+            var nextIndex = this.saveService.GetCharacterSheetIndex(this.characterSheet) + 1;
+            var copy = this.characterSheet.MakeCopy();
+            CharacterSheetAdapter.AddClonedCharacterSheets(copy);
+            this.saveService.AddCharacterSheet(copy, nextIndex);
+        }
+
+        private void ShowDeletePopup()
+        {
+            this.customPopupService.ShowDeleteCharacterPopup(() =>
+            {
+                ForceClosePopup();
+                this.saveService.RemoveCharacterSheet(this.characterSheet);
+            }, (RectTransform)transform);
+        }
+
+        private void ForceClosePopup()
+        {
+            this.customPopupService.TryClosePopupByCondition<CharacterSheetPopup>((popup) => popup.IsSameCharacterSheet(this.characterSheet));
+        }
+
+        #endregion
     }
 }

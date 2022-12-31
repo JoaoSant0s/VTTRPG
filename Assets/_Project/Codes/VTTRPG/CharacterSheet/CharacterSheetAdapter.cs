@@ -11,6 +11,8 @@ namespace VTTRPG.Wrappers
 {
     public static class CharacterSheetAdapter
     {
+        private static List<CharacterSheetObject> clonedCharacterSheets;
+
         public static CharacterSheetObject ConvertingDataToObject(CharacterSheetData data)
         {
             var characterObject = new CharacterSheetObject();
@@ -35,6 +37,25 @@ namespace VTTRPG.Wrappers
             characterData.intValuesCollections = characterSheetObject.intValuesCollections.Select(characterSheet => new IntValuesCollectionsSave() { key = characterSheet.Key, values = characterSheet.Value }).ToList();
 
             return characterData;
+        }
+
+        public static void AddClonedCharacterSheets(CharacterSheetObject characterSheetObject)
+        {
+            InitializeClonedCharacterSheets();
+            clonedCharacterSheets.Add(characterSheetObject);
+        }
+
+
+        public static bool RemoveClonedCharacterSheets(CharacterSheetObject characterSheetObject)
+        {
+            InitializeClonedCharacterSheets();
+            return clonedCharacterSheets.Remove(characterSheetObject);
+        }
+
+        private static void InitializeClonedCharacterSheets()
+        {
+            if (clonedCharacterSheets != null) return;
+            clonedCharacterSheets = new List<CharacterSheetObject>();
         }
     }
 }
