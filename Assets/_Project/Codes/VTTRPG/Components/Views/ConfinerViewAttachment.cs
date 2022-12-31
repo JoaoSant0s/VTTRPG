@@ -80,7 +80,7 @@ namespace VTTRPG.Views.Attachment
 
         private void CentralizeByInputPoint()
         {
-            if (!this.inputService.UIPoint(canvasId, out Vector2 point)) return;
+            if (!this.inputService.UIPoint(this.canvasId, out Vector2 point)) return;
             this.rectTransform.anchoredPosition = point;
         }
 
