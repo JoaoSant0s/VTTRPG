@@ -6,7 +6,6 @@ using DG.Tweening;
 
 namespace Common.TweenAnimations
 {
-    [RequireComponent(typeof(CanvasGroup))]
     public class FadeAnimation : TweenAnimation
     {
         [Header("Fade Parameters")]
@@ -17,16 +16,10 @@ namespace Common.TweenAnimations
         public float endValue = 1;
         public float duration = 1;
 
+        [Header("Requirements")]
+
+        [SerializeField]
         private CanvasGroup canvasGroup;
-
-        #region Unity Methods
-
-        private void Awake()
-        {
-            this.canvasGroup = GetComponent<CanvasGroup>();
-        }
-
-        #endregion
 
         #region Override Methods
 

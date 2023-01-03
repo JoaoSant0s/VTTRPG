@@ -346,6 +346,7 @@ MonoBehaviour:
   confirmButton: {fileID: 8186934345559060426}
   cancelButton: {fileID: 7747769685092752105}
   descriptionLabel: {fileID: 8489262619770738981}
+  inputAttachment: {fileID: 1710855524362821743}
 --- !u!114 &1710855524362821743
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ using VTTRPG.WrapperPhysics;
 
 namespace VTTRPG.Views.Attachment
 {
-    [RequireComponent(typeof(RectTransform))]
     public class FocusViewAttachment : MonoBehaviour
     {
         private InputService inputService;

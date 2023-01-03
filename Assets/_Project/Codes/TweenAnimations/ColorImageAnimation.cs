@@ -7,7 +7,6 @@ using DG.Tweening;
 
 namespace Common.TweenAnimations
 {
-    [RequireComponent(typeof(Image))]
     public class ColorImageAnimation : TweenAnimation
     {
         [Header("Fade Parameters")]
@@ -16,16 +15,10 @@ namespace Common.TweenAnimations
         public Color endValue;
         public float duration;
 
+        [Header("Requirements")]
+
+        [SerializeField]
         private Image image;
-
-        #region Unity Methods
-
-        private void Awake()
-        {
-            this.image = GetComponent<Image>();
-        }
-
-        #endregion
 
         #region Override Methods
 

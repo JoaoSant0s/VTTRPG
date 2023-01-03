@@ -18,7 +18,6 @@ using VTTRPG.Wrappers;
 
 namespace VTTRPG.Views
 {
-    [RequireComponent(typeof(ScaleAnimation))]
     public abstract class CharacterSheetResumeView : MonoBehaviour
     {
         [Header("Character Resume View", order = 1)]
@@ -40,20 +39,16 @@ namespace VTTRPG.Views
         [SerializeField]
         private Button dubplicateButton;
 
+        [SerializeField]
+        private ScaleAnimation scaleAnimation;
+
         protected abstract RPGViewAsset ViewAsset { get; }
 
         protected CharacterSheetObject characterSheet;
         protected CustomSaveService saveService;
         protected CustomPopupService customPopupService;
 
-        private ScaleAnimation scaleAnimation;
-
         #region Unity Methods
-
-        private void Awake()
-        {
-            this.scaleAnimation = GetComponent<ScaleAnimation>();
-        }
 
         private void Start()
         {

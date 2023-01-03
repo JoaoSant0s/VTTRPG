@@ -13,7 +13,6 @@ using JoaoSant0s.Extensions.RectTransforms;
 
 namespace VTTRPG.Views.Attachment
 {
-    [RequireComponent(typeof(RectTransform))]
     public class ConfinerViewAttachment : MonoBehaviour
     {
         private enum HorizontalConfinerType

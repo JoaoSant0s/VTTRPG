@@ -219,6 +219,7 @@ MonoBehaviour:
   openCharacterSheetButton: {fileID: 8909847443089010677}
   deleteButton: {fileID: 6410188435602850420}
   dubplicateButton: {fileID: 5850567642711820487}
+  scaleAnimation: {fileID: 1878905401167433302}
   viewAsset: {fileID: 11400000, guid: 74d1270176fe39743b2f7c97fd06bf5a, type: 2}
 --- !u!114 &1878905401167433302
 MonoBehaviour:

@@ -13,7 +13,6 @@ using VTTRPG.Views.Attachment;
 
 namespace VTTRPG.InternalPopups
 {
-    [RequireComponent(typeof(InputPopupAttachment))]
     public class ConfirmPopup : Popup
     {
         [Header("Confirm Popup")]
@@ -26,15 +25,10 @@ namespace VTTRPG.InternalPopups
         [SerializeField]
         private TextMeshProUGUI descriptionLabel;
 
+        [SerializeField]
         private InputPopupAttachment inputAttachment;
 
         #region Unity Methods
-
-        private void Awake()
-        {
-            this.inputAttachment = GetComponent<InputPopupAttachment>();
-        }
-
         private IEnumerator Start()
         {
             yield return null;

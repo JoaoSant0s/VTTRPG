@@ -906,6 +906,7 @@ MonoBehaviour:
   startValue: {r: 0.20392157, g: 0.20392157, b: 0.20392157, a: 0}
   endValue: {r: 0.20392157, g: 0.20392157, b: 0.20392157, a: 0.6862745}
   duration: 0.5
+  image: {fileID: 5475612817906442873}
 --- !u!1 &5968446014946684394
 GameObject:
   m_ObjectHideFlags: 0

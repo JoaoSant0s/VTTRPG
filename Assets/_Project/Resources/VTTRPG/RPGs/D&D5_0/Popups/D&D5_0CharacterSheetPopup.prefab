@@ -2916,72 +2916,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6181811721045230218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5475612817906442876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6354a87dbae402a489ed4f870c18bd68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasId: PopupCanvas
-  canvasGroup: {fileID: 1607423446801245022}
-  autoCloseWhenContentLoaded: 1
-  rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
-  closeButton: {fileID: 8923237486489705427}
-  rpgConfig: {fileID: 11400000, guid: 025f8b818750e0e40a3d054e5b206dc8, type: 2}
-  sheetBackground: {fileID: 5475612817906442873}
-  stringFieldView: {fileID: 6006557132396814397}
-  buttonColorFieldView: {fileID: 4096317666004584478}
-  multiStringFieldView: {fileID: 8336138835101241624}
-  attributesArea: {fileID: 8835662104081738461}
---- !u!114 &1979762031587136534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5475612817906442876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66a6aa732dd60904eba07d7ee68566ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closeInputEnabled: 1
---- !u!114 &3965969450211961336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5475612817906442876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace5af876dbec7f4094931ead1f993d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9170106260762993221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5475612817906442876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b095263937dc93448c10d5d45bca705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasId: ScreenCanvas
-  centralizePointWhenAwake: 1
-  verticalTypeWhenAwake: 0
-  verticalOffset: 15
-  horizontalTypeWhenAwake: 2
-  horizontalOffset: 15
 --- !u!114 &1642416232354117883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3014,6 +2948,55 @@ MonoBehaviour:
   startValue: 0
   endValue: 1
   duration: 0.5
+  canvasGroup: {fileID: 1661510415571961335}
+--- !u!114 &1979762031587136534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a6aa732dd60904eba07d7ee68566ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeInputEnabled: 1
+--- !u!114 &3965969450211961336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace5af876dbec7f4094931ead1f993d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6181811721045230218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6354a87dbae402a489ed4f870c18bd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasId: PopupCanvas
+  canvasGroup: {fileID: 1607423446801245022}
+  autoCloseWhenContentLoaded: 1
+  rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
+  closeButton: {fileID: 8923237486489705427}
+  rpgConfig: {fileID: 11400000, guid: 025f8b818750e0e40a3d054e5b206dc8, type: 2}
+  sheetBackground: {fileID: 5475612817906442873}
+  stringFieldView: {fileID: 6006557132396814397}
+  buttonColorFieldView: {fileID: 4096317666004584478}
+  multiStringFieldView: {fileID: 8336138835101241624}
+  attributesArea: {fileID: 8835662104081738461}
 --- !u!114 &8122778054950737497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3082,6 +3065,24 @@ MonoBehaviour:
   startValue: {x: 0.25, y: 0.25, z: 1}
   endValue: {x: 1, y: 1, z: 1}
   duration: 0.5
+--- !u!114 &9170106260762993221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5475612817906442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b095263937dc93448c10d5d45bca705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasId: ScreenCanvas
+  centralizePointWhenAwake: 1
+  verticalTypeWhenAwake: 0
+  verticalOffset: 15
+  horizontalTypeWhenAwake: 2
+  horizontalOffset: 15
 --- !u!1 &5876120227668329788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5961735822115847175, guid: 34d030373ca310648920771ffc2d2964, type: 3}
