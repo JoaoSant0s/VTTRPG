@@ -2928,7 +2928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90f62b39c11adb4ba51b3f60a7aee74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoRun: 1
+  autoRun: 0
   tweenerParameters:
     usingCustomEase: 0
     curve:
@@ -2987,6 +2987,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasId: PopupCanvas
+  openAnimation: 2
+  closeAnimation: 2
+  scaleAnimation: {fileID: 8122778054950737497}
+  fadeAnimation: {fileID: 1642416232354117883}
   canvasGroup: {fileID: 1607423446801245022}
   autoCloseWhenContentLoaded: 1
   rpgAsset: {fileID: 11400000, guid: 0c062f41e22cdca4382e0b195fb04619, type: 2}
@@ -3009,7 +3013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e080635bbd2ede6458389bd9696cc54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoRun: 1
+  autoRun: 0
   tweenerParameters:
     usingCustomEase: 1
     curve:
@@ -3025,8 +3029,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.44870222
-        value: 1.0787807
+        time: 0.41120932
+        value: 1.0271454
         inSlope: 0.7351885
         outSlope: 0.7351885
         tangentMode: 0
@@ -3034,8 +3038,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7724997
-        value: 0.8821878
+        time: 0.7224966
+        value: 0.9596414
         inSlope: -0.5108215
         outSlope: -0.5108215
         tangentMode: 0
@@ -3054,7 +3058,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ease: 30
+    ease: 9
     setRelative: 0
     isFrom: 0
   sequenceParameters:
@@ -3062,7 +3066,7 @@ MonoBehaviour:
     loopType: 0
     startInterval: 0
     endInterval: 0
-  startValue: {x: 0.25, y: 0.25, z: 1}
+  startValue: {x: 0.2, y: 0.2, z: 1}
   endValue: {x: 1, y: 1, z: 1}
   duration: 0.5
 --- !u!114 &9170106260762993221

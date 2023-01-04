@@ -8,9 +8,9 @@ using VTTRPG.CustomServices;
 
 namespace VTTRPG.InternalPopups
 {
-    public abstract class ContentPopup : Popup
+    public abstract class ContentPopup : AnimationPopup
     {
-        [Header("Base Content Popup")]
+        [Header("Content Popup")]
         [SerializeField]
         protected CanvasGroup canvasGroup;
 
@@ -25,14 +25,17 @@ namespace VTTRPG.InternalPopups
 
         #region Unity Methods
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             isContentLoaded = false;
             SetContentInvisible();
         }
 
-        protected virtual void Start()
+        protected override void Start()
         {
+            base.Start();
+
             if (!autoCloseWhenContentLoaded) return;
             StartCoroutine(WaitToMakeContentVisibleRoutine());
         }

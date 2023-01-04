@@ -54,6 +54,21 @@ namespace Common.TweenAnimations
 
         #region Public Methods
 
+        public void SetUsingCustomEase(bool usingCustomEase)
+        {
+            this.tweenerParameters.usingCustomEase = usingCustomEase;
+        }
+
+        public void SetIsFrom(bool isFrom)
+        {
+            this.tweenerParameters.isFrom = isFrom;
+        }
+
+        public void Run()
+        {
+            Run(null, null);
+        }
+
         public void Run(Action startCallback = null, Action endCallback = null)
         {
             CompleteTween();
