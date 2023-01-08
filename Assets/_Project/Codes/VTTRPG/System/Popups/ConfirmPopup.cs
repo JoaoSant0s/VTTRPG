@@ -13,7 +13,7 @@ using VTTRPG.Views.Attachment;
 
 namespace VTTRPG.InternalPopups
 {
-    public class ConfirmPopup : Popup
+    public class ConfirmPopup : AnimationPopup
     {
         [Header("Confirm Popup")]
         [SerializeField]

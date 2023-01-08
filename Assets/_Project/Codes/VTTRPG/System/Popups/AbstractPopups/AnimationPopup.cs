@@ -58,12 +58,8 @@ namespace VTTRPG.InternalPopups
         {
             BuildOpenAnimationActions();
             BuildCloseAnimationActions();
-        }
 
-        protected virtual void Start()
-        {
             Debug.Assert(this.openAnimationActions.ContainsKey(openAnimation), $"Can't find the open animation for the type {openAnimation}");
-
             this.openAnimationActions[openAnimation]?.Invoke();
         }
 

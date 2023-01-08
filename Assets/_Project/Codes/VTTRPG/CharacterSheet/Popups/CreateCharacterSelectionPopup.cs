@@ -37,9 +37,8 @@ namespace VTTRPG.InternalPopups
             customPopupService = Services.Get<CustomPopupService>();
         }
 
-        protected override void Start()
+        private void Start()
         {
-            base.Start();
             PopulateDropdownOptions();
             closeButton.onClick.AddListener(Close);
             nextButton.onClick.AddListener(() =>

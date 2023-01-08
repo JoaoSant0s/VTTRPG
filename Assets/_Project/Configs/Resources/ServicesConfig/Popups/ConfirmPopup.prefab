@@ -343,6 +343,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasId: PopupCanvas
+  openAnimation: 0
+  closeAnimation: 0
+  scaleAnimation: {fileID: 8883692124921368538}
+  fadeAnimation: {fileID: 0}
   confirmButton: {fileID: 8186934345559060426}
   cancelButton: {fileID: 7747769685092752105}
   descriptionLabel: {fileID: 8489262619770738981}
@@ -400,8 +404,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.44870222
-        value: 1.0787807
+        time: 0.41120932
+        value: 1.0271454
         inSlope: 0.7351885
         outSlope: 0.7351885
         tangentMode: 0
@@ -409,8 +413,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7724997
-        value: 0.8821878
+        time: 0.7224966
+        value: 0.9596414
         inSlope: -0.5108215
         outSlope: -0.5108215
         tangentMode: 0
@@ -429,7 +433,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ease: 30
+    ease: 1
     setRelative: 0
     isFrom: 0
   sequenceParameters:
@@ -437,7 +441,7 @@ MonoBehaviour:
     loopType: 0
     startInterval: 0
     endInterval: 0
-  startValue: {x: 0.25, y: 0.25, z: 1}
+  startValue: {x: 0, y: 0, z: 1}
   endValue: {x: 1, y: 1, z: 1}
   duration: 0.3
 --- !u!1 &5548512337349929831

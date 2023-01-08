@@ -32,10 +32,8 @@ namespace VTTRPG.InternalPopups
             SetContentInvisible();
         }
 
-        protected override void Start()
+        protected virtual void Start()
         {
-            base.Start();
-
             if (!autoCloseWhenContentLoaded) return;
             StartCoroutine(WaitToMakeContentVisibleRoutine());
         }
