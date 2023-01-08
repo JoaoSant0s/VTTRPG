@@ -8,7 +8,6 @@ using UnityEngine.Events;
 
 using TMPro;
 
-using JoaoSant0s.ServicePackage.Popups;
 using VTTRPG.Views.Attachment;
 
 namespace VTTRPG.InternalPopups

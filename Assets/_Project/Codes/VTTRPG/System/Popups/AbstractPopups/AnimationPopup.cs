@@ -16,12 +16,20 @@ namespace VTTRPG.InternalPopups
     {
         Scale,
         Fade,
-        ScaleAndFade
+        ScaleAndFade,
+        MoveAnchor
+    }
+
+    public enum MoveAnchorDirection
+    {
+        Top,
+        Bottom,
+        Left,
+        Right
     }
 
     public abstract class AnimationPopup : Popup
     {
-
         public event Action OnStartCloseAnimation;
 
         [Header("Animation Popup")]
@@ -29,7 +37,20 @@ namespace VTTRPG.InternalPopups
         private PopupAnimationType openAnimation;
 
         [SerializeField]
+        [ShowIf(nameof(OpenUsingMoveAnchorAnimation))]
+        private MoveAnchorDirection openMoveDirection;
+        [Space]
+
+        [SerializeField]
         private PopupAnimationType closeAnimation;
+
+        [SerializeField]
+        [ShowIf(nameof(CloseUsingMoveAnchorAnimation))]
+        private MoveAnchorDirection closeMoveDirection;
+
+        [Space]
+
+        [Header("Animations")]
 
         [SerializeField]
         [ShowIf(nameof(UsingScaleAnimation))]
@@ -38,6 +59,14 @@ namespace VTTRPG.InternalPopups
         [SerializeField]
         [ShowIf(nameof(UsingFadeAnimation))]
         private FadeAnimation fadeAnimation;
+
+        [SerializeField]
+        [ShowIf(nameof(UsingMoveAnchorAnimation))]
+        private MoveAnchorAnimation moveAnchorMinAnimation;
+        
+        [SerializeField]
+        [ShowIf(nameof(UsingMoveAnchorAnimation))]
+        private MoveAnchorAnimation moveAnchorMaxAnimation;
 
         private bool UsingScaleAnimation => this.closeAnimation == PopupAnimationType.Scale
                                         || this.openAnimation == PopupAnimationType.Scale
@@ -49,6 +78,13 @@ namespace VTTRPG.InternalPopups
 
         private bool UsingScaleAndFadeAnimation => this.closeAnimation == PopupAnimationType.ScaleAndFade
                                         || this.openAnimation == PopupAnimationType.ScaleAndFade;
+
+        private bool UsingMoveAnchorAnimation => OpenUsingMoveAnchorAnimation || CloseUsingMoveAnchorAnimation;
+
+        private bool CloseUsingMoveAnchorAnimation => this.closeAnimation == PopupAnimationType.MoveAnchor;
+
+        private bool OpenUsingMoveAnchorAnimation => this.openAnimation == PopupAnimationType.MoveAnchor;
+
         protected bool closing;
 
         private Dictionary<PopupAnimationType, Action> openAnimationActions;
