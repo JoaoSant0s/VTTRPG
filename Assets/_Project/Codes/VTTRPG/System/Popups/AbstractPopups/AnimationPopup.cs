@@ -21,6 +21,9 @@ namespace VTTRPG.InternalPopups
 
     public abstract class AnimationPopup : Popup
     {
+
+        public event Action OnStartCloseAnimation;
+
         [Header("Animation Popup")]
         [SerializeField]
         private PopupAnimationType openAnimation;
@@ -73,7 +76,13 @@ namespace VTTRPG.InternalPopups
             if (this.closing) return;
             this.closing = true;
 
+            OnStartCloseAnimation?.Invoke();
             this.closeAnimationAction[closeAnimation]?.Invoke(base.Close);
+        }
+
+        public void ForceClose()
+        {
+            base.Close();
         }
 
         #endregion

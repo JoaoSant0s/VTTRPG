@@ -119,9 +119,9 @@ namespace VTTRPG.InternalPopups
 
         private void ShowColorPickPopup(ColorPickPopup colorPickPopup)
         {
-            OnBeforeClose += () =>
+            OnStartCloseAnimation += () =>
             {
-                if (colorPickPopup != null) colorPickPopup.Close();
+                if (colorPickPopup != null) colorPickPopup.ForceClose();
             };
         }
 
