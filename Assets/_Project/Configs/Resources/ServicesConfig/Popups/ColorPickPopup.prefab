@@ -1092,6 +1092,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasId: PopupOverlayCanvas
+  openAnimation: 0
+  closeAnimation: 0
+  scaleAnimation: {fileID: 2136613985888721975}
+  fadeAnimation: {fileID: 0}
   lastSelectedColor: {fileID: 4008099196062475537}
   newSelectedColor: {fileID: 7894664164908547220}
   hexadecimalInputField: {fileID: 4391069493972435250}
@@ -1177,7 +1181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e080635bbd2ede6458389bd9696cc54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoRun: 1
+  autoRun: 0
   tweenerParameters:
     usingCustomEase: 1
     curve:
@@ -1193,8 +1197,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.44870222
-        value: 1.0787807
+        time: 0.41120932
+        value: 1.0271454
         inSlope: 0.7351885
         outSlope: 0.7351885
         tangentMode: 0
@@ -1202,8 +1206,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7724997
-        value: 0.8821878
+        time: 0.7224966
+        value: 0.9596414
         inSlope: -0.5108215
         outSlope: -0.5108215
         tangentMode: 0
@@ -1222,7 +1226,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ease: 30
+    ease: 1
     setRelative: 0
     isFrom: 0
   sequenceParameters:
@@ -1230,7 +1234,7 @@ MonoBehaviour:
     loopType: 0
     startInterval: 0
     endInterval: 0
-  startValue: {x: 0.25, y: 0.25, z: 1}
+  startValue: {x: 0, y: 0, z: 1}
   endValue: {x: 1, y: 1, z: 1}
   duration: 0.3
 --- !u!1 &2440361614984971128

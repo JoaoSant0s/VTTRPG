@@ -7,14 +7,13 @@ using UnityEngine.UI;
 
 using TMPro;
 
-using JoaoSant0s.ServicePackage.Popups;
 using JoaoSant0s.ServicePackage.General;
 
 using VTTRPG.CustomServices;
 
 namespace VTTRPG.InternalPopups
 {
-    public class CreateCharacterSelectionPopup : Popup
+    public class CreateCharacterSelectionPopup : AnimationPopup
     {
         [Header("PlayerOverview Popup")]
         [SerializeField]
@@ -31,14 +30,16 @@ namespace VTTRPG.InternalPopups
 
         #region Unity Methods
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             contentService = Services.Get<RPGContentService>();
             customPopupService = Services.Get<CustomPopupService>();
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             PopulateDropdownOptions();
             closeButton.onClick.AddListener(Close);
             nextButton.onClick.AddListener(() =>

@@ -87,9 +87,9 @@ namespace VTTRPG.InternalPopups
         private void BuildOpenAnimationActions()
         {
             this.openAnimationActions = new Dictionary<PopupAnimationType, Action>();
-            this.openAnimationActions.Add(PopupAnimationType.Scale, scaleAnimation.Run);
-            this.openAnimationActions.Add(PopupAnimationType.Fade, fadeAnimation.Run);
-            this.openAnimationActions.Add(PopupAnimationType.ScaleAndFade, () =>
+            if (UsingScaleAnimation) this.openAnimationActions.Add(PopupAnimationType.Scale, scaleAnimation.Run);
+            if (UsingFadeAnimation) this.openAnimationActions.Add(PopupAnimationType.Fade, fadeAnimation.Run);
+            if (UsingScaleAndFadeAnimation) this.openAnimationActions.Add(PopupAnimationType.ScaleAndFade, () =>
             {
                 scaleAnimation.Run();
                 fadeAnimation.Run();
@@ -99,18 +99,18 @@ namespace VTTRPG.InternalPopups
         private void BuildCloseAnimationActions()
         {
             this.closeAnimationAction = new Dictionary<PopupAnimationType, Action<Action>>();
-            this.closeAnimationAction.Add(PopupAnimationType.Scale, (completeAction) =>
+            if (UsingScaleAnimation) this.closeAnimationAction.Add(PopupAnimationType.Scale, (completeAction) =>
             {
                 scaleAnimation.SetUsingCustomEase(false);
                 scaleAnimation.SetIsFrom(true);
                 scaleAnimation.Run(null, completeAction);
             });
-            this.closeAnimationAction.Add(PopupAnimationType.Fade, (completeAction) =>
+            if (UsingFadeAnimation) this.closeAnimationAction.Add(PopupAnimationType.Fade, (completeAction) =>
             {
                 fadeAnimation.SetIsFrom(true);
                 fadeAnimation.Run(null, completeAction);
             });
-            this.closeAnimationAction.Add(PopupAnimationType.ScaleAndFade, (completeAction) =>
+            if (UsingScaleAndFadeAnimation) this.closeAnimationAction.Add(PopupAnimationType.ScaleAndFade, (completeAction) =>
             {
                 scaleAnimation.SetUsingCustomEase(false);
                 scaleAnimation.SetIsFrom(true);

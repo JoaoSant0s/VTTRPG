@@ -9,7 +9,6 @@ using UnityEngine.Events;
 using TMPro;
 
 using JoaoSant0s.Extensions.Colors;
-using JoaoSant0s.ServicePackage.Popups;
 
 using ObjectValues.CoreValues;
 using VTTRPG.Views.Attachment;
@@ -18,7 +17,7 @@ using VTTRPG.ColorWrappers;
 namespace VTTRPG.InternalPopups
 {
     [RequireComponent(typeof(FocusViewAttachment))]
-    public class ColorPickPopup : Popup
+    public class ColorPickPopup : AnimationPopup
     {
         [Header("Color Pick Popup")]
         [SerializeField]
