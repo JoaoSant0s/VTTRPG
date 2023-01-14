@@ -482,7 +482,7 @@ MonoBehaviour:
   type: 0
   startAnchor: {x: 0, y: 1}
   endAnchor: {x: 0, y: 0}
-  duration: 3
+  duration: 0.5
 --- !u!114 &7921987286361164908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
   type: 1
   startAnchor: {x: 1, y: 2}
   endAnchor: {x: 1, y: 1}
-  duration: 3
+  duration: 0.5
 --- !u!1 &5548512337349929831
 GameObject:
   m_ObjectHideFlags: 0
