@@ -345,10 +345,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasId: PopupCanvas
-  openAnimation: 0
-  openMoveDirection: 0
-  closeAnimation: 0
-  closeMoveDirection: 0
+  openAnimation: 3
+  openMoveDirectionFrom: 0
+  closeAnimation: 3
+  closeMoveDirectionTo: 0
   scaleAnimation: {fileID: 8883692124921368538}
   fadeAnimation: {fileID: 0}
   moveAnchorMinAnimation: {fileID: 4520775233560491979}
@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e080635bbd2ede6458389bd9696cc54d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoRun: 1
+  autoRun: 0
   tweenerParameters:
     usingCustomEase: 1
     curve:
@@ -471,8 +471,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ease: 1
-    setRelative: 1
+    ease: 2
+    setRelative: 0
     isFrom: 0
   sequenceParameters:
     loops: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
     startInterval: 0
     endInterval: 0
   type: 0
-  startAnchor: {x: 0, y: 0}
+  startAnchor: {x: 0, y: 1}
   endAnchor: {x: 0, y: 0}
   duration: 3
 --- !u!114 &7921987286361164908
@@ -504,8 +504,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    ease: 1
-    setRelative: 1
+    ease: 2
+    setRelative: 0
     isFrom: 0
   sequenceParameters:
     loops: 0
@@ -513,8 +513,8 @@ MonoBehaviour:
     startInterval: 0
     endInterval: 0
   type: 1
-  startAnchor: {x: 0, y: 0}
-  endAnchor: {x: 0, y: 0}
+  startAnchor: {x: 1, y: 2}
+  endAnchor: {x: 1, y: 1}
   duration: 3
 --- !u!1 &5548512337349929831
 GameObject:

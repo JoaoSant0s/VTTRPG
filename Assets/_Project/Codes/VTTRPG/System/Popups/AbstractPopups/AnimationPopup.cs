@@ -38,7 +38,7 @@ namespace VTTRPG.InternalPopups
 
         [SerializeField]
         [ShowIf(nameof(OpenUsingMoveAnchorAnimation))]
-        private MoveAnchorDirection openMoveDirection;
+        private MoveAnchorDirection openMoveDirectionFrom;
         [Space]
 
         [SerializeField]
@@ -46,7 +46,7 @@ namespace VTTRPG.InternalPopups
 
         [SerializeField]
         [ShowIf(nameof(CloseUsingMoveAnchorAnimation))]
-        private MoveAnchorDirection closeMoveDirection;
+        private MoveAnchorDirection closeMoveDirectionTo;
 
         [Space]
 
@@ -63,7 +63,7 @@ namespace VTTRPG.InternalPopups
         [SerializeField]
         [ShowIf(nameof(UsingMoveAnchorAnimation))]
         private MoveAnchorAnimation moveAnchorMinAnimation;
-        
+
         [SerializeField]
         [ShowIf(nameof(UsingMoveAnchorAnimation))]
         private MoveAnchorAnimation moveAnchorMaxAnimation;
@@ -81,20 +81,20 @@ namespace VTTRPG.InternalPopups
 
         private bool UsingMoveAnchorAnimation => OpenUsingMoveAnchorAnimation || CloseUsingMoveAnchorAnimation;
 
-        private bool CloseUsingMoveAnchorAnimation => this.closeAnimation == PopupAnimationType.MoveAnchor;
-
         private bool OpenUsingMoveAnchorAnimation => this.openAnimation == PopupAnimationType.MoveAnchor;
+        private bool CloseUsingMoveAnchorAnimation => this.closeAnimation == PopupAnimationType.MoveAnchor;
 
         protected bool closing;
 
         private Dictionary<PopupAnimationType, Action> openAnimationActions;
         private Dictionary<PopupAnimationType, Action<Action>> closeAnimationAction;
-
+        private Dictionary<MoveAnchorDirection, Vector2> moveDirectionValue;
 
         #region Unity Methods
 
         protected virtual void Awake()
         {
+            BuildMoveDirectionValues();
             BuildOpenAnimationActions();
             BuildCloseAnimationActions();
 
@@ -125,6 +125,15 @@ namespace VTTRPG.InternalPopups
 
         #region Private Methods
 
+        private void BuildMoveDirectionValues()
+        {
+            this.moveDirectionValue = new Dictionary<MoveAnchorDirection, Vector2>();
+            this.moveDirectionValue.Add(MoveAnchorDirection.Top, Vector2.up);
+            this.moveDirectionValue.Add(MoveAnchorDirection.Bottom, Vector2.down);
+            this.moveDirectionValue.Add(MoveAnchorDirection.Left, Vector2.left);
+            this.moveDirectionValue.Add(MoveAnchorDirection.Right, Vector2.right);
+        }
+
         private void BuildOpenAnimationActions()
         {
             this.openAnimationActions = new Dictionary<PopupAnimationType, Action>();
@@ -135,6 +144,14 @@ namespace VTTRPG.InternalPopups
                 scaleAnimation.Run();
                 fadeAnimation.Run();
             });
+
+            if (OpenUsingMoveAnchorAnimation) this.openAnimationActions.Add(PopupAnimationType.MoveAnchor, () =>
+            {
+                ChangeAnchorMovementPoints(openMoveDirectionFrom);
+
+                this.moveAnchorMinAnimation.Run();
+                this.moveAnchorMaxAnimation.Run();
+            });
         }
 
         private void BuildCloseAnimationActions()
@@ -142,24 +159,47 @@ namespace VTTRPG.InternalPopups
             this.closeAnimationAction = new Dictionary<PopupAnimationType, Action<Action>>();
             if (UsingScaleAnimation) this.closeAnimationAction.Add(PopupAnimationType.Scale, (completeAction) =>
             {
-                scaleAnimation.SetUsingCustomEase(false);
-                scaleAnimation.SetIsFrom(true);
-                scaleAnimation.Run(null, completeAction);
+                this.scaleAnimation.SetUsingCustomEase(false);
+                this.scaleAnimation.SetIsFrom(true);
+                this.scaleAnimation.Run(null, completeAction);
             });
             if (UsingFadeAnimation) this.closeAnimationAction.Add(PopupAnimationType.Fade, (completeAction) =>
             {
-                fadeAnimation.SetIsFrom(true);
-                fadeAnimation.Run(null, completeAction);
+                this.fadeAnimation.SetIsFrom(true);
+                this.fadeAnimation.Run(null, completeAction);
             });
             if (UsingScaleAndFadeAnimation) this.closeAnimationAction.Add(PopupAnimationType.ScaleAndFade, (completeAction) =>
             {
-                scaleAnimation.SetUsingCustomEase(false);
-                scaleAnimation.SetIsFrom(true);
-                fadeAnimation.SetIsFrom(true);
+                this.scaleAnimation.SetUsingCustomEase(false);
+                this.scaleAnimation.SetIsFrom(true);
+                this.fadeAnimation.SetIsFrom(true);
 
-                scaleAnimation.Run(null, completeAction);
-                fadeAnimation.Run();
+                this.scaleAnimation.Run(null, completeAction);
+                this.fadeAnimation.Run();
             });
+
+            if (CloseUsingMoveAnchorAnimation) this.closeAnimationAction.Add(PopupAnimationType.MoveAnchor, (completeAction) =>
+            {
+                ChangeAnchorMovementPoints(closeMoveDirectionTo);
+                this.moveAnchorMinAnimation.SetIsFrom(true);
+                this.moveAnchorMaxAnimation.SetIsFrom(true);
+
+                this.moveAnchorMinAnimation.Run();
+                this.moveAnchorMaxAnimation.Run(null, completeAction);
+            });
+        }
+
+        private void ChangeAnchorMovementPoints(MoveAnchorDirection direction)
+        {
+            var minAnchorValue = this.moveAnchorMinAnimation.AnchorValue;
+            var maxAnchorValue = this.moveAnchorMaxAnimation.AnchorValue;
+            var directionValue = moveDirectionValue[direction];
+
+            this.moveAnchorMinAnimation.SetStartAnchor(minAnchorValue + directionValue);
+            this.moveAnchorMaxAnimation.SetStartAnchor(maxAnchorValue + directionValue);
+
+            this.moveAnchorMinAnimation.SetEndAnchor(minAnchorValue);
+            this.moveAnchorMaxAnimation.SetEndAnchor(maxAnchorValue);
         }
 
         #endregion
